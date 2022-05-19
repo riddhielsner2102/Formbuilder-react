@@ -1,0 +1,119 @@
+{
+    "contents": [
+        {
+            "index": 2,
+            "description": "Guidelines and conditions",
+            "link": "./../guidelinesandconditions"
+        },
+        {
+            "index": 3,
+            "description": "Reporting year",
+            "link": "./../reportidentification"
+
+        },
+        {
+            "index": 4,
+            "description": "Identification of the aircraft operator",
+            "link": "./../identificationanddescription"
+
+        },
+        {
+            "index": 5,
+            "description": "Identification of the verifier",
+            "link": "./../identificationanddescription"
+        },
+        {
+            "index": 6,
+            "description": "Information about the monitoring plan",
+            "link": "./../informationaboutplan"
+        },
+        {
+            "index": 7,
+            "description": "Total emissions",
+            "link": "./../totalemissions/2"
+        },
+        {
+            "index": 8,
+            "description": "Use of simplified procedures",
+            "link": "./../emmissionoverview"
+        },
+        {
+            "index": 9,
+            "description": "Approach for data gaps",
+            "link": "./../approachDatagaps"
+        },
+
+        {
+            "index": 10,
+            "description": "Tonne-Kilometres",
+            "link": "./../tonnekilometerdata"
+        },
+
+        {
+            "index": 11,
+            "description": "Detailed emmission data",
+            "link": "./../detailedemissionsdata"
+        },
+        {
+            "index": 12,
+            "description": "Aircraft data",
+            "link": "./../aircraftdata"
+        },
+        {
+            "index": 13,
+            "description": "Member state specific further information",
+            "link": "./../memberstatespecificfurtherinformation"
+        },
+        {
+            "index": 14,
+            "description": "Annex: Emissions per aerodrome pair",
+            "link": "./../annex"
+        }
+
+    ],
+    "InformationAboutThisFile": [
+        {
+            "text": "This monitoring plan was submitted by:",
+            "value": ""
+        },
+        {
+            "text": "Unique identifier of the aircraft operator (CRCO No.):",
+            "value": ""
+        },
+        {
+            "text": "Version number of this monitoring plan:",
+            "value": ""
+        }
+
+    ],
+    "MemoItem": [
+        {
+            "text": "Memo-Item: Total (sustainable) biomass emissions",
+            "value": ""
+        },
+        {
+            "text": "Memo-Item: Total non-sustainable biomass emissions",
+            "value": ""
+        }
+    ],
+    "TemplateVersionInformation": [
+        {
+            "text": "Template provided by:",
+            "value": "European Commission"
+        },
+        {
+            "text": "Publication date:",
+            "value": "16-07-2015"
+        },
+        {
+            "text": "Language version:",
+            "value": "English"
+        },
+        {
+            "text": "Refwerence filename:",
+            "value": "P3 Aircraft AER_COM_en_161215.xls"
+        }
+
+
+    ]
+}

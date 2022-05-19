@@ -1,0 +1,115 @@
+{
+    "contents": [
+        {
+            "index": 1,
+            "description": "Guidelines and conditions",
+            "link": "./../guidelinesandconditions"
+        },
+        {
+            "index": 2,
+            "description": "Monitoring Plan versions",
+            "link": "./../monitoringplanversions"
+        },
+        {
+            "index": 3,
+            "description": "Identification of the aircraft operator",
+            "link": "./../identification/ident"
+            
+        },
+        {
+            "index": 4,
+            "description": "Contact details",
+            "link": "./../contact/contact"
+        },
+        {
+            "index": 5,
+            "description": "Emission sources and fleet characteristics",
+            "link": "./../fleetCharacteristics/1"
+        },
+        {
+            "index": 6,
+            "description": "Eligilibility for simplified approaches",
+            "link": "./../eligibility/2"
+        },
+        {
+            "index": 7,
+            "description": "Distance",
+            "link": "./../distance/dist"
+        },
+        {
+            "index": 8,
+            "description": "Payload",
+            "link": "./../payload/pay"
+        },
+        {
+            "index": 9,
+            "description": "Activity data",
+            "link": "./../activity/1"
+        },
+        {
+            "index": 10,
+            "description": "Uncertainty assessment",
+            "link": "./../uncertainity/2"
+        },
+        {
+            "index": 11,
+            "description": "Emission factor",
+            "link": "./../emission/3"
+        },
+        {
+            "index": 12,
+            "description": "Simplified calculation of CO2 emissions",
+            "link": "./../calculation/1"
+        },
+        {
+            "index": 13,
+            "description": "Data gaps",
+            "link": "./../datagaps/2"
+        },
+        {
+            "index": 14,
+            "description": "Management",
+            "link": "./../datamanagement/1"
+        },
+        {
+            "index": 15,
+            "description": "Data flow activities",
+            "link": "./../dataflowactivities/2"
+        },
+        {
+            "index": 16,
+            "description": "Control activities",
+            "link": "./../control/3"
+        },
+        {
+            "index": 17,
+            "description": "List of definitions and abbreviations used",
+            "link": "./../definitions/4"
+        },
+        {
+            "index": 18,
+            "description": "Additional information",
+            "link": "./../additionalinfo/5"
+        },
+        {
+            "index": 19,
+            "description": "Member state specific further information",
+            "link": "./../msspecificcontent"
+        }
+    ],
+   "InformationAboutThisFile":[
+       {"text":"This monitoring plan was submitted by:","value":""},
+       {"text":"Unique identifier of the aircraft operator (CRCO No.):","value":""},
+       {"text":"Version number of this monitoring plan:","value":""}
+
+   ],
+   "TemplateVersionInformation":[
+    {"text":"Template provided by:","value":"European Commission"},
+    {"text":"Publication date:","value":"16-07-2012"},
+    {"text":"Language version:","value":"English"},
+    {"text":"Reference filename:","value":"MP P3 Aircraft_COM_en_160712.xls"}
+
+
+]
+   
+}

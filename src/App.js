@@ -1,37 +1,24 @@
-import React from 'react'
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-import Home from './pages/home/Home';
-import Login from './pages/login/Login';
-// import { renderRoutes } from './configs/routes'
+import React from "react";
+import "./App.css";
+import Login from "./components/pages/formbuilder-login/login/login";
+import Sidebar from "./components/pages/Sidebar/Sidebar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Extra from "./components/pages/Extra";
+import Permissiondashboard from "./components/pages/permission-setting/permission-dashboard";
+
 function App() {
   return (
-    <div className="App">
-
-      <Router>
-
+    <Router>
+      <div className="App">
         <Routes>
-          {/* {
-            renderRoutes.map(([key, route]) => {
-              return (
-
-                <Route key={key} path={route.path} exact={route.exact} element={route.element} />
-              )
-            }
-            )
-          } */}
-          {/* <Route path="*" element={<NotFound/>}/> */}
-          <Route path="/" element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-         
+          <Route path="/" element={<Login />} />
+          <Route path="/maincontent" element={<Sidebar />}>
+            <Route index element={<Permissiondashboard />} />
+            <Route path="extra" element={<Extra />} />
+          </Route>
         </Routes>
-
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
 }
 
