@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Template from "../Dashboard-Modal/Modal/Template";
-import FilterVintageIcon from "@mui/icons-material/FilterVintage";
+import Template from "../../../../Dashboard-Modal/Modal/Template";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { Input, Button } from "arms_v2.8_webui";
 
-const Permissiondashboard = (props) => {
+const Checklistdashboard = () => {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -36,18 +36,31 @@ const Permissiondashboard = (props) => {
             backgroundColor: "#01396b",
           }}
         >
-          <FilterVintageIcon style={{ backgroundColor: "#01396b" }} />
+          <CheckCircleOutlineIcon style={{ backgroundColor: "#01396b" }} />
           <font style={{ paddingLeft: "10px", backgroundColor: "#01396b" }}>
-            {props.text}
+            Checklists
+          </font>
+        </div>
+        <div>
+          <font
+            style={{
+              color: "#fff",
+              display: "flex",
+              fontSize: "19px",
+              fontWeight: "bold",
+              backgroundColor: "#01396b",
+            }}
+          >
+            Module: CMSS
           </font>
         </div>
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
           <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
           <Input
-            placeHolder="     Search Template"
+            placeHolder="     Search Checklists"
             style={{
               backgroundColor: "#fff",
-              width: "300px",
+              width: "400px",
               // border: "none",
               outline: "none",
               borderRadius: "0px 30px 30px 0px",
@@ -88,4 +101,4 @@ const Permissiondashboard = (props) => {
   );
 };
 
-export default Permissiondashboard;
+export default Checklistdashboard;
