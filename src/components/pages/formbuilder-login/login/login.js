@@ -1,21 +1,33 @@
-import * as React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import { Container, Col } from "react-bootstrap";
-import { Input, Button } from "arms_v2.8_webui";
+import { Button, Input } from "arms_v2.8_webui";
 import Logo from "../../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import "./login.css";
+import { requests, PrepareRequest } from "../../../../Service/getRequests";
+import { encryptedValues } from '../../../common/encryptedUserName&Password'
 
 function Login() {
   const [userName, setUsername] = useState();
+  const [password, setPassword] = useState();
 
   const handleUser = (e) => {
     setUsername(e.target.value);
   };
 
-  const [password, setPassword] = useState();
-
   const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+  let navigate = useNavigate();
+  
+  const [encryptedUserName, encryptedPassword] = encryptedValues(userName, password)
+  const onLogin = async (e) => {
+    let path = `mainContent`;
+    navigate(path);
+    let URL = `${requests.validateLogin}?userName=${encryptedUserName}&password=${encryptedPassword}`;
+    const loginData = await PrepareRequest(URL);
   };
 
   return (
@@ -49,7 +61,12 @@ function Login() {
                 />
               </Col>
               <Col className="button-wrap">
-                <Button text="LOGIN" />
+                <Button
+                  onClick={(e) => {
+                    onLogin(e);
+                  }}
+                  text="LOGIN"
+                />
               </Col>
             </form>
           </div>
