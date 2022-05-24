@@ -4,6 +4,7 @@ const key = CryptoJS.enc.Utf8.parse("8080808080808080");
 const iv = CryptoJS.enc.Utf8.parse("8080808080808080");
 
 const encryptedValues = (userName, password) => {
+    
 const encryptedUserName = CryptoJS.AES.encrypt(
   CryptoJS.enc.Utf8.parse(userName),
   key,
