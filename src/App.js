@@ -5,6 +5,7 @@ import Sidebar from "./components/pages/Sidebar/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Extra from "./components/pages/Extra";
 import Permissiondashboard from "./components/pages/permission-setting/permission-dashboard";
+import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Checklists";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/maincontent" element={<Sidebar />}>
             <Route index element={<Permissiondashboard />} />
             <Route path="extra" element={<Extra />} />
+            <Route path="checklist" element={<Checklists />} />
           </Route>
         </Routes>
       </div>
