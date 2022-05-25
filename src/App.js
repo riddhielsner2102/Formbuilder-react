@@ -11,6 +11,7 @@ import {
 import Navbar from "./components/pages/Navbar/Navbar";
 import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Checklists";
 import PermissionTemplate from "./components/pages/Admin/PermissionSettings/PermissionTemplate";
+import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
           >
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
-            <Route path="checklist" element={<Checklists />} />
+            <Route path="master-checklist" element={<Checklists />} />
+            <Route path="gmdashboard" element={<GMDashBoard />} />
           </Route>
         </Routes>
       </div>
