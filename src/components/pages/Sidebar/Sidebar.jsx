@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import "./Sidebar.css";
-import Header from "../header/header";
+import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
 import AgGridTable from "../AgGridTable/AgGridTable";
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
@@ -220,7 +220,7 @@ const Sidebar = () => {
 
         <Outlet />
         {/* <Navbar /> */}
-        <AgGridTable />
+        {/* <AgGridTable /> */}
       </div>
     </div>
   );
