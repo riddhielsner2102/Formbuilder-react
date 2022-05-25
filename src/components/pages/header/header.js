@@ -7,9 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import Permission from "./Permission/Permission";
 import { Link } from "react-router-dom";
 
-// import { Link } from "react-router-dom";
-// import { Button, Label } from "arms_v2.8_webui";
-
 function Header() {
   const [flag, setFlag] = useState(false);
 
