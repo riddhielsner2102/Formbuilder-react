@@ -4,7 +4,7 @@ import FilterVintageIcon from "@mui/icons-material/FilterVintage";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Input, Button } from "arms_v2.8_webui";
 
-const Permissiondashboard = (props) => {
+const Navbar = (props) => {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -88,4 +88,4 @@ const Permissiondashboard = (props) => {
   );
 };
 
-export default Permissiondashboard;
+export default Navbar;
