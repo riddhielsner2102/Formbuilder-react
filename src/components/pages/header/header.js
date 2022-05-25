@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Logo from "../../assets/images/logos/icons8-user-avatar-48.png";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import "./Header.css";
 import IconButton from "@mui/material/IconButton";
 import Permission from "./Permission/Permission";
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   const [flag, setFlag] = useState(false);
 
   const [ModalData2, SetModal2] = useState({ show: false });
@@ -24,10 +25,10 @@ function Header() {
   return (
     <Container
       style={{
-        padding: "20px 8px 5px 8px",
         borderBottom: "0px solid #F5F5F5",
         backgroundColor: "#F5F5F5",
         width: "100%",
+        height: '64px'
       }}
     >
       <header style={{ display: "flex", justifyContent: "space-between" }}>
@@ -41,12 +42,21 @@ function Header() {
           style={{
             color: "#01396b",
             fontWeight: "bolder",
-            padding: "0 16px",
             whiteSpace: "no-wrap",
             fontSize: "20px",
+            display: 'flex',
+            alignItems: 'center'
           }}
         >
-          ARMS eFORMS
+          <div
+            className='defaultHeadIcon headerIcon'
+            onClick={props.handleDrawerOpen}
+          >
+            <MenuOutlinedIcon />
+          </div>
+          <div style={{ padding: '0 16px' }}>
+            ARMS eFORMS
+          </div>
         </div>
         <div
           className="ImgDiv"
