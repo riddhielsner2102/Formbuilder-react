@@ -25,12 +25,10 @@ const Sidebar = () => {
 
   const [showHeader, setShowHeader] = useState(true);
   const handleDrawerOpen = () => {
-    console.log("handleDrawerOpen");
     setSidebar(true);
     setShowHeader(true);
   };
   const handleDrawerClose = () => {
-    console.log("handleDrawerClose");
     setSidebar(false);
     setShowHeader(false);
     // setOpens(false)
