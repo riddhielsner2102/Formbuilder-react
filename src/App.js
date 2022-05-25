@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Extra from "./components/pages/Extra";
 import Navbar from "./components/pages/Navbar/Navbar";
 import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Checklists";
+import Permissiondashboard from  "./components/pages/header/Permission/Permission";
 
 function App() {
   return (
