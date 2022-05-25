@@ -1,51 +1,44 @@
 import React, { useEffect, useState } from "react";
-// import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import "./Sidebar.css";
-import Header from "../header/header";
-import Navbar from "../Navbar/Navbar";
+import Header from "../Header/Header";
 import AgGridTable from "../AgGridTable/AgGridTable";
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Button } from "arms_v2.8_webui";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { getData } from "../../../Services/sidebar_api";
-// import { IconContext } from "react-icons/lib";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import { Outlet } from "react-router-dom";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
-
-  // const showSidebar = () => setSidebar(!sidebar);
-
   const [showHeader, setShowHeader] = useState(true);
   const handleDrawerOpen = () => {
-    console.log("handleDrawerOpen");
     setSidebar(true);
     setShowHeader(true);
   };
   const handleDrawerClose = () => {
-    console.log("handleDrawerClose");
     setSidebar(false);
     setShowHeader(false);
-    // setOpens(false)
   };
   useEffect(() => {
     console.log("showHeader", showHeader);
   }, [showHeader]);
+  useEffect(() => {
+    console.log("sidebar", sidebar);
+  }, [sidebar]);
 
   const [sidebarData, setSidebarData] = useState([]);
   useEffect(() => {
     getData()
-      .then((res) => {
-        console.log("res", res);
-        setSidebarData(res.data);
-      })
+      .then((res) => setSidebarData(res.data))
       .catch((error) => console.log("error", error));
   }, []);
 
@@ -62,17 +55,19 @@ const Sidebar = () => {
       iconClosed: <ChevronRightIcon />,
       iconOpened: <KeyboardArrowDownIcon />,
       subNav: sidebarData,
+      subIcon: <DifferenceOutlinedIcon />,
     },
     {
       id: 2,
       title: "Admin",
+      icon: <AccountCircleOutlinedIcon />,
       iconClosed: <ChevronRightIcon />,
       iconOpened: <KeyboardArrowDownIcon />,
       subNav: [
         {
           ShortName: "Permission Settings",
           // path: "/events/events1",
-          icon: "",
+          icon: <FilterVintageOutlinedIcon />,
         },
       ],
     },
@@ -83,36 +78,25 @@ const Sidebar = () => {
       style={{
         display: "flex",
         flexDirection: "row",
-        // , flex: '1 1 auto'
+        flex: "1 1 0%",
         height: "100vh",
         position: "relative",
+        overflow: "hidden",
       }}
     >
       <div
-        className="sidebarNav"
-        // style={{ left: sidebar ? '0' : '-100%' }}
-        style={{
-          width: !sidebar ? "68px" : "280px",
-          boxShadow: "0 2px 8px 0 rgba(0,0,0,0.35)",
-          overflowX: "hidden",
-          // overflowY: 'auto'
-          // height: '100%', position: 'relative'
-        }}
-        // sidebar={sidebar}
+        className={sidebar ? "show sidebarNav" : "hide sidebarNav"}
         onMouseEnter={() => setSidebar(true)}
         onMouseLeave={() => {
-          console.log("onMouseLeave");
           if (showHeader) {
             setSidebar(true);
           } else {
             setSidebar(false);
           }
-          // setSidebar(false)
         }}
       >
-        <div style={{ width: "100%", position: "relative" }}>
+        <div style={{ width: "100%", position: "relative", overflowY: "auto" }}>
           <div
-            //  style={{ marginBottom: '65px' }}
             style={{
               backgroundColor: "white",
               position: "sticky",
@@ -138,36 +122,27 @@ const Sidebar = () => {
                 </div>
                 <div>
                   {sidebar && (
-                    <Button
-                      className="sidebar-head-btn"
-                      text={<MenuOutlinedIcon />}
+                    <div
+                      className="sidebar-head-btn headerIcondashboard"
                       onClick={
                         showHeader ? handleDrawerClose : handleDrawerOpen
                       }
-                      style={{
-                        color: "#000",
-                        backgroundColor: "#fff !important",
-                        border: "none",
-                      }}
-                    />
+                    >
+                      <MenuOutlinedIcon />
+                    </div>
                   )}
-                  {/*icon*/}
-                  {/* </button> */}
-                  {/* <button className="sidebar-head-btn" onClick={showSidebar}>=</button> */}
+                  <div
+                    className="sidebar-head-btn headerIcon"
+                    onClick={handleDrawerClose}
+                  >
+                    <ArrowBackIcon />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
-          <div
-            style={{
-              overflowY: "auto",
-              // , display: 'flex'
-              // , flexDirection: 'column'
-              // , marginTop: '64px'
-            }}
-          >
-            <div>
+          <div>
+            <div className="sidebarScroll" style={{ overflowY: "auto" }}>
               <div
                 className="arrowDiv"
                 style={{
@@ -189,17 +164,18 @@ const Sidebar = () => {
                     boxShadow: "1px 1px 5px 0px rgba(0, 0, 0, 1)",
                   }}
                 />
-                {/* <ArrowBackIcon /> */}
               </div>
+
               {dropDownData.map((item, index) => {
                 return <SubMenu item={item} key={index} sidebar={sidebar} />;
               })}
             </div>
-            <div
-            // style={{ marginTop: '500px' }}
-            // style={{ position: 'fixed' }}
-            >
-              <div className="Footer">
+            <div>
+              <div
+                className={
+                  sidebar ? "show Footer" : "hide Footer displayFooter"
+                }
+              >
                 <div className="drawerfooter">
                   © Laminaar Aviation Infotech Pte.Ltd.,Singapore/ 2016~2025.
                   <br /> All Rights Reserved
@@ -210,17 +186,13 @@ const Sidebar = () => {
         </div>
       </div>
       <div
-        className="nav"
-        style={{
-          width: showHeader ? `calc(100% - 280px)` : `calc(100% - 64px)`,
-          //   marginLeft: sidebar ? "280px" : "64px",
-        }}
+        className={
+          showHeader ? "trueHead headerWidth nav" : "falseHead headerWidth nav"
+        }
       >
-        <Header />
-
+        <Header handleDrawerOpen={handleDrawerOpen} />
         <Outlet />
-        {/* <Navbar /> */}
-        <AgGridTable />
+        {/* <AgGridTable /> */}
       </div>
     </div>
   );
