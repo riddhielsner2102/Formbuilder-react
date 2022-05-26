@@ -2,18 +2,10 @@ import React, { useState } from "react";
 import Template from "../Dashboard-Modal/Modal/Template";
 import FilterVintageIcon from "@mui/icons-material/FilterVintage";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import IconButton from "@mui/material/IconButton";
 import { Input, Button } from "arms_v2.8_webui";
 
 const Navbar = (props) => {
-  const [ModalData2, SetModal2] = useState({ show: false });
-
-  const closeNewModal = () => {
-    SetModal2({ show: false });
-  };
-  const showNewModal = () => {
-    SetModal2({ show: true });
-    console.log("template Modal");
-  };
   return (
     <React.Fragment>
       <div
@@ -36,9 +28,25 @@ const Navbar = (props) => {
             backgroundColor: "#01396b",
           }}
         >
-          <FilterVintageIcon style={{ backgroundColor: "#01396b" }} />
+          <IconButton style={{ backgroundColor: "#01396b", color: "#fff" }}>
+            {props.titleIcon}
+          </IconButton>
+          {/* <FilterVintageIcon style={{ backgroundColor: "#01396b" }} /> */}
           <font style={{ paddingLeft: "10px", backgroundColor: "#01396b" }}>
-            {props.text}
+            {props.title}
+          </font>
+        </div>
+        <div>
+          <font
+            style={{
+              color: "#fff",
+              display: "flex",
+              fontSize: "19px",
+              fontWeight: "bold",
+              backgroundColor: "#01396b",
+            }}
+          >
+            {props.secondtitle}
           </font>
         </div>
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
@@ -53,20 +61,11 @@ const Navbar = (props) => {
               borderRadius: "0px 30px 30px 0px",
             }}
           />
-          {/* <CheckBox iconType="tick" /> */}
         </div>
-        <Template
-          show={ModalData2.show}
-          modalClosed={() => {
-            closeNewModal();
-          }}
-        />
         <div>
           <Button
-            text="ADD"
-            onClick={() => {
-              showNewModal();
-            }}
+            text={props.buttonText}
+            onClick={props.onClick}
             style={{
               backgroundColor: "#fff !important",
               color: "#01396b",
@@ -83,6 +82,29 @@ const Navbar = (props) => {
             }}
           />
         </div>
+
+        {props.buttonText2 && (
+          <div>
+            <Button
+              text={props.buttonText2}
+              onClick={props.onClicked}
+              style={{
+                backgroundColor: "#fff !important",
+                color: "#01396b",
+                display: "inline-block",
+                whiteSpace: "nowrap",
+                textDecoration: "none",
+                verticalAlign: "baseline",
+                textAlign: "center",
+                margin: 0,
+                minWidth: "64px",
+                lineHeight: "10px",
+                borderRadius: "4px",
+                overflow: "visible",
+              }}
+            />
+          </div>
+        )}
       </div>
     </React.Fragment>
   );
