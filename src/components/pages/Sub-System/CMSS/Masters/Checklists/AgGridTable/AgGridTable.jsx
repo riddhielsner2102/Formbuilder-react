@@ -97,6 +97,11 @@ function AgGridTable() {
       cellRendererParams: {
         text: "Actions",
         // onClick: showNewModal,
+        style: {
+          width: "80px",
+          height: "40px",
+          backgroundColor: "#01396b !important",
+        },
       },
       cellStyle: {
         color: "#000",
@@ -105,8 +110,8 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        paddingTop: "5px",
-        paddingBottom: "5px",
+        // paddingTop: "5px",
+        // paddingBottom: "5px",
       },
     },
   ];
