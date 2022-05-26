@@ -28,7 +28,7 @@ function Header(props) {
         borderBottom: "0px solid #F5F5F5",
         backgroundColor: "#F5F5F5",
         width: "100%",
-        height: '64px'
+        height: "64px",
       }}
     >
       <header style={{ display: "flex", justifyContent: "space-between" }}>
@@ -44,19 +44,17 @@ function Header(props) {
             fontWeight: "bolder",
             whiteSpace: "no-wrap",
             fontSize: "20px",
-            display: 'flex',
-            alignItems: 'center'
+            display: "flex",
+            alignItems: "center",
           }}
         >
           <div
-            className='defaultHeadIcon headerIcon'
+            className="defaultHeadIcon headerIcon"
             onClick={props.handleDrawerOpen}
           >
             <MenuOutlinedIcon />
           </div>
-          <div style={{ padding: '0 16px' }}>
-            ARMS eFORMS
-          </div>
+          <div style={{ padding: "0 16px" }}>ARMS eFORMS</div>
         </div>
         <div
           className="ImgDiv"
