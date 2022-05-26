@@ -66,6 +66,7 @@ setrepeatederror(true)
         if (a.length) {
             seterror(true)
         } else {
+            const URL = `${requests.validateLogin}?userName=${encryptedUserName}&password=${encryptedPassword}`;
             props.SetItemdata(JSON.stringify(formValues))
 
         }
