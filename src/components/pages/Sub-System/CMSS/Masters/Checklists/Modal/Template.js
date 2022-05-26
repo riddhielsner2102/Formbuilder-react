@@ -48,6 +48,7 @@ class Template extends Component {
                 display: "flex",
                 padding: "15px",
                 marginTop: "10px",
+                boxSizing: "none",
               }}
             >
               <div style={{ display: "flex", alignItems: "space-between" }}>
