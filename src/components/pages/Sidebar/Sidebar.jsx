@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import "./Sidebar.css";
-import Header from "../header/header";
-import Navbar from "../Navbar/Navbar";
 // import Header from "../Header/Header";
-import AgGridTable from "../AgGridTable/AgGridTable";
+// import AgGridTable from "../Sub-System/CMSS/Masters/Checklists/AgGridTable/AgGridTable";
+
+import Header from "../Header/Header";
+// import Navbar from "../Navbar/Navbar";
+// import Header from "../Header/Header";
+// import AgGridTable from "../AgGridTable/AgGridTable";
+// >>>>>>> 3b116c5599e21908ce0048b0b95cb9b89c3e5917
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Button } from "arms_v2.8_webui";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { getData } from "../../../Services/sidebar_api";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -18,6 +21,7 @@ import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import { Outlet } from "react-router-dom";
+import { PrepareRequest, requests } from '../../../Service/getRequests'
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -30,18 +34,13 @@ const Sidebar = () => {
     setSidebar(false);
     setShowHeader(false);
   };
-  useEffect(() => {
-    console.log("showHeader", showHeader);
-  }, [showHeader]);
-  useEffect(() => {
-    console.log("sidebar", sidebar);
-  }, [sidebar]);
 
   const [sidebarData, setSidebarData] = useState([]);
-  useEffect(() => {
-    getData()
-      .then((res) => setSidebarData(res.data))
-      .catch((error) => console.log("error", error));
+  useEffect(async () => {
+    const UserID = sessionStorage.getItem('UserID')
+    const URL = `${requests.getTemplateUserMapping}?UserID=${UserID}`
+    const response = await PrepareRequest(URL);
+    setSidebarData(response.data)
   }, []);
 
   const dropDownData = [

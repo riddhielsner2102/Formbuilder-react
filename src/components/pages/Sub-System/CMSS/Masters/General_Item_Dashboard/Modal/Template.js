@@ -44,7 +44,7 @@ class Template extends Component {
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "30px",
+                height: "60px",
                 display: "flex",
                 padding: "15px",
                 marginTop: "10px",

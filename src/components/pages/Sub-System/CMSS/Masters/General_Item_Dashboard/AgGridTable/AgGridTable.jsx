@@ -2,26 +2,16 @@ import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState } from "react";
-import ActionModal from "./ActionModal";
+// import ActionModal from "./ActionModal";
 
 function AgGridTable() {
-  const [ModalData2, SetModal2] = useState({ show: false });
-
-  const closeNewModal = () => {
-    SetModal2({ show: false });
-  };
-  const showNewModal = () => {
-    SetModal2({ show: true });
-    console.log("AgGrid Modal is opening");
-  };
-
   const formBuilderData = () => {
     return {
       Sheet: [
         {
           id: 1,
           Header: 1,
-          Template: "",
+          Checklist: "",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -34,7 +24,7 @@ function AgGridTable() {
     return {
       id: ele.id,
       Header: ele.Header,
-      Template: ele.Template,
+      Checklist: ele.Checklist,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -60,8 +50,8 @@ function AgGridTable() {
     },
 
     {
-      headerName: "Template",
-      field: "Template",
+      headerName: "Checklist",
+      field: "Checklist",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -104,29 +94,9 @@ function AgGridTable() {
       headerName: "Actions",
       field: "Action",
       cellRenderer: "gridButton",
-      style: {
-        color: "#fff",
-        backgroundColor: "#01396b !important",
-        boxSizing: "border-box",
-        position: "relative",
-        userSelect: "none",
-        cursor: "pointer",
-        outline: 0,
-        border: "none",
-        display: "inline-block",
-        whiteSpace: "nowrap",
-        textDecoration: "none",
-        textAlign: "center",
-        minWidth: "64px",
-        borderRadius: "4px",
-        overflow: "visible",
-        transform: "translate3d(0,0,0)",
-        transition:
-          "background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1)",
-      },
       cellRendererParams: {
         text: "Actions",
-        onClick: showNewModal,
+        // onClick: showNewModal,
       },
       cellStyle: {
         color: "#000",
@@ -134,39 +104,29 @@ function AgGridTable() {
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
-        fontSize: "15px",
-        paddingTop: "10px",
-        paddingBottom: "10px",
+        fontSize: "20px",
+        paddingTop: "5px",
+        paddingBottom: "5px",
       },
     },
   ];
 
   return (
-    <>
-      <div>
-        <ActionModal
-          show={ModalData2.show}
-          modalClosed={() => {
-            closeNewModal();
-          }}
-        />
-      </div>
-      <div className="main-table">
-        <AgGrid
-          rowData={newFormBuilder}
-          columnData={contentData}
-          frameworkComponents={frameworkComponents}
-          headerHeight={52}
-          style={{
-            width: "80%",
-            height: "540px",
-            padding: "1% 10% 1% 10%",
-            borderRadius: "15px",
-            color: "#000",
-          }}
-        />
-      </div>
-    </>
+    <div className="main-table">
+      <AgGrid
+        rowData={newFormBuilder}
+        columnData={contentData}
+        frameworkComponents={frameworkComponents}
+        headerHeight={52}
+        style={{
+          width: "100%",
+          height: "100vh",
+          padding: "1% 3% 1% 3%",
+          borderRadius: "8px 8px 0px 0px",
+          color: "#000",
+        }}
+      />
+    </div>
   );
 }
 
