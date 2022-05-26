@@ -30,8 +30,8 @@ function App() {
           >
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
-            <Route path="extra" element={<Extra />} />
-            <Route path="item" element={<Itemrepodashboard/>}/>
+            {/* <Route path="extra" element={<Extra />} /> */}
+            <Route path="item" element={<Itemrepodashboard />} />
             <Route path="checklist" element={<Checklists />} />
             <Route path="master-checklist" element={<Checklists />} />
             <Route path="gmdashboard" element={<GMDashBoard />} />
