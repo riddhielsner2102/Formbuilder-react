@@ -14,6 +14,7 @@ import PermissionTemplate from "./components/pages/Admin/PermissionSettings/Perm
 import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
 
 function App() {
+ const userId = sessionStorage.getItem('UserID')
   return (
     <Router>
       <div className="App">
@@ -25,7 +26,7 @@ function App() {
           <Route path="/pages/formbuilder-login/login" element={<Login />} />
           <Route
             path="/pages/formbuilder/permission-setting/permission-dashboard"
-            element={<Sidebar />}
+            element={userId > 0  ? <Sidebar /> : <Navigate to="/pages/formbuilder-login/login" replace/>}
           >
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
