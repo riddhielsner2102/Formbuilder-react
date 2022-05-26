@@ -3,20 +3,6 @@ import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as RiIcons from "react-icons/ri";
-import { getData } from "../../../Services/sidebar_api";
-
-// function subnav() => {
-
-// const [subSystem, setSubSystem] = useState([]);
-// useEffect(() => {
-//   getData()
-//     .then((res) => {
-//       console.log(res.data);
-//       setSubSystem(res.data);
-//     })
-//     .catch((error) => console.log("error", error));
-// }, []);
-// }
 
 export const SidebarData = [
   {
