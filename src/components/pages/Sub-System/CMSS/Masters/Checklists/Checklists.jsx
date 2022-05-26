@@ -1,10 +1,10 @@
-import React from "react";
-import Checklistdashboard from "./checklist-dashboard";
+import ChecklistDashboard from "./ChecklistDashboard";
 
 function Checklists() {
   return (
     <>
-      <Checklistdashboard />
+      {/* <Checklistdashboard /> */}
+      <ChecklistDashboard />
     </>
   );
 }
