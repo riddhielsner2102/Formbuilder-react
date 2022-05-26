@@ -3,11 +3,12 @@ import Template from "../Dashboard-Modal/Modal/Template";
 import FilterVintageIcon from "@mui/icons-material/FilterVintage";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { Input, Button } from "arms_v2.8_webui";
-import Itemmodal from "../Dashboard-Modal/Modal/Itemrepo"
+import Itemmodal from "../Dashboard-Modal/Modal/ItemrepoModal"
 
 const Itemrepodashboard = () => {
     const [ModalData2, SetModal2] = useState({ show: false });
-
+    const [Itemdata, SetItemdata] = useState();
+console.log(Itemdata!==undefined && JSON?.parse(Itemdata),"Itemdata");
   const closeNewModal = () => {
     SetModal2({ show: false });
   };
@@ -45,7 +46,7 @@ const Itemrepodashboard = () => {
       <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
         <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
         <Input
-          placeHolder="     Search Template"
+          placeHolder="Search Template"
           style={{
             backgroundColor: "#fff",
             width: "300px",
@@ -61,6 +62,7 @@ const Itemrepodashboard = () => {
         modalClosed={() => {
           closeNewModal();
         }}
+        SetItemdata={SetItemdata}
       />
       <div>
         <Button

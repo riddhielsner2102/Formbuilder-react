@@ -9,7 +9,8 @@ const ItemRepotable = () => {
                 {
                     Title:"hhh",
                     IsActive:"true",
-                    action:"+"
+                    action:"+",
+                    edit:false
                 },
                 {
                     Title:"",
@@ -45,14 +46,17 @@ const[x,setx]=useState("")
             headerName: "Title",
             field: "Title",
             // cellRenderer: "gridInput",
-            editable:true,
+            editable:formBuilderData().Sheet["edit"],
+            style:{
+                height:"300px"
+            },
             cellStyle: {
                 height: "100%",
                 display: "flex ",
                 justifyContent: "center",
                 alignItems: "center ",
                 fontSize: "15px",
-                backgroundColor: "black",
+                backgroundColor: "lightYellow",
             },
               cellRendererParams: {
                 // text: "jjj",
