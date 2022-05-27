@@ -11,6 +11,7 @@ function AgGridTable() {
         {
           id: 1,
           Header: 1,
+
           Checklist: "",
           CreatedBy: "",
           CreatedOn: "",
@@ -24,7 +25,7 @@ function AgGridTable() {
     return {
       id: ele.id,
       Header: ele.Header,
-      Checklist: ele.Checklist,
+      Title: ele.Title,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -50,8 +51,8 @@ function AgGridTable() {
     },
 
     {
-      headerName: "Checklist",
-      field: "Checklist",
+      headerName: "Title",
+      field: "Title",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -112,7 +113,7 @@ function AgGridTable() {
   ];
 
   return (
-    <div className="main-table">
+    <div className="main-content">
       <AgGrid
         rowData={newFormBuilder}
         columnData={contentData}

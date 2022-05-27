@@ -44,11 +44,11 @@ class Template extends Component {
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "60px",
+                height: "64px",
                 display: "flex",
                 padding: "15px",
-                marginTop: "10px",
-                boxSizing: "none",
+                marginTop: "20px",
+                boxSizing: "borderbox",
               }}
             >
               <div style={{ display: "flex", alignItems: "space-between" }}>
@@ -58,23 +58,24 @@ class Template extends Component {
                     textAlign: "left",
                     letterSpacing: 0,
                     marginTop: "2px",
-                    fontWeight: 500,
+                    // fontWeight: 500,
+                    font: "497 22px/32px Muli, Helvetica Neue, Arial, sans-serif",
                     // fontSize: "20px",
                   }}
                 >
-                  Master&nbsp;Checklist
+                  General&nbsp;Item&nbsp;Repository
                 </h3>
                 <Close
                   onClick={this.props.modalClosed}
                   style={{
-                    transform: this.props.show
-                      ? "translateY(0)"
-                      : "translateY(-100vh)",
-                    opcaity: this.props.show ? "1" : "0",
-                    marginLeft: "370px",
+                    // transform: this.props.show
+                    //   ? "translateY(0)"
+                    //   : "translateY(-100vh)",
+                    // opcaity: this.props.show ? "1" : "0",
+                    marginLeft: "280px",
                     color: "#fff",
                     fontWeight: 800,
-                    marginTop: "2px",
+                    marginTop: "5px",
                     fontSize: "20px",
                     cursor: "pointer",
                   }}
@@ -86,37 +87,43 @@ class Template extends Component {
                 <Row>
                   <Col xs={12}>
                     <Input
-                      placeHolder="Checklist Name *"
+                      placeHolder="Title *"
                       style={{
-                        width: "395px",
-                        height: "48px",
-                        border: "1px solid Gray",
-                        marginLeft: "-22px",
-                        textAlign: "left",
-                        fontSize: "14px",
+                        width: "500px",
+                        // font: "400 16px/1.125 Muli, Helvetica Neue, Arial, sans-serif !important",
+                        height: "60px",
+                        border: "1px solid grey",
+                        fontSize: "16px",
+                        padding: "0px 5px",
+                        // marginLeft: "-22px",
+                        // textAlign: "left",
+                        borderRadius: "6px",
+                        // fontSize: "14px",
                       }}
                     />
                   </Col>
                 </Row>
               </Col>
-              <Col xs={12}>
-                <Row>
-                  <Col
-                    xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
-                  >
-                    <Input
-                      placeHolder="Description"
-                      style={{
-                        width: "395px",
-                        height: "100px",
-                        border: "1px solid Gray",
-                        textAlign: "left",
-                      }}
-                    />
-                  </Col>
-                </Row>
-              </Col>
+              <Row style={{ marginTop: "30px" }}>
+                <Col xs={12}>
+                  <Row>
+                    <Col xs={12}>
+                      <Input
+                        placeHolder="Description"
+                        style={{
+                          fontSize: "16px",
+                          width: "500px",
+                          height: "100px",
+                          padding: "0px 5px",
+                          border: "1px solid grey",
+                          borderRadius: "6px",
+                          textAlign: "left",
+                        }}
+                      />
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
               <Col xs={12}>
                 <Row>
                   <Col

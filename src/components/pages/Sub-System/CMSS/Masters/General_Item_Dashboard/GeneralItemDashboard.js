@@ -1,5 +1,6 @@
 import { useState } from "react";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 // import Navbar from "../../../../Navbar/Navbar";
 import Template from "./Modal/Template";
 import Navbar from "../../../../Navbar/Navbar";
@@ -25,8 +26,8 @@ function GeneralItemDashboard() {
         }}
       />
       <Navbar
-        titleIcon={<CheckCircleOutlineIcon />}
-        title="Checklists"
+        titleIcon={<DashboardOutlinedIcon />}
+        title="General Item Dashboard"
         secondtitle="Module: CMSS"
         buttonText="ADD"
         onClick={() => {
