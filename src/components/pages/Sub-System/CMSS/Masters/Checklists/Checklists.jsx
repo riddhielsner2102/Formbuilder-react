@@ -1,12 +1,12 @@
+import React from "react";
 import ChecklistDashboard from "./ChecklistDashboard";
+import AgGridTable from "./AgGridTable/AgGridTable";
 
-function Checklists() {
+export default function Checklists() {
   return (
-    <>
-      {/* <Checklistdashboard /> */}
+    <React.Fragment>
       <ChecklistDashboard />
-    </>
+      <AgGridTable />
+    </React.Fragment>
   );
 }
-
-export default Checklists;

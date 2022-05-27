@@ -12,6 +12,8 @@ import Navbar from "./components/pages/Navbar/Navbar";
 import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Checklists";
 import PermissionTemplate from "./components/pages/Admin/PermissionSettings/PermissionTemplate";
 import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
+import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRepo";
+import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode"
 
 function App() {
  const userId = sessionStorage.getItem('UserID')
@@ -30,8 +32,12 @@ function App() {
           >
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
+            {/* <Route path="extra" element={<Extra />} /> */}
+            <Route path="item" element={<ItemRepo />} />
+            <Route path="checklist" element={<Checklists />} />
             <Route path="master-checklist" element={<Checklists />} />
             <Route path="gmdashboard" element={<GMDashBoard />} />
+            <Route path="evaluator/master-reasoncode" element={<ReasonCode />} />
           </Route>
         </Routes>
       </div>
