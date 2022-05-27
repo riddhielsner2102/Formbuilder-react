@@ -4,7 +4,7 @@ import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState } from "react";
 import ActionModal from "./ActionModal";
 
-export default function AgGridTable() {
+function AgGridTable() {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -21,7 +21,7 @@ export default function AgGridTable() {
         {
           id: 1,
           Header: 1,
-          Checklist: "",
+          Template: "",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -34,7 +34,7 @@ export default function AgGridTable() {
     return {
       id: ele.id,
       Header: ele.Header,
-      Checklist: ele.Checklist,
+      Template: ele.Template,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -60,8 +60,8 @@ export default function AgGridTable() {
     },
 
     {
-      headerName: "Checklist",
-      field: "Checklist",
+      headerName: "Template",
+      field: "Template",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -115,7 +115,6 @@ export default function AgGridTable() {
       },
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -127,7 +126,7 @@ export default function AgGridTable() {
   ];
 
   return (
-    <div className="main-dashboard-table">
+    <div className="main-table">
       <ActionModal
         show={ModalData2.show}
         modalClosed={() => {
@@ -150,3 +149,5 @@ export default function AgGridTable() {
     </div>
   );
 }
+
+export default AgGridTable;
