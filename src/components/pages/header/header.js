@@ -92,20 +92,23 @@ function Header(props) {
               display: "flex",
               justifyContent: "space-between",
             }}
+            color="#F5F5F5"
             startIcon={<Avatar alt="Remy Sharp" src={Logo} />}
             endIcon={<KeyboardArrowDownOutlinedIcon />}
             text="AD"
             onClick={() => setFlag(!flag)}
           />
           {flag && (
-            <div class="dropdown">
+            <div class="dropdown" style={{ background: "#fff" }}>
               <ul>
                 <li onClick={() => logOut()}>
-                  <LogoutIcon sx={{color: 'rgba(0, 0, 0, 0.47)'}}/>
+                  <LogoutIcon sx={{ color: "rgba(0, 0, 0, 0.47)" }} />
                   &nbsp; Logout
                 </li>
                 <li onClick={() => showNewModal()}>
-                  <FilterVintageOutlinedIcon sx={{color: 'rgba(0, 0, 0, 0.47)'}}/>
+                  <FilterVintageOutlinedIcon
+                    sx={{ color: "rgba(0, 0, 0, 0.47)" }}
+                  />
                   &nbsp; Permission
                 </li>
               </ul>
