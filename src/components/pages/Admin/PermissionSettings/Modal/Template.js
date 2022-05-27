@@ -29,17 +29,17 @@ class Template extends Component {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
+            transform: this.props.show ? "scale(1) translate(-50%,-50%)" : "scale(0) translate(0,0)",
             opcaity: this.props.show ? "1" : "0",
-            minWidth: "353px",
+            // minWidth: "353px",
           }}
         >
           <Container
             className={[classes.divDow].join(" ")}
             style={{
-              height: "400px",
               padding: "0px",
               margin: "0px",
+              width : "100%"
             }}
           >
             <Row
@@ -69,24 +69,26 @@ class Template extends Component {
                   style={{
                     transform: this.props.show
                       ? "translateY(0)"
-                      : "translateY(-100vh)",
+                      : "translateY(-150vh)",
                     opcaity: this.props.show ? "1" : "0",
                     marginLeft: "440px",
                     marginTop: "2px",
                     fontSize: "20px",
+                    // zIndex:1,
                     cursor: "pointer",
                   }}
                 />
               </div>
             </Row>
-            <Row style={{ marginTop: "30px" }}>
+            <Row style={{ marginTop: "20px" }}>
               <Col xs={12}>
                 <Row>
                   <Col xs={12}>
                     <Input
                       placeholder="TemplateName *"
                       style={{
-                        width: "395px",
+                        width: "100%",
+                        maxWidth : "100%",
                         height: "48px",
                         border: "1px solid #000",
                         alignItems: "center",
@@ -101,7 +103,7 @@ class Template extends Component {
                 <Row>
                   <Col
                     xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
+                    style={{ marginTop: "8px" }}
                   >
                     <ComboBox
                       options={TemplateData2}
@@ -128,7 +130,7 @@ class Template extends Component {
                 <Row>
                   <Col
                     xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
+                    style={{marginLeft: "-22px", marginTop: "8px" }}
                   >
                     <ComboBox
                       options={TemplateData}

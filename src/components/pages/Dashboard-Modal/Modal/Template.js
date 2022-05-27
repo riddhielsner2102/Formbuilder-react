@@ -30,7 +30,7 @@ class Template extends Component {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
+            transform: this.props.show ? "translateY(0)" : "translateY(50%)",
             opcaity: this.props.show ? "1" : "0",
             minWidth: "353px",
           }}
@@ -70,7 +70,7 @@ class Template extends Component {
                   style={{
                     transform: this.props.show
                       ? "translateY(0)"
-                      : "translateY(-100vh)",
+                      : "translateY(-150vh)",
                     opcaity: this.props.show ? "1" : "0",
                     marginLeft: "440px",
                     marginTop: "2px",

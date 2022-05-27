@@ -115,7 +115,7 @@ const Sidebar = () => {
                     style={{ position: "relative", top: "-5px" }}
                   />
                 </div>
-                <div>
+                <div className="demo">
                   {sidebar && (
                     <div
                       className="sidebar-head-btn headerIcondashboard"
