@@ -27,7 +27,7 @@ class Template extends Component {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? "translateY(50%)" : "translateY(-150vh)",
+            transform: this.props.show ? "scale(1) translate(-50%,-50%)" : "scale(0) translate(0,0)",
             opcaity: this.props.show ? "1" : "0",
             // minWidth: "353px",
           }}
