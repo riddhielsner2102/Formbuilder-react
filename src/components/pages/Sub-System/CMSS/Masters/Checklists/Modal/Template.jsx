@@ -4,25 +4,10 @@ import Backdrop from "./Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close, TextArea } from "arms_v2.8_webui";
 
-class Template extends Component {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return (
-  //     nextProps.show !== this.props.show ||
-  //     nextProps.children !== this.props.children
-  //   );
-  // }
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { value: "" };
-  // }
-
-  // updateValue = (e) => {
-  //   this.setState({ value: e.target.value });
-  // };
-
+export default class Template extends Component {
   render() {
     return (
-      <>
+      <React.Fragment>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
         <div
           className={classes.Modal}
@@ -44,7 +29,7 @@ class Template extends Component {
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "30px",
+                height: "50px",
                 display: "flex",
                 padding: "15px",
                 marginTop: "10px",
@@ -117,30 +102,6 @@ class Template extends Component {
                   </Col>
                 </Row>
               </Col>
-              <Col xs={12}>
-                <Row>
-                  <Col
-                    xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
-                  >
-                    {/* <ComboBox
-                      options={TemplateData}
-                      style={{
-                        width: "395px",
-                        height: "48px",
-                        border: "1px solid #000",
-                        alignItems: "center",
-                        textAlign: "left",
-                        "& .MuiSvgIcon-root": {
-                          color: "#000",
-                          backgroundColor: "#fff",
-                          height: "45px",
-                        },
-                      }}
-                    /> */}
-                  </Col>
-                </Row>
-              </Col>
 
               <Col
                 style={{
@@ -172,9 +133,7 @@ class Template extends Component {
             </Row>
           </Container>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }
-
-export default Template;

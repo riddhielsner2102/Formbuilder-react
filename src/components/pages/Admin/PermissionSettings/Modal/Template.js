@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import classes from "./Template.module.css";
 import Backdrop from "./Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
-import { Input, Button, Close, TextArea } from "arms_v2.8_webui";
+import { TemplateData } from "./TemplateData";
+import { TemplateData2 } from "./TemplateData2";
+import { Input, Button, Close, ComboBox } from "arms_v2.8_webui";
 
 class Template extends Component {
   // shouldComponentUpdate(nextProps, nextState) {
@@ -42,13 +44,12 @@ class Template extends Component {
           >
             <Row
               style={{
-                backgroundColor: "#01396b",
+                backgroundColor: "#0F243E",
                 color: "white",
-                height: "64px",
+                height: "50px",
                 display: "flex",
                 padding: "15px",
-                marginTop: "20px",
-                boxSizing: "borderbox",
+                marginTop: "10px",
               }}
             >
               <div style={{ display: "flex", alignItems: "space-between" }}>
@@ -58,24 +59,20 @@ class Template extends Component {
                     textAlign: "left",
                     letterSpacing: 0,
                     marginTop: "2px",
-                    // fontWeight: 500,
-                    font: "497 22px/32px Muli, Helvetica Neue, Arial, sans-serif",
                     // fontSize: "20px",
                   }}
                 >
-                  General&nbsp;Item&nbsp;Repository
+                  Template
                 </h3>
                 <Close
                   onClick={this.props.modalClosed}
                   style={{
-                    // transform: this.props.show
-                    //   ? "translateY(0)"
-                    //   : "translateY(-100vh)",
-                    // opcaity: this.props.show ? "1" : "0",
-                    marginLeft: "280px",
-                    color: "#fff",
-                    fontWeight: 800,
-                    marginTop: "5px",
+                    transform: this.props.show
+                      ? "translateY(0)"
+                      : "translateY(-100vh)",
+                    opcaity: this.props.show ? "1" : "0",
+                    marginLeft: "440px",
+                    marginTop: "2px",
                     fontSize: "20px",
                     cursor: "pointer",
                   }}
@@ -87,50 +84,53 @@ class Template extends Component {
                 <Row>
                   <Col xs={12}>
                     <Input
-                      placeHolder="Title *"
+                      placeholder="TemplateName *"
                       style={{
-                        width: "500px",
-                        // font: "400 16px/1.125 Muli, Helvetica Neue, Arial, sans-serif !important",
-                        height: "60px",
-                        border: "1px solid grey",
-                        fontSize: "16px",
-                        padding: "0px 5px",
-                        // marginLeft: "-22px",
-                        // textAlign: "left",
-                        borderRadius: "6px",
-                        // fontSize: "14px",
+                        width: "395px",
+                        height: "48px",
+                        border: "1px solid #000",
+                        alignItems: "center",
+                        marginLeft: "-22px",
+                        textAlign: "left",
                       }}
                     />
                   </Col>
                 </Row>
               </Col>
-              <Row style={{ marginTop: "30px" }}>
-                <Col xs={12}>
-                  <Row>
-                    <Col xs={12}>
-                      <Input
-                        placeHolder="Description"
-                        style={{
-                          fontSize: "16px",
-                          width: "500px",
-                          height: "100px",
-                          padding: "0px 5px",
-                          border: "1px solid grey",
-                          borderRadius: "6px",
-                          textAlign: "left",
-                        }}
-                      />
-                    </Col>
-                  </Row>
-                </Col>
-              </Row>
               <Col xs={12}>
                 <Row>
                   <Col
                     xs={12}
                     style={{ marginLeft: "-22px", marginTop: "8px" }}
                   >
-                    {/* <ComboBox
+                    <ComboBox
+                      options={TemplateData2}
+                      style={{
+                        width: "395px",
+                        height: "48px",
+                        border: "1px solid #000",
+                        alignItems: "center",
+                        textAlign: "left",
+                        "& .MuiSvgIcon-root": {
+                          color: "#000",
+                          backgroundColor: "#fff",
+                          height: "45px",
+                        },
+                        ".MuiInputBase-input": {
+                          height: "4.1876em",
+                        },
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={12}>
+                <Row>
+                  <Col
+                    xs={12}
+                    style={{ marginLeft: "-22px", marginTop: "8px" }}
+                  >
+                    <ComboBox
                       options={TemplateData}
                       style={{
                         width: "395px",
@@ -144,7 +144,7 @@ class Template extends Component {
                           height: "45px",
                         },
                       }}
-                    /> */}
+                    />
                   </Col>
                 </Row>
               </Col>

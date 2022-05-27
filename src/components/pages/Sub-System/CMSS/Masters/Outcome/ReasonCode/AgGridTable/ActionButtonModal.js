@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import classes from "./ActionModal.module.css";
-import Backdrop from "../../../../../Dashboard-Modal/components/Backdrop";
-import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+import classes from "./ActionButtonModal.css";
+// import Backdrop from "../../../../../Dashboard-Modal/components/Backdrop";
+// import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+import Aux from "../../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary"
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import IconButton from "@mui/material/IconButton";
+// import Template from "../../../../../Dashboard-Modal/Modal/Template";
 
-export default function ActionModal(props) {
+export default function ActionButtonModal(props) {
   // const [ModalData2, SetModal2] = useState({ show: false });
 
   // const closeNewModal = () => {
@@ -20,7 +22,7 @@ export default function ActionModal(props) {
   // };
   return (
     <Aux>
-      <Backdrop show={props.show} clicked={props.modalClosed} />
+      {/* <Backdrop show={props.show} clicked={props.modalClosed} /> */}
       {/* <Template
         show={ModalData2.show}
         modalClosed={() => {
@@ -30,7 +32,7 @@ export default function ActionModal(props) {
       <div
         className={classes.Modal}
         style={{
-          transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+          // transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           opcaity: props.show ? "1" : "0",
         }}
       >

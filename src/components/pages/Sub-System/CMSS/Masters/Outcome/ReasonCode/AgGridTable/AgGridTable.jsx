@@ -1,17 +1,50 @@
-import React from "react";
-import "./AgGridTable.css";
+import React, { useEffect, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { useState } from "react";
-// import ActionModal from "./ActionModal";
+import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
+import './AgGridTable.css'
+import ActionButtonModal from "./ActionButtonModal";
 
 function AgGridTable() {
+  const [data, setdata] = useState([])
+  useEffect(async () => {
+    const UserID = sessionStorage.getItem('UserID')
+    const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
+    const response = await PrepareRequest(URL);
+    console.log('response', response.data)
+    setdata(response.data)
+  }, [])
+  useEffect(() => {
+    console.log('data', data)
+  }, [data])
+
+  const [showAction, setShowAction] = useState(false)
+  const showNewModal = () => {
+    console.log('action clicked')
+    setShowAction(!showAction)
+  }
+
   const formBuilderData = () => {
     return {
       Sheet: [
         {
           id: 1,
           Header: 1,
-
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+        {
+          id: 2,
+          Header: 2,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+        {
+          id: 3,
+          Header: 3,
           Checklist: "",
           CreatedBy: "",
           CreatedOn: "",
@@ -25,7 +58,7 @@ function AgGridTable() {
     return {
       id: ele.id,
       Header: ele.Header,
-      Title: ele.Title,
+      Checklist: ele.Checklist,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -39,7 +72,7 @@ function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "Header",
+      field: "ID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -52,7 +85,7 @@ function AgGridTable() {
 
     {
       headerName: "Title",
-      field: "Title",
+      field: "ReasonCodeTitle",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -97,7 +130,12 @@ function AgGridTable() {
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        // onClick: showNewModal,
+        style: {
+          width: "80px",
+          height: "40px",
+          backgroundColor: "#01396b !important",
+        },
+        onClick: () => showNewModal(),
       },
       cellStyle: {
         color: "#000",
@@ -106,16 +144,16 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        paddingTop: "5px",
-        paddingBottom: "5px",
+        // paddingTop: "5px",
+        // paddingBottom: "5px",
       },
     },
   ];
 
   return (
-    <div className="main-content">
+    <div className="reasoncode-table">
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
@@ -127,6 +165,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
+      {showAction && <ActionButtonModal />}
     </div>
   );
 }

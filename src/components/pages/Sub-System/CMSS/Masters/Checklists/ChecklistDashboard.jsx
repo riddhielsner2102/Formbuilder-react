@@ -1,12 +1,9 @@
-import { useState } from "react";
-// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-// import Navbar from "../../../../Navbar/Navbar";
-import Template from "./Modal/Template";
+import React, { useState } from "react";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import Navbar from "../../../../Navbar/Navbar";
-// import Template from "../../../../Dashboard-Modal/Modal/Template";
+import Template from "./Modal/Template";
 
-function GeneralItemDashboard() {
+export default function ChecklistDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -18,7 +15,7 @@ function GeneralItemDashboard() {
   };
 
   return (
-    <>
+    <React.Fragment>
       <Template
         show={ModalData2.show}
         modalClosed={() => {
@@ -26,16 +23,14 @@ function GeneralItemDashboard() {
         }}
       />
       <Navbar
-        titleIcon={<DashboardOutlinedIcon />}
-        title="General Item Dashboard"
+        titleIcon={<CheckCircleOutlineIcon />}
+        title="Checklists"
         secondtitle="Module: CMSS"
         buttonText="ADD"
         onClick={() => {
           showNewModal();
         }}
       />
-    </>
+    </React.Fragment>
   );
 }
-
-export default GeneralItemDashboard;

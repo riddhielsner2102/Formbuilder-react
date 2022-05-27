@@ -2,17 +2,26 @@ import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState } from "react";
-// import ActionModal from "./ActionModal";
+import ActionModal from "./ActionModal";
 
 function AgGridTable() {
+  const [ModalData2, SetModal2] = useState({ show: false });
+
+  const closeNewModal = () => {
+    SetModal2({ show: false });
+  };
+  const showNewModal = () => {
+    SetModal2({ show: true });
+    console.log("Action Modal");
+  };
+
   const formBuilderData = () => {
     return {
       Sheet: [
         {
           id: 1,
           Header: 1,
-
-          Checklist: "",
+          Template: "",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -25,7 +34,7 @@ function AgGridTable() {
     return {
       id: ele.id,
       Header: ele.Header,
-      Title: ele.Title,
+      Template: ele.Template,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -51,8 +60,8 @@ function AgGridTable() {
     },
 
     {
-      headerName: "Title",
-      field: "Title",
+      headerName: "Template",
+      field: "Template",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -97,23 +106,33 @@ function AgGridTable() {
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        // onClick: showNewModal,
+        onClick: showNewModal,
+        style: {
+          width: "80px",
+          height: "40px",
+          backgroundColor: "#01396b !important",
+        },
       },
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        paddingTop: "5px",
-        paddingBottom: "5px",
+        // paddingTop: "5px",
+        // paddingBottom: "5px",
       },
     },
   ];
 
   return (
-    <div className="main-content">
+    <div className="main-table">
+      <ActionModal
+        show={ModalData2.show}
+        modalClosed={() => {
+          closeNewModal();
+        }}
+      />
       <AgGrid
         rowData={newFormBuilder}
         columnData={contentData}

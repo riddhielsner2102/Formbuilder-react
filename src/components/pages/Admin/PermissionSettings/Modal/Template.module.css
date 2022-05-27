@@ -6,7 +6,7 @@
   width: 600px;
   max-height: 100%;
   padding: 0px 15px 0px 15px;
-  left: 40%;
+  left: 15%;
   top: 30%;
   transition: all 0.3s ease-out;
   /* border: 1px solid black; */
@@ -52,22 +52,22 @@
   text-align: center;
 } */
 
-/* .MRGNTP5 {
+.MRGNTP5 {
   margin-top: 5px;
   text-align: center;
-} */
+}
 
-/* .Input {
+.Input {
   width: 60px;
   border: 1px solid black;
-} */
+}
 
-/* @media (min-width: 600px) {
+@media (min-width: 600px) {
   .Modal {
     width: 300px;
     left: calc(50% - 250px);
   }
-} */
+}
 
 .NOTOCBtn {
   margin: 0px;
@@ -83,13 +83,13 @@
   height: 22px;
   width: 55px;
 }
-/* 
+
 @media screen and (min-width: 1920px) {
   .Modal {
-    width: 100%;
+    width: 600px;
     max-height: 100%;
     background: #fff 0% 0% no-repeat padding-box;
     opacity: 1;
     left: calc(50% - 250px);
   }
-} */
+}

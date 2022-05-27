@@ -1,12 +1,9 @@
 import { useState } from "react";
-// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-// import Navbar from "../../../../Navbar/Navbar";
-import Template from "./Modal/Template";
-import Navbar from "../../../../Navbar/Navbar";
-// import Template from "../../../../Dashboard-Modal/Modal/Template";
+import PanToolOutlinedIcon from '@mui/icons-material/PanToolOutlined';
+import Navbar from "../../../../../Navbar/Navbar";
+// import Template from "./Modal/Template"
 
-function GeneralItemDashboard() {
+function ReasonCodeDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -19,15 +16,15 @@ function GeneralItemDashboard() {
 
   return (
     <>
-      <Template
+      {/* <Template
         show={ModalData2.show}
         modalClosed={() => {
           closeNewModal();
         }}
-      />
+      /> */}
       <Navbar
-        titleIcon={<DashboardOutlinedIcon />}
-        title="General Item Dashboard"
+        titleIcon={<PanToolOutlinedIcon />}
+        title="Master Reasoncode"
         secondtitle="Module: CMSS"
         buttonText="ADD"
         onClick={() => {
@@ -38,4 +35,4 @@ function GeneralItemDashboard() {
   );
 }
 
-export default GeneralItemDashboard;
+export default ReasonCodeDashboard;

@@ -2,9 +2,19 @@ import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState } from "react";
-// import ActionModal from "./ActionModal";
+import ActionModal from "./ActionModal";
 
-function AgGridTable() {
+export default function AgGridTable() {
+  const [ModalData2, SetModal2] = useState({ show: false });
+
+  const closeNewModal = () => {
+    SetModal2({ show: false });
+  };
+  const showNewModal = () => {
+    SetModal2({ show: true });
+    console.log("Action Modal");
+  };
+
   const formBuilderData = () => {
     return {
       Sheet: [
@@ -96,7 +106,7 @@ function AgGridTable() {
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        // onClick: showNewModal,
+        onClick: showNewModal,
         style: {
           width: "80px",
           height: "40px",
@@ -117,7 +127,13 @@ function AgGridTable() {
   ];
 
   return (
-    <div className="main-table">
+    <div className="main-dashboard-table">
+      <ActionModal
+        show={ModalData2.show}
+        modalClosed={() => {
+          closeNewModal();
+        }}
+      />
       <AgGrid
         rowData={newFormBuilder}
         columnData={contentData}
@@ -134,5 +150,3 @@ function AgGridTable() {
     </div>
   );
 }
-
-export default AgGridTable;
