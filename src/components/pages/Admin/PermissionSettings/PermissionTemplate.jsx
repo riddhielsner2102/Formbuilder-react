@@ -1,9 +1,12 @@
 import React from "react";
+import PermissionTemplateDashboard from "./PermissionTemplateDashboard";
+import AgGridTable from "./AgGridTable/AgGridTable";
 
 function PermissionTemplate() {
   return (
     <>
-      <div>PermissionTemplate Page will come here.</div>
+      <PermissionTemplateDashboard />
+      <AgGridTable />
     </>
   );
 }

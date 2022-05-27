@@ -6,8 +6,7 @@
 
 /* sidebar */
 .nav {
-  background-color: lightsteelblue;
-  height: 70px;
+  height: 64px;
   /* display: flex; */
   justify-content: flex-start;
   align-items: center;

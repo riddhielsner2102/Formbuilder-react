@@ -24,11 +24,12 @@ const Navbar = (props) => {
             color: "#fff",
             display: "flex",
             fontSize: "19px",
+            marginBottom:"10px",
             fontWeight: "bold",
             backgroundColor: "#01396b",
           }}
         >
-          <IconButton style={{ backgroundColor: "#01396b", color: "#fff" }}>
+          <IconButton style={{ backgroundColor: "#01396b", marginBottom:"10px", color: "#fff" }}>
             {props.titleIcon}
           </IconButton>
           {/* <FilterVintageIcon style={{ backgroundColor: "#01396b" }} /> */}

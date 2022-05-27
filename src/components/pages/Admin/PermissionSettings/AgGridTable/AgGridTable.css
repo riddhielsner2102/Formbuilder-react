@@ -1,31 +1,31 @@
-.main-dashboard-table .ag-theme-alpine {
+.main-table .ag-theme-alpine {
   background-color: #f5f5f5;
 }
 
-.main-dashboard-table .ag-theme-alpine .ag-header-cell,
+.main-table .ag-theme-alpine .ag-header-cell,
 .ag-theme-alpine .ag-header-group-cell {
   background-color: white;
   color: black;
   font-size: 15px;
 }
 
-.main-dashboard-table .ag-theme-alpine .ag-root-wrapper {
+.main-table .ag-theme-alpine .ag-root-wrapper {
   border-radius: 15px;
   margin-top: -3.5%;
 }
 
-.main-dashboard-table .ag-theme-alpine [class^="ag-"],
+.main-table .ag-theme-alpine [class^="ag-"],
 .ag-theme-alpine [class^="ag-"]:focus,
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
   border-color: #fff;
 }
 
-.main-dashboard-table .ag-row {
+.main-table .ag-row {
   height: 60px !important;
 }
 
-.main-dashboard-table
+.main-table
   .MuiButtonBase-root
   .MuiButton-root
   .MuiButton-contained

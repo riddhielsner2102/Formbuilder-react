@@ -7,7 +7,6 @@ import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import IconButton from "@mui/material/IconButton";
-// import Template from "../../../../../Dashboard-Modal/Modal/Template";
 
 export default function ActionModal(props) {
   // const [ModalData2, SetModal2] = useState({ show: false });

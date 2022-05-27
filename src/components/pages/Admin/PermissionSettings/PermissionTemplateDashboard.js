@@ -1,9 +1,9 @@
 import { useState } from "react";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import Navbar from "../../../../Navbar/Navbar";
+import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined";
+import Navbar from "../../Navbar/Navbar";
 import Template from "./Modal/Template";
 
-function ChecklistDashboard() {
+function PermissionTemplateDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -23,9 +23,8 @@ function ChecklistDashboard() {
         }}
       />
       <Navbar
-        titleIcon={<CheckCircleOutlineIcon />}
-        title="Checklists"
-        secondtitle="Module: CMSS"
+        titleIcon={<FilterVintageOutlinedIcon />}
+        title="Permission Templates"
         buttonText="ADD"
         onClick={() => {
           showNewModal();
@@ -35,4 +34,4 @@ function ChecklistDashboard() {
   );
 }
 
-export default ChecklistDashboard;
+export default PermissionTemplateDashboard;
