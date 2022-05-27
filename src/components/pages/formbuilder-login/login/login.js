@@ -33,7 +33,7 @@ function Login() {
     setLoginData(response.data)
     userSessionStorage(response.data)
     const isAdmin = sessionStorage.getItem('IsAdmin')
-    const subsystemID =sessionStorage.getItem('SubsystemID')
+    const subsystemID = parseInt(sessionStorage.getItem('SubsystemID'))
     response.data.UserID > 0 ? isAdmin === 'true' ? navigate('/pages/formbuilder/permission-setting/permission-dashboard') : subsystemID> 0 ? navigate('/pages/formbuilder/form-dashboard-version/dashboard') : setIsThereSubsystem(false) : setInvaliedLogin(true)
   };
 
@@ -67,7 +67,7 @@ function Login() {
                   style={{ border: "1px solid #000", width: "100%" }}
                 />
               </Col>
-              <Col className="button-wrap">{ console.log(loginData, "login data")}
+              <Col className="button-wrap">
                 <Button
                   onClick={(e) => {
                     onLogin(e);
