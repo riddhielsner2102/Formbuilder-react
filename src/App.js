@@ -13,7 +13,7 @@ import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Ch
 import PermissionTemplate from "./components/pages/Admin/PermissionSettings/PermissionTemplate";
 import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
 import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRepo";
-
+import "../src/components/pages/Sub-System/CMSS/Masters/ItemRepo/Modal/Itemrepomodal.css"
 function App() {
   return (
     <Router>
