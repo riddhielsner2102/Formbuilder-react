@@ -27,27 +27,25 @@ class Template extends Component {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
+            transform: this.props.show ? "translateY(50%)" : "translateY(-150vh)",
             opcaity: this.props.show ? "1" : "0",
-            minWidth: "353px",
+            // minWidth: "353px",
           }}
         >
           <Container
             className={[classes.divDow].join(" ")}
             style={{
-              height: "400px",
               padding: "0px",
               margin: "0px",
+              width : "100%"
             }}
           >
             <Row
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "30px",
                 display: "flex",
                 padding: "15px",
-                marginTop: "10px",
                 boxSizing: "none",
               }}
             >
@@ -57,8 +55,8 @@ class Template extends Component {
                     color: "#fff",
                     textAlign: "left",
                     letterSpacing: 0,
-                    marginTop: "2px",
                     fontWeight: 500,
+                  
                     // fontSize: "20px",
                   }}
                 >
@@ -69,29 +67,30 @@ class Template extends Component {
                   style={{
                     transform: this.props.show
                       ? "translateY(0)"
-                      : "translateY(-100vh)",
+                      : "translateY(-150vh)",
                     opcaity: this.props.show ? "1" : "0",
-                    marginLeft: "370px",
+                    marginLeft: "270px",
                     color: "#fff",
                     fontWeight: 800,
                     marginTop: "2px",
                     fontSize: "20px",
+                    // zIndex:1,
                     cursor: "pointer",
                   }}
                 />
               </div>
             </Row>
-            <Row style={{ marginTop: "30px" }}>
+            <Row style={{ marginTop: "20px" }}>
               <Col xs={12}>
                 <Row>
                   <Col xs={12}>
                     <Input
                       placeHolder="Checklist Name *"
                       style={{
-                        width: "395px",
+                        width: "100%",
+                        maxWidth : "100%",
                         height: "48px",
                         border: "1px solid Gray",
-                        marginLeft: "-22px",
                         textAlign: "left",
                         fontSize: "14px",
                       }}
@@ -103,12 +102,13 @@ class Template extends Component {
                 <Row>
                   <Col
                     xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
+                    style={{ marginTop: "8px" }}
                   >
                     <Input
                       placeHolder="Description"
                       style={{
-                        width: "395px",
+                        width: "100%",
+                        maxWidth : "100%",
                         height: "100px",
                         border: "1px solid Gray",
                         textAlign: "left",
@@ -121,7 +121,7 @@ class Template extends Component {
                 <Row>
                   <Col
                     xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
+                    style={{marginLeft: "-22px", marginTop: "8px" }}
                   >
                     {/* <ComboBox
                       options={TemplateData}

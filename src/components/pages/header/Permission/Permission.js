@@ -13,7 +13,7 @@ export default class Permission extends Component {
         <Container
           className={classes.Item}
           style={{
-            transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
+            transform: this.props.show ? "translateY(0)" : "translateY(-150vh)",
             opcaity: this.props.show ? "1" : "0",
           }}
         >

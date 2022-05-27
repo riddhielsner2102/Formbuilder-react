@@ -11,9 +11,10 @@ const Navbar = (props) => {
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "row", 
           justifyContent: "space-between",
-          padding: "30px 30px 70px 30px",
+          padding: "22px 20px 35px",
+          alignItems:"center",
           backgroundColor: "#01396b",
           className: "header-main",
           // width: "100%",
@@ -52,10 +53,12 @@ const Navbar = (props) => {
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
           <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
           <Input
-            placeHolder="     Search Template"
+            placeHolder="Search Template"
             style={{
               backgroundColor: "#fff",
-              width: "300px",
+               padding: "0 16px",
+              width: "200px",
+              height:"23px",
               // border: "none",
               outline: "none",
               borderRadius: "0px 30px 30px 0px",

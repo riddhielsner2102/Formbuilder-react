@@ -4,7 +4,6 @@ import SubMenu from "./SubMenu";
 import "./Sidebar.css";
 import Header from "../header/header";
 import Navbar from "../Navbar/Navbar";
-import AgGridTable from "../AgGridTable/AgGridTable";
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Button } from "arms_v2.8_webui";
@@ -121,7 +120,7 @@ const Sidebar = () => {
                     style={{ position: "relative", top: "-5px" }}
                   />
                 </div>
-                <div>
+                <div className="demo">
                   {sidebar && (
                     <div
                       className="sidebar-head-btn headerIcondashboard"
