@@ -1,9 +1,21 @@
 import axios from "./axios";
 
 const requests = {
-  validateLogin: `/ValidateLogin`,
-  getPermissionTemplate: `/GetPermissionTemplate`,
-  getTemplateUserMapping: `/GetTemplateUserMapping`,
+  postDataSourceSetting: `/PostDataSourceSetting`,
+  postImportForm: `/PostImportForm`,
+  saveOfflineData: `/SaveOfflineData`,
+  setMasterFieldIActive: `/SetMasterFieldIActive`,
+  saveMasterField:`/SaveMasterField`,
+  postFormDesign:`/PostFormDesign`,
+  postForm:`/PostForm`,
+  postFormSubmit:`/PostFormSubmit`,
+  PostFormSaveSubmit:`/PostFormSaveSubmit`,
+  PostInfoPromptForm:`/PostInfoPromptForm`,
+  PostMasterChecklist:`/PostMasterChecklist`
+
+
+
+
 };
 
 async function PrepareRequest(path) {
