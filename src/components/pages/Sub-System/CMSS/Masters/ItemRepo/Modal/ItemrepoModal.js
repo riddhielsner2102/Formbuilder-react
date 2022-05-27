@@ -7,6 +7,7 @@ import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import { Container, Row, Col } from "react-bootstrap";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Input, Button, Close, CheckBox, ComboBox } from "arms_v2.8_webui";
+import "./Itemrepomodal.css"
 
 function Itemmodal(props) {
     const [Check, setcheck] = useState(true)
@@ -66,7 +67,7 @@ setrepeatederror(true)
         if (a.length) {
             seterror(true)
         } else {
-            const URL = `${requests.validateLogin}?userName=${encryptedUserName}&password=${encryptedPassword}`;
+            // const URL = `${requests.validateLogin}?userName=${encryptedUserName}&password=${encryptedPassword}`;
             props.SetItemdata(JSON.stringify(formValues))
 
         }
@@ -141,7 +142,8 @@ setrepeatederror(true)
                         alignItems: "center", marginLeft: "10px",
                         marginRight: "10px", marginTop: "10px",
                         border: "1px solid black", padding: "10px"
-                    }}>
+                        
+                    }} className="bluerow">
                         <Col style={{
                             borderRight: "1px solid black",
                             // borderRightWidth:"200px",
