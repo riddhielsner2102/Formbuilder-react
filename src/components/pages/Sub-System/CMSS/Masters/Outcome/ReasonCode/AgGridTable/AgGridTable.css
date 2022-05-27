@@ -1,0 +1,48 @@
+.reasoncode-table .ag-theme-alpine {
+  background-color: #f5f5f5;
+}
+
+.reasoncode-table .ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-header-group-cell {
+  background-color: white;
+  color: black;
+  font-size: 15px;
+}
+
+.reasoncode-table .ag-theme-alpine .ag-root-wrapper {
+  border-radius: 15px;
+  margin-top: -3.5%;
+}
+
+.reasoncode-table .ag-theme-alpine [class^="ag-"],
+.ag-theme-alpine [class^="ag-"]:focus,
+.ag-theme-alpine [class^="ag-"]:after,
+.ag-theme-alpine [class^="ag-"]:before {
+  border-color: #fff;
+}
+
+.reasoncode-table .ag-row {
+  height: 42px !important;
+  border-bottom: 1px solid gray !important;
+}
+
+.reasoncode-table .MuiButtonBase-root .MuiButton-root .MuiButton-contained .makeStyles-button-111 {
+  height: 36px;
+}
+
+.reasoncode-table .ag-row-position-absolute {
+  position: relative;
+}
+
+.reasoncode-table .ag-center-cols-container {
+  height: 100% !important;
+}
+
+.reasoncode-table .alternate-row-color {
+  background-color: rgb(243, 240, 240) !important;
+}
+
+.reasoncode-table .ag-theme-alpine .ag-cell,
+.ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  border: none !important;
+}
