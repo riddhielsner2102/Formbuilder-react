@@ -1,13 +1,39 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { useState } from "react";
-// import ActionModal from "./ActionModal";
+import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
+import ActionButtonModal from "../AgGridTable/ActionButtonModal";
+import { getSessionStorage } from "../../../../../../common/sessionStorage";
 
 function AgGridTable() {
+  const [data, setdata] = useState([])
+  useEffect(async () => {
+    const UserID = getSessionStorage('UserID')
+    const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
+    const response = await PrepareRequest(URL);
+    console.log('response', response.data)
+    setdata(response.data.lstModelItemRepository)
+  }, [])
+  useEffect(() => {
+    console.log('data', data)
+  }, [data])
+
+  const [showAction, setShowAction] = useState(false)
+  const showNewModal = (data) => {
+    console.log('action clicked',data)
+    setShowAction(!showAction)
+  }
   const formBuilderData = () => {
     return {
       Sheet: [
+        {
+          id: 1,
+          Header: 1,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
         {
           id: 1,
           Header: 1,
@@ -38,7 +64,7 @@ function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "Header",
+      field: "ID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -51,7 +77,7 @@ function AgGridTable() {
 
     {
       headerName: "Title",
-      field: "Title",
+      field: "RepTitle",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -80,7 +106,7 @@ function AgGridTable() {
     },
     {
       headerName: "Created By",
-      field: "Created By",
+      field: "CreatedBy",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -108,7 +134,7 @@ function AgGridTable() {
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        // onClick: showNewModal,
+        onClick: showNewModal,
         style: {
           width: "80px",
           height: "40px",
@@ -129,9 +155,9 @@ function AgGridTable() {
   ];
 
   return (
-    <div className="main-table">
+    <div className="itemrepo-table">
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
@@ -143,6 +169,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
+            {showAction && <ActionButtonModal />}
     </div>
   );
 }
