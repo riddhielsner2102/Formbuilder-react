@@ -2,17 +2,21 @@ import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState } from "react";
+import ActionModal from "./ActionModal";
 // import ActionModal from "./ActionModal";
+// import Message from "../../../../../../ReusableComp/Message/Message";
 
 function AgGridTable() {
+
+  
+
   const formBuilderData = () => {
     return {
       Sheet: [
         {
           id: 1,
           Header: 1,
-
-          Checklist: "",
+          Title: "",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -40,19 +44,25 @@ function AgGridTable() {
     {
       headerName: "ID",
       field: "Header",
+      width: 150,
+      style:{
+      justifyContent: "left",
+      alignItems: "center",},
       cellStyle: {
         height: "100%",
         display: "flex ",
-        justifyContent: "center",
-        alignItems: "center ",
+        // justifyContent: "left",
+        // alignItems: "center",
         fontSize: "15px",
         color: "#000",
+        // width:"30px",
       },
     },
 
     {
       headerName: "Title",
       field: "Title",
+      width: 500,
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -68,6 +78,7 @@ function AgGridTable() {
     {
       headerName: "Created By",
       field: "CreatedBy",
+      width: 250,
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -82,6 +93,7 @@ function AgGridTable() {
     {
       headerName: "Created On",
       field: "CreatedOn",
+      width: 200,
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -98,6 +110,9 @@ function AgGridTable() {
       cellRendererParams: {
         text: "Actions",
         // onClick: showNewModal,
+        style: {
+          width: "76px", height: "38px", backgroundColor: "#01396b !important", color: "#ffffff"
+      }
       },
       cellStyle: {
         color: "#000",
@@ -106,11 +121,12 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        paddingTop: "5px",
-        paddingBottom: "5px",
+        // paddingTop: "5px",
+        // paddingBottom: "5px",
       },
     },
   ];
+
 
   return (
     <div className="main-content">
@@ -127,6 +143,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
+
     </div>
   );
 }

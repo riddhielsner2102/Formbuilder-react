@@ -21,7 +21,7 @@ import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import { Outlet } from "react-router-dom";
-import { PrepareRequest, requests } from '../../../Service/getRequests'
+import { PrepareRequest, requests } from "../../../Service/getRequests";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -37,10 +37,10 @@ const Sidebar = () => {
 
   const [sidebarData, setSidebarData] = useState([]);
   useEffect(async () => {
-    const UserID = sessionStorage.getItem('UserID')
-    const URL = `${requests.getTemplateUserMapping}?UserID=${UserID}`
+    const UserID = sessionStorage.getItem("UserID");
+    const URL = `${requests.getTemplateUserMapping}?UserID=${UserID}`;
     const response = await PrepareRequest(URL);
-    setSidebarData(response.data)
+    setSidebarData(response.data);
   }, []);
 
   const dropDownData = [

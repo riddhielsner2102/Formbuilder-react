@@ -28,7 +28,7 @@ export default function ActionModal(props) {
         }}
       /> */}
       <div
-        className={classes.Modal}
+        className={classes.Modals}
         style={{
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           opcaity: props.show ? "1" : "0",

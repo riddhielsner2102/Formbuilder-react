@@ -16,6 +16,7 @@ function AgGridTable() {
   }, [])
   useEffect(() => {
     console.log('data', data)
+    
   }, [data])
 
   const [showAction, setShowAction] = useState(false)
