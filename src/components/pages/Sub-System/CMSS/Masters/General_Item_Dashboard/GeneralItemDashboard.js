@@ -49,6 +49,7 @@ function GeneralItemDashboard() {
       )}
       <Navbar
         titleIcon={<DashboardOutlinedIcon />}
+        searchbar={true}
         title="General Item Dashboard"
         secondtitle="Module: CMSS"
         buttonText="ADD"
