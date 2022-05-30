@@ -1,18 +1,12 @@
-// import React, {  } from "react";
 import React, { useState } from "react";
 import classes from "./Message.module.css";
-// import Backdrop from "../../components/Backdrop";
-// import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-
+// import Icon from "@mui/icons-material";
 import { Button, Label } from "arms_v2.8_webui";
 import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
-// import backdrop from "../../pages/Sub-System/CMSS/Masters/General_Item_Dashboard/Modal/Backdrop";
 
-// class Formmessage extends Component {
-//   render() {
 function Message(props) {
   // const [show, setShow] = useState(false);
 
@@ -86,6 +80,17 @@ function Message(props) {
                 width: "24px",
               }}
             />
+            {/* <Icon
+              type={props.type}
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                backgroundRepeat: "no-repeat",
+                fill: "currentColor",
+                height: "24px",
+                width: "24px",
+              }}
+            /> */}
 
             <Label
               text={props.text}
@@ -100,7 +105,6 @@ function Message(props) {
                 paddingLeft: "10px",
                 fontSize: "18px",
               }}
-              s
             />
           </div>
           <>

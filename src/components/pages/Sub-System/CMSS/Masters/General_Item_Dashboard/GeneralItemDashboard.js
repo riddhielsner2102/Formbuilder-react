@@ -9,7 +9,6 @@ import Message from "../../../../../ReusableComp/Message/Message";
 
 function GeneralItemDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
-
   const [flag, setflag] = useState(false);
 
   const closeNewModal = () => {
@@ -43,6 +42,7 @@ function GeneralItemDashboard() {
         <Message
           flag={flag}
           text="General Item created"
+          // type="CheckCircleOutlineIcon"
           handleClose={handleClose}
         />
       )}
