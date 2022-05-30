@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
 import './AgGridTable.css'
-import ActionButtonModal from "./ActionButtonModal";
+import ActionButtonModal from "./ActionButtonModal"
 
 function AgGridTable() {
   const [data, setdata] = useState([])
+
   useEffect(async () => {
     const UserID = sessionStorage.getItem('UserID')
     const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
@@ -13,57 +14,12 @@ function AgGridTable() {
     console.log('response', response.data)
     setdata(response.data)
   }, [])
-  useEffect(() => {
-    console.log('data', data)
-  }, [data])
 
   const [showAction, setShowAction] = useState(false)
   const showNewModal = () => {
     console.log('action clicked')
     setShowAction(!showAction)
   }
-
-  const formBuilderData = () => {
-    return {
-      Sheet: [
-        {
-          id: 1,
-          Header: 1,
-          Checklist: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-        {
-          id: 2,
-          Header: 2,
-          Checklist: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-        {
-          id: 3,
-          Header: 3,
-          Checklist: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-      ],
-    };
-  };
-
-  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-    return {
-      id: ele.id,
-      Header: ele.Header,
-      Checklist: ele.Checklist,
-      CreatedBy: ele.CreatedBy,
-      CreatedOn: ele.CreatedOn,
-      Action: ele.Action,
-    };
-  });
 
   const frameworkComponents = {
     gridButton: Button,
@@ -73,6 +29,7 @@ function AgGridTable() {
     {
       headerName: "ID",
       field: "ID",
+      width: 100,
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -81,6 +38,10 @@ function AgGridTable() {
         fontSize: "15px",
         color: "#000",
       },
+      style: {
+        width: '10px',
+        border: '1px solid black !important'
+      }
     },
 
     {

@@ -45,14 +45,14 @@ function AgGridTable() {
       headerName: "ID",
       field: "Header",
       width: 150,
-      style:{
-      justifyContent: "left",
-      alignItems: "center",},
+      // style:{
+      //    justifyContent: "left",
+      //   alignItems: "center",},
       cellStyle: {
         height: "100%",
         display: "flex ",
-        // justifyContent: "left",
-        // alignItems: "center",
+        justifyContent: "center",
+        alignItems: "center",
         fontSize: "15px",
         color: "#000",
         // width:"30px",
@@ -106,6 +106,8 @@ function AgGridTable() {
     {
       headerName: "Actions",
       field: "Action",
+      width:200,
+
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
@@ -115,6 +117,7 @@ function AgGridTable() {
       }
       },
       cellStyle: {
+        textAlign:"left",
         color: "#000",
         height: "100%",
         display: "flex ",

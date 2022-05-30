@@ -7,16 +7,15 @@ import { Button, Input } from "arms_v2.8_webui";
 import Logo from "../../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import "./login.css";
 import { requests, PrepareRequest } from "../../../../Service/getRequests";
-import { encryptedValues } from '../../../common/encryptedUserName&Password'
-import { userSessionStorage } from '../../../common/sessionStorage'
+import { encryptedValues } from "../../../common/encryptedUserName&Password";
+import { userSessionStorage } from "../../../common/sessionStorage";
 
 function Login() {
-  
   const [userName, setUsername] = useState();
   const [password, setPassword] = useState();
   const [loginData, setLoginData] = useState();
-  const [invaliedLogin, setInvaliedLogin] = useState(false)
-  const [isThereSubsystem, setIsThereSubsystem] = useState(true)
+  const [invaliedLogin, setInvaliedLogin] = useState(false);
+  const [isThereSubsystem, setIsThereSubsystem] = useState(true);
   const handleUser = (e) => {
     setUsername(e.target.value);
   };
@@ -25,16 +24,25 @@ function Login() {
     setPassword(e.target.value);
   };
   const navigate = useNavigate();
-  
-  const [encryptedUserName, encryptedPassword] = encryptedValues(userName, password)
+
+  const [encryptedUserName, encryptedPassword] = encryptedValues(
+    userName,
+    password
+  );
   const onLogin = async (e) => {
     const URL = `${requests.validateLogin}?userName=${encryptedUserName}&password=${encryptedPassword}`;
     const response = await PrepareRequest(URL);
-    setLoginData(response.data)
-    userSessionStorage(response.data)
-    const isAdmin = sessionStorage.getItem('IsAdmin')
-    const subsystemID = parseInt(sessionStorage.getItem('SubsystemID'))
-    response.data.UserID > 0 ? isAdmin === 'true' ? navigate('/pages/formbuilder/permission-setting/permission-dashboard') : subsystemID> 0 ? navigate('/pages/formbuilder/form-dashboard-version/dashboard') : setIsThereSubsystem(false) : setInvaliedLogin(true)
+    setLoginData(response.data);
+    userSessionStorage(response.data);
+    const isAdmin = sessionStorage.getItem("IsAdmin");
+    const subsystemID = parseInt(sessionStorage.getItem("SubsystemID"));
+    response.data.UserID > 0
+      ? isAdmin === "true"
+        ? navigate("/pages/formbuilder/permission-setting/permission-dashboard")
+        : subsystemID > 0
+        ? navigate("/pages/formbuilder/form-dashboard-version/dashboard")
+        : setIsThereSubsystem(false)
+      : setInvaliedLogin(true);
   };
 
   return (
