@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 // import Navbar from "../../../../Navbar/Navbar";
 import Template from "./Modal/Template";
@@ -43,6 +43,7 @@ function GeneralItemDashboard() {
           flag={flag}
           text="General Item created"
           // type="CheckCircleOutlineIcon"
+          titleIcon={<CheckCircleOutlineIcon />}
           handleClose={handleClose}
         />
       )}

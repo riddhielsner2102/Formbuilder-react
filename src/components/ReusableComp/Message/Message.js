@@ -6,7 +6,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { Button, Label } from "arms_v2.8_webui";
 import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
-
+import IconButton from "@mui/material/IconButton";
 function Message(props) {
   // const [show, setShow] = useState(false);
 
@@ -70,16 +70,25 @@ function Message(props) {
               padding: "20px",
             }}
           >
-            <CheckCircleOutlineIcon
-              style={{
-                display: "flex",
-                justifyContent: "space-around",
-                backgroundRepeat: "no-repeat",
-                fill: "currentColor",
-                height: "24px",
-                width: "24px",
-              }}
-            />
+            <IconButton
+            // style={{
+            //   backgroundColor: "#01396b",
+            //   marginBottom: "10px",
+            //   color: "#fff",
+            // }}
+            >
+              {props.titleIcon}
+              {/* <CheckCircleOutlineIcon
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  backgroundRepeat: "no-repeat",
+                  fill: "currentColor",
+                  height: "24px",
+                  width: "24px",
+                }}
+              /> */}
+            </IconButton>
             {/* <Icon
               type={props.type}
               style={{
