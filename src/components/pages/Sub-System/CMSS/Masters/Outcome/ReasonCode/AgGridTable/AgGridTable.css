@@ -23,7 +23,7 @@
 
 .reasoncode-table .ag-row {
   height: 42px !important;
-  border-bottom: 1px solid gray !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
 .reasoncode-table .MuiButtonBase-root .MuiButton-root .MuiButton-contained .makeStyles-button-111 {
@@ -39,10 +39,16 @@
 }
 
 .reasoncode-table .alternate-row-color {
-  background-color: rgb(243, 240, 240) !important;
+  background-color: whitesmoke !important;
 }
 
 .reasoncode-table .ag-theme-alpine .ag-cell,
 .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
   border: none !important;
+}
+
+.reasoncode-table .ag-header-cell-label,
+.reasoncode-table .ag-cell {
+  justify-content: left !important;
+  padding: 0 0 0 24px !important;
 }
