@@ -9,11 +9,9 @@ import Template from "../Modal/Template";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
 import Tooltip from "@mui/material/Tooltip";
-import { useNavigate } from "react-router-dom";
+import TestPage from "../TestPage/TestPage";
 
 export default function ActionModal(props) {
-  const navigate = useNavigate();
-
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -22,13 +20,6 @@ export default function ActionModal(props) {
   const showNewModal = () => {
     SetModal2({ show: true });
     console.log("template Modal");
-  };
-
-  const onBackClick = (e) => {
-    e.preventDefault();
-    navigate(
-      "/pages/formbuilder/permission-setting/permission-dashboard/master-checklist/test"
-    );
   };
 
   return (
@@ -58,7 +49,7 @@ export default function ActionModal(props) {
           }}
         >
           <Tooltip title="List Checklist" placement="right">
-            <IconButton onClick={onBackClick}>
+            <IconButton onClick={<TestPage />}>
               <FormatListBulletedOutlinedIcon />
             </IconButton>
           </Tooltip>
