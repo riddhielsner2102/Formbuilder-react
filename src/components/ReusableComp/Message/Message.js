@@ -14,9 +14,10 @@ import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
 // class Formmessage extends Component {
 //   render() {
 function Message(props) {
+  console.log(props,"this is my props");
   // const [show, setShow] = useState(false);
 
-  // const handleClose = () => setShow(false);
+  const handleClose = () => props.setshowmessage(false);
   // const handleShow = () => setShow(true);
 
   // const onLoginFormSubmit = (e) => {
@@ -107,7 +108,7 @@ function Message(props) {
             <Button
               text="OK"
               // onClick={this.props.modalClosed}
-              onClick={props.handleClose}
+              onClick={()=>handleClose()}
               style={{
                 backgroundColor: "#01396b !important",
                 color: "#fff",

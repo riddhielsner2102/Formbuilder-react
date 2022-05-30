@@ -1,12 +1,15 @@
+import { useState } from "react";
 import Itemrepodashboard from "../ItemRepo/ItemrepoDashboard";
 import AgGridTable from "./AgGridTable/AgGridTable";
 
 function ItemRepo() {
+  const[disable,setdisable]=useState(false)
+  const[closed,setclosed]=useState(false)
   return (
     <>
       {/* <Checklistdashboard /> */}
-      <Itemrepodashboard />
-      <AgGridTable/>
+      <Itemrepodashboard setdisable={setdisable} disable={disable} setclosed={setclosed} />
+      <AgGridTable setdisable={setdisable} disable={disable} setclosed={setclosed} closed={closed}/>
       
     </>
   );

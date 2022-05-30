@@ -15,6 +15,7 @@ import { getSessionStorage } from "../../../../../../common/sessionStorage";
 
 function Itemmodal(props) {
     const userId = getSessionStorage("UserID")
+    const SubsystemID = getSessionStorage("SubsystemID")
     const [Check, setcheck] = useState(true);
     const [error, seterror] = useState(false);
     const [repeatederror, setrepeatederror] = useState(false);
@@ -22,19 +23,13 @@ function Itemmodal(props) {
     let addFormFields = (i, x) => {
         console.log(x !== "" && formValues, "good");
         const b = formValues.slice(0, formValues.length - 1);
-        console.log(
-            b.find((e) => e.RepTitle === x),
-            "this is"
-        );
         const a = b.find((item) => item.RepTitle === x);
         if (formValues[i].RepTitle === "") {
             seterror(true);
         } else if (a) {
             setrepeatederror(true);
         } else {
-            // console.log(newFormValues.disable=true,"new");
-            // newFormValues[i-1].disable=!disable
-            setFormValues([...formValues, { RepTitle: "", check: Check }]);
+            setFormValues([...formValues, { RepTitle: "", IsActive: Check }]);
         }
     };
     let handleChange = (i, e) => {
@@ -53,26 +48,29 @@ function Itemmodal(props) {
         setFormValues(newFormValues);
 
     };
-    const SubsystemID = getSessionStorage("SubsystemID")
+    const handleCheck = (i, e) => {
+        console.log(i, e, "hhhhhh");
+        let newFormValues = [...formValues];
+        newFormValues[i].IsActive = setcheck(!Check);
+        setFormValues(newFormValues);
+    };
     const handleSubmit = (event) => {
         const a = formValues.filter((e) => e.RepTitle === "");
         console.log(a, "a");
         if (a.length) {
             seterror(true);
         } else {
-            props.SetItemdata(JSON.stringify(formValues));
             const URL = `${requests.PostMasterMultipleItemRepository}`;
             const x = { lstModelItemRepository: formValues, AppId: SubsystemID }
             PrepareRequest(URL, x);
+            props.SetModal2(false)
+            props.setdisable(true)
+            props.setclosed(true)
+            setFormValues([{ RepID: 0, RepTitle: "", IsActive: Check, createdBy: userId }])
 
         }
     };
-    const handleCheck = (i, e) => {
-        console.log(i, e, "hhhhhh");
-        let newFormValues = [...formValues];
-        newFormValues[i].check = setcheck(!Check);
-        setFormValues(newFormValues);
-    };
+
 
     return (
         <Aux>
@@ -212,7 +210,7 @@ function Itemmodal(props) {
                                             checkwidth="140%"
                                             onChange={(e) => handleCheck(index, e)}
                                             iconType="tick"
-                                            checked={formValues[index].check}
+                                            checked={formValues[index].IsActive}
                                             iconColor="#0F243E"
                                             name="check"
                                             colorIcon="White"
