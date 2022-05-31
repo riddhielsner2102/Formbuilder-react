@@ -1,36 +1,25 @@
-import React from "react";
-import "./AgGridTable.css";
+import React, { useEffect, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { useState, useEffect } from "react";
-import ActionModal from "./ActionModal";
-import {
-  PrepareRequest,
-  requests,
-} from "../../../../../../../Service/getRequests";
+import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
+import './AgGridTable.css'
+import ActionButtonModal from "./ActionButtonModal"
 
-export default function AgGridTable() {
-  const [data, setdata] = useState([]);
+function AgGridTable() {
+  const [data, setdata] = useState([])
 
   useEffect(async () => {
-    const UserID = sessionStorage.getItem("UserID");
-    const URL = `${requests.getMasterChecklists}?UserID=${UserID}&AppID=13`;
+    const UserID = sessionStorage.getItem('UserID')
+    const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
-    setdata(response.data);
-  }, []);
-  useEffect(() => {
-    console.log("data", data);
-  }, [data]);
+    console.log('response', response.data)
+    setdata(response.data)
+  }, [])
 
-  const [ModalData2, SetModal2] = useState({ show: false });
-
-  const closeNewModal = () => {
-    SetModal2({ show: false });
-  };
+  const [showAction, setShowAction] = useState(false)
   const showNewModal = () => {
-    SetModal2({ show: true });
-    console.log("Action Modal");
-  };
+    console.log('action clicked')
+    setShowAction(!showAction)
+  }
 
   const frameworkComponents = {
     gridButton: Button,
@@ -40,6 +29,7 @@ export default function AgGridTable() {
     {
       headerName: "ID",
       field: "ID",
+      width: 100,
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -48,11 +38,15 @@ export default function AgGridTable() {
         fontSize: "15px",
         color: "#000",
       },
+      style: {
+        width: '10px',
+        border: '1px solid black !important'
+      }
     },
 
     {
-      headerName: "Checklist",
-      field: "ChecklistName",
+      headerName: "Title",
+      field: "ReasonCodeTitle",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -97,12 +91,12 @@ export default function AgGridTable() {
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        onClick: showNewModal,
         style: {
           width: "80px",
           height: "40px",
           backgroundColor: "#01396b !important",
         },
+        onClick: () => showNewModal(),
       },
       cellStyle: {
         color: "#000",
@@ -111,18 +105,14 @@ export default function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
+        // paddingTop: "5px",
+        // paddingBottom: "5px",
       },
     },
   ];
 
   return (
-    <div className="main-dashboard-table">
-      <ActionModal
-        show={ModalData2.show}
-        modalClosed={() => {
-          closeNewModal();
-        }}
-      />
+    <div className="reasoncode-table">
       <AgGrid
         rowData={data}
         columnData={contentData}
@@ -136,6 +126,9 @@ export default function AgGridTable() {
           color: "#000",
         }}
       />
+      {showAction && <ActionButtonModal />}
     </div>
   );
 }
+
+export default AgGridTable;

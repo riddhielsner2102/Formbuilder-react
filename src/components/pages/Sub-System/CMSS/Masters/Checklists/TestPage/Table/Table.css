@@ -1,38 +1,42 @@
-.main-dashboard-table .ag-theme-alpine {
+.main-test-table .ag-theme-alpine {
   background-color: #f5f5f5;
 }
 
-.main-dashboard-table .ag-theme-alpine .ag-header-cell,
+.main-test-table .ag-theme-alpine .ag-header-cell,
 .ag-theme-alpine .ag-header-group-cell {
-  background-color: white;
+  background-color: whitesmoke;
   color: black;
   font-size: 15px;
 }
 
-.main-dashboard-table .ag-theme-alpine .ag-root-wrapper {
+.main-test-table .ag-theme-alpine .ag-root-wrapper {
   border-radius: 15px;
   margin-top: -3.5%;
 }
 
-.main-dashboard-table .ag-theme-alpine [class^="ag-"],
+.main-test-table .ag-theme-alpine [class^="ag-"],
 .ag-theme-alpine [class^="ag-"]:focus,
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
   border-color: #fff;
 }
 
-.main-dashboard-table .ag-row {
+.main-test-table .ag-row {
   height: 54px !important;
 }
 
-.main-dashboard-table .ag-row-position-absolute {
+.main-test-table .ag-row-position-absolute {
   position: relative;
 }
 
-.main-dashboard-table
+.main-test-table
   .MuiButtonBase-root
   .MuiButton-root
   .MuiButton-contained
   .makeStyles-button-111 {
   height: 39px;
 }
+
+/* .main-test-table .ag-root.ag-layout-normal {
+  margin-top: 127px;
+} */

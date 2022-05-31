@@ -3,24 +3,18 @@ import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState, useEffect } from "react";
 import ActionModal from "./ActionModal";
-import {
-  PrepareRequest,
-  requests,
-} from "../../../../../../../Service/getRequests";
+import { PrepareRequest, requests } from "../../../../../Service/getRequests";
 
-export default function AgGridTable() {
+function AgGridTable() {
   const [data, setdata] = useState([]);
 
   useEffect(async () => {
     const UserID = sessionStorage.getItem("UserID");
-    const URL = `${requests.getMasterChecklists}?UserID=${UserID}&AppID=13`;
+    const URL = `${requests.getPermissionTemplate}?UserID=${UserID}&AppID=13`;
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
-    setdata(response.data);
+    console.log("response", response.data.lstModelTemplatePermission);
+    setdata(response.data.lstModelTemplatePermission);
   }, []);
-  useEffect(() => {
-    console.log("data", data);
-  }, [data]);
 
   const [ModalData2, SetModal2] = useState({ show: false });
 
@@ -39,7 +33,7 @@ export default function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "ID",
+      field: "TemplateID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -51,8 +45,8 @@ export default function AgGridTable() {
     },
 
     {
-      headerName: "Checklist",
-      field: "ChecklistName",
+      headerName: "Template",
+      field: "TemplateTitle",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -106,7 +100,6 @@ export default function AgGridTable() {
       },
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -116,7 +109,7 @@ export default function AgGridTable() {
   ];
 
   return (
-    <div className="main-dashboard-table">
+    <div className="main-table">
       <ActionModal
         show={ModalData2.show}
         modalClosed={() => {
@@ -139,3 +132,5 @@ export default function AgGridTable() {
     </div>
   );
 }
+
+export default AgGridTable;
