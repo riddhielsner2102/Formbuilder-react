@@ -4,8 +4,8 @@ import Message from "../../../../../../ReusableComp/Message/Message";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
 import ActionButtonModal from "../AgGridTable/ActionButtonModal";
+import Edititemmodal from "../Modal/EditItemmodal";
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
-
 function AgGridTable(props) {
   const [data, setdata] = useState([])
   const [showmessage, setshowmessage] = useState(false)
@@ -15,8 +15,7 @@ function AgGridTable(props) {
       const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
       const response = await PrepareRequest(URL);
       setdata(response.data.lstModelItemRepository)
-
-    } else {
+} else {
       const UserID = getSessionStorage('UserID')
       const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
       const response = await PrepareRequest(URL);
@@ -37,12 +36,66 @@ function AgGridTable(props) {
     }
   }, [data])
 
+  const formBuilderData = () => {
+    return {
+      Sheet: [
+        {
+          id: 1,
+          Header: 1,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+        {
+          id: 2,
+          Header: 2,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+        {
+          id: 3,
+          Header: 3,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+        {
+          id: 4,
+          Header: 4,
+          Checklist: "",
+          CreatedBy: "",
+          CreatedOn: "",
+          Action: "",
+        },
+      ],
+    };
+  };
+
+  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
+    return {
+      id: ele.id,
+      Header: ele.Header,
+      Checklist: ele.Checklist,
+      CreatedBy: ele.CreatedBy,
+      CreatedOn: ele.CreatedOn,
+      Action: ele.Action,
+    };
+  });
+
   const [showAction, setShowAction] = useState(false)
   const showNewModal = () => {
     console.log('action clicked')
     setShowAction(!showAction)
   }
+  const [ModalData2, SetModal2] = useState({ show: false });
 
+  const closeNewModal = () => {
+    SetModal2({ show: false });
+  };
   const frameworkComponents = {
     gridButton: Button,
   };
@@ -139,15 +192,18 @@ function AgGridTable(props) {
       },
     },
   ];
+  const[edit,setedit]=useState(false)
+  const[editdata,seteditdata]=useState([])
   const someHandler = (e) => {
-    
+    setedit(true)
+    seteditdata(e.data)
      console.log(e.data,"index") 
       };
 
 
 
   return (
-    <div className="itemrepo-table">
+    <div className="itemrepo-table">     
       <AgGrid
         rowData={data}
         columnData={contentData}
@@ -162,8 +218,14 @@ function AgGridTable(props) {
           color: "#000",
         }}
       />
-      {showAction && <ActionButtonModal />}
-      {showmessage && <Message setshowmessage={setshowmessage} />}
+     {/* <ActionButtonModal
+      show={ModalData2.show}
+      modalClosed={() => {
+        closeNewModal();
+      }}
+      />  */}
+          {edit && <Message setedit={setedit} seteditdata={seteditdata} editdata={editdata}/>}
+      {/* {edit && <Message setshowmessage={setshowmessage} setedit={setedit} />} */}
     </div>
   );
 }

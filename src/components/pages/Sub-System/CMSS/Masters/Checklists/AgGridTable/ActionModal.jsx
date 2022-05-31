@@ -25,12 +25,12 @@ export default function ActionModal(props) {
   return (
     <React.Fragment>
       <Backdrop show={props.show} clicked={props.modalClosed} />
-      <Template
+      {/* <Template
         show={ModalData2.show}
         modalClosed={() => {
           closeNewModal();
         }}
-      />
+      /> */}
       <div
         className={classes.Modal}
         style={{
