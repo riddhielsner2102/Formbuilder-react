@@ -4,8 +4,8 @@ import classes from "./ConfirmMessage.module.css";
 // import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import { Button, Label } from "arms_v2.8_webui";
-import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
-import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+import Backdrop from "../Backdrop";
+// import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 
 // import { calendarPickerClasses } from "@mui/lab";
 
