@@ -79,12 +79,12 @@ function Itemmodal(props) {
             <div
                 className={classes.Modal}
                 style={{
-                    transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+                    transform: props.show ? "scale(1) translate(20%,7%)" : "scale(0) translate(0,0)",
                     opcaity: props.show ? "1" : "0",
                     minWidth: "500px",
                     // height: "400px",
-                    minHeight:"250px",
-                    maxHeight:"400px",
+                    minHeight:"300px",
+                    
                     overflow: "scroll"
                 }}
             >
@@ -93,7 +93,7 @@ function Itemmodal(props) {
                         style={{
                             backgroundColor: "#0F243E",
                             color: "white",
-                            height: "30px",
+                            height: "60px",
                             display: "flex",
                             padding: "15px",
                             marginTop: "10px",
@@ -127,11 +127,13 @@ function Itemmodal(props) {
                             />
                         </div>
                     </Row>
+                    <div className="data-holder" style={{minHeight:"200px",overflowX:"auto"}}>
                     <Row style={{ display: "flex", justifyContent: "space-around", alignItems: "center", marginLeft: "10px", marginRight: "10px", marginTop: "10px", border: "1px solid black", padding: "10px" }}>
                         <Col style={{ borderRight: "1px solid black", textAlign: "start", width: "50%" }}>Title</Col>
                         <Col style={{ borderRight: "1px solid black", width: "20%" }}>Is Active</Col>
                         <Col style={{ border: "0px solid black", width: "30%" }}>Actions</Col>
                     </Row>
+ 
                     {formValues.map((element, index) => {
                         return (
                             <>
@@ -168,6 +170,8 @@ function Itemmodal(props) {
 
                     {error ? <p style={{ color: "red", textAlign: "left", margin: "5px", fontWeight: "bold" }}>Please Enter A title</p> : ""}
 
+                    </div>
+                   
 
                 </Container>
                 <Button

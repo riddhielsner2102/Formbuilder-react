@@ -12,3 +12,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@media screen and (max-width:1199px){
+  
+}
+@media screen and (max-width:991px){
+  
+}
+@media screen and (max-width:767px){
+  .header-main{
+    flex-wrap: wrap;
+  }
+  .header-main div{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    font-size: 14px !important  ;
+  } 
+  .makeStyles-style-193 .MuiInputBase-root {
+    margin: 10px;
+  }
+  .list-item{
+    justify-content: center !important;
+    font-size: 14px !important;
+  }
+  .search-menu .makeStyles-style-37 .MuiInputBase-root{
+    margin: 10px;
+  }
+}
+@media screen and (max-width:575px){
+  
+}

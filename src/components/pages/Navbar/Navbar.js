@@ -4,11 +4,12 @@ import FilterVintageIcon from "@mui/icons-material/FilterVintage";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import IconButton from "@mui/material/IconButton";
 import { Input, Button } from "arms_v2.8_webui";
+import { display } from "@mui/system";
 
 const Navbar = (props) => {
   return (
     <React.Fragment>
-      <div
+      <div className="header-main"
         style={{
           display: "flex",
           flexDirection: "row", 
@@ -16,11 +17,10 @@ const Navbar = (props) => {
           padding: "22px 20px 35px",
           alignItems:"center",
           backgroundColor: "#01396b",
-          className: "header-main",
           // width: "100%",
         }}
       >
-        <div
+        <div className="list-item"
           style={{
             color: "#fff",
             display: "flex",
@@ -37,7 +37,7 @@ const Navbar = (props) => {
             {props.title}
           </font>
         </div>
-        <div>
+        <div className="list-item">
           <font
             style={{
               color: "#fff",
@@ -51,7 +51,9 @@ const Navbar = (props) => {
           </font>
         </div>
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
-          <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
+          <div className="search-icon" style={{display:"flex !important"}}>
+          <SearchOutlinedIcon className="search-icon" style={{ backgroundColor: "#01396b", display:"flex !important" }} /></div>
+          <div className="search-menu" style={{display:"inline-block"}}>
           <Input
             placeHolder="Search Template"
             style={{
@@ -62,8 +64,10 @@ const Navbar = (props) => {
               // border: "none",
               outline: "none",
               borderRadius: "0px 30px 30px 0px",
+
             }}
           />
+          </div>
         </div>
         <div>
           <Button

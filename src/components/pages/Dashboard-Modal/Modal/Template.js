@@ -72,8 +72,9 @@ class Template extends Component {
                       ? "translateY(0)"
                       : "translateY(-150vh)",
                     opcaity: this.props.show ? "1" : "0",
-                    marginLeft: "440px",
-                    marginTop: "2px",
+                    marginLeft: "320px",
+                    fontWeight: "bolder",
+                    marginTop:"2px",
                     fontSize: "20px",
                     cursor: "pointer",
                   }}

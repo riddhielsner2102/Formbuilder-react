@@ -16,18 +16,18 @@ const Checklistdashboard = () => {
   };
   return (
     <React.Fragment>
-      <div
-        style={{
+      <div className="header-main"
+         style={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "row", 
           justifyContent: "space-between",
-          padding: "30px 30px 70px 30px",
+          padding: "22px 20px 35px",
+          alignItems:"center",
           backgroundColor: "#01396b",
-          className: "header-main",
           // width: "100%",
         }}
       >
-        <div
+        <div className="list-item"
           style={{
             color: "#fff",
             display: "flex",
@@ -41,7 +41,7 @@ const Checklistdashboard = () => {
             Checklists
           </font>
         </div>
-        <div>
+        <div className="list-item">
           <font
             style={{
               color: "#fff",
@@ -54,8 +54,10 @@ const Checklistdashboard = () => {
             Module: CMSS
           </font>
         </div>
-        <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
+        <div  style={{ color: "#fff",display:"flex", backgroundColor: "#01396b" }}>
+          <div className="search-icon" style={{display:"flex !important"}}>
           <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
+          </div>
           <Input
             placeHolder="     Search Checklists"
             style={{

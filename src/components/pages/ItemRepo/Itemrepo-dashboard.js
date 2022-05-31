@@ -18,14 +18,14 @@ console.log(Itemdata!==undefined && JSON?.parse(Itemdata),"Itemdata");
   };
   return (
     <React.Fragment>
-    <div
+    <div className="header-main"
       style={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "row", 
         justifyContent: "space-between",
-        padding: "30px 30px 70px 30px",
+        padding: "22px 20px 35px",
+        alignItems:"center",
         backgroundColor: "#01396b",
-        className: "header-main",
         // width: "100%",
       }}
     >
@@ -44,17 +44,22 @@ console.log(Itemdata!==undefined && JSON?.parse(Itemdata),"Itemdata");
         </font>
       </div>
       <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
+      
+        <div className="search-menu" style={{display:"flex",alignItem:"center"}}>
         <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
-        <Input
+        <Input 
           placeHolder="Search Template"
           style={{
             backgroundColor: "#fff",
-            width: "300px",
+             padding: "0 16px",
+            width: "200px",
+            height:"23px",
             // border: "none",
             outline: "none",
             borderRadius: "0px 30px 30px 0px",
           }}
         />
+        </div>
         {/* <CheckBox iconType="tick" /> */}
       </div>
       <Itemmodal
