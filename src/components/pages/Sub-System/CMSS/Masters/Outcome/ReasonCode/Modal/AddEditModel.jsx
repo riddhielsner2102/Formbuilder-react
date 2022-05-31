@@ -3,7 +3,7 @@ import classes from "./AddEditModel.module.css";
 import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close } from "arms_v2.8_webui";
-import { PrepareRequest, requests } from "../../../../../../../../Service/postRequests";
+import { PostRequest, postapis } from "../../../../../../../../Service/postRequests";
 
 function AddEditModel(props) {
   const UserID = sessionStorage.getItem('UserID')
@@ -16,8 +16,8 @@ function AddEditModel(props) {
 
   const SaveData = () => {
     console.log('dataObject', dataObject)
-    const URL = `${requests.postMasterReasonCode}`
-    PrepareRequest(URL, dataObject);
+    const URL = `${postapis.postMasterReasonCode}`
+    PostRequest(URL, dataObject);
     props.modalClosed()
   }
 
