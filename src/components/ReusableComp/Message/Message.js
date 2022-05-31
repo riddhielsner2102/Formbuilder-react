@@ -139,17 +139,24 @@
 // export default Message;
 
 // import React, {  } from "react";
+// <<<<<<< HEAD
+// import React from "react";
+// import classes from "./Message.module.css";
+// import { Container, Row } from "react-bootstrap";
+// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+// import { Button, Label } from "arms_v2.8_webui";
+// import Backdrop from "../Backdrop";
+
 import React, { useState } from "react";
 import classes from "./Message.module.css";
-// import Backdrop from "../../components/Backdrop";
-// import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { Input, Close, ComboBox, CheckBox } from "arms_v2.8_webui";
+// import Icon from "@mui/icons-material";
 import { Button, Label } from "arms_v2.8_webui";
-import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
-import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
-// import backdrop from "../../pages/Sub-System/CMSS/Masters/General_Item_Dashboard/Modal/Backdrop";
+// import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+import Backdrop from "../Backdrop";
+import IconButton from "@mui/material/IconButton";
 
 // class Formmessage extends Component {
 //   render() {
@@ -165,7 +172,7 @@ function Message({ setedit, seteditdata, editdata }) {
   //   handleClose();
   // };
   return (
-    <Aux>
+    <>
       <Backdrop
       //  show={props.flag} 
       //  clicked={props.handleClose} 
@@ -204,7 +211,6 @@ function Message({ setedit, seteditdata, editdata }) {
                   color: "#fff",
                   textAlign: "left",
                   letterSpacing: 0,
-                  // marginTop: "2px",
                   height: "100%",
                   font: "497 18px/32px Muli, Helvetica Neue, Arial, sans-serif",
                 }}
@@ -257,14 +263,12 @@ function Message({ setedit, seteditdata, editdata }) {
               style={{
                 textAlignLast: "center",
                 fontFamily: "Muli, Helvetica, Neue Arial ,sansSerif",
-                // fontWeight: "bolder",
                 color: "black",
                 textAlign: "left",
                 letterSpacing: 0,
                 marginTop: "2px",
                 fontSize: "18px",
               }}
-              s
             />
           </div>
           <Button
@@ -291,10 +295,8 @@ function Message({ setedit, seteditdata, editdata }) {
           />
         </div>
       </Container>
-    </Aux>
+    </>
   );
 }
-//   }
-// }
 
 export default Message;

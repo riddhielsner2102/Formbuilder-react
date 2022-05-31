@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./ActionModal.module.css";
-import Backdrop from "../Modal/Backdrop";
+import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
@@ -9,7 +9,6 @@ import Template from "../Modal/Template";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
 import Tooltip from "@mui/material/Tooltip";
-import TestPage from "../TestPage/TestPage";
 
 export default function ActionModal(props) {
   const [ModalData2, SetModal2] = useState({ show: false });
@@ -38,18 +37,9 @@ export default function ActionModal(props) {
           opcaity: props.show ? "1" : "0",
         }}
       >
-        <Container
-          className={[classes.divDow].join(" ")}
-          style={{
-            padding: "0px",
-            marginTop: "10%",
-            display: "flex",
-            justifyContent: "space-between",
-            cursor: "pointer",
-          }}
-        >
+        <Container className={[classes.divDow].join(" ")}>
           <Tooltip title="List Checklist" placement="right">
-            <IconButton onClick={<TestPage />}>
+            <IconButton>
               <FormatListBulletedOutlinedIcon />
             </IconButton>
           </Tooltip>

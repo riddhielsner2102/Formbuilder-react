@@ -6,13 +6,12 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined";
 import Avatar from "@mui/material/Avatar";
-
 import "./Header.css";
 import Permission from "./Permission/Permission";
 import { useNavigate } from "react-router-dom";
 import Button from "./button";
 
-function Header(props) {
+export default function Header(props) {
   const node = useRef();
   const navigate = useNavigate();
 
@@ -119,5 +118,3 @@ function Header(props) {
     </Container>
   );
 }
-
-export default Header;

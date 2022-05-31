@@ -32,56 +32,6 @@ export default function AgGridTable() {
     console.log("Action Modal");
   };
 
-  // const formBuilderData = () => {
-  //   return {
-  //     Sheet: [
-  //       {
-  //         id: 1,
-  //         Header: 1,
-  //         Checklist: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //       {
-  //         id: 2,
-  //         Header: 2,
-  //         Checklist: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //       {
-  //         id: 3,
-  //         Header: 3,
-  //         Checklist: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //       {
-  //         id: 4,
-  //         Header: 4,
-  //         Checklist: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //     ],
-  //   };
-  // };
-
-  // const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-  //   return {
-  //     id: ele.id,
-  //     Header: ele.Header,
-  //     Checklist: ele.Checklist,
-  //     CreatedBy: ele.CreatedBy,
-  //     CreatedOn: ele.CreatedOn,
-  //     Action: ele.Action,
-  //   };
-  // });
-
   const frameworkComponents = {
     gridButton: Button,
   };
@@ -161,8 +111,6 @@ export default function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
       },
     },
   ];

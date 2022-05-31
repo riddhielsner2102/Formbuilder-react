@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FilterVintageIcon from "@mui/icons-material/FilterVintage";
-import Navbar from "../../../../Navbar/Navbar";
+import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
 // import Template from "./Modal/Template";
 import Itemmodal from "./Modal/ItemrepoModal";
 

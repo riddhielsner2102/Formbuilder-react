@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./ActionButtonModal.css";
-import Backdrop from "../Modal/Backdrop";
+import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
@@ -36,8 +36,8 @@ export default function ActionModal(props) {
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           // transform: props.show ? "translate(0)" : "translate(219vh, -90vh)",
           opcaity: props.show ? "1" : "0",
-          width: '160px',
-          backgroundColor: '#fff !important'
+          width: "160px",
+          backgroundColor: "#fff !important",
         }}
       >
         <Container
@@ -46,19 +46,20 @@ export default function ActionModal(props) {
             display: "flex",
             justifyContent: "space-between",
             cursor: "pointer",
-            width: '160px',
-            height: '56px',
-            padding: '8px 0',
-            backgroundColor: 'white',
+            width: "160px",
+            height: "56px",
+            padding: "8px 0",
+            backgroundColor: "white",
           }}
         >
           <Tooltip title="List Reason Code" placement="right">
-            <IconButton sx={{ height: '40px', width: '40px' }}>
+            <IconButton sx={{ height: "40px", width: "40px" }}>
               <FormatListBulletedOutlinedIcon />
             </IconButton>
           </Tooltip>
           <Tooltip title="Edit Reason Code" placement="right">
-            <IconButton sx={{ height: '40px', width: '40px' }}
+            <IconButton
+              sx={{ height: "40px", width: "40px" }}
               onClick={() => {
                 showNewModal();
               }}
@@ -67,12 +68,12 @@ export default function ActionModal(props) {
             </IconButton>
           </Tooltip>
           <Tooltip title="Copy Reason Code" placement="right">
-            <IconButton sx={{ height: '40px', width: '40px' }}>
+            <IconButton sx={{ height: "40px", width: "40px" }}>
               <CopyrightOutlinedIcon />
             </IconButton>
           </Tooltip>
           <Tooltip title="Delete Reason Code" placement="left">
-            <IconButton sx={{ height: '40px', width: '40px' }}>
+            <IconButton sx={{ height: "40px", width: "40px" }}>
               <DeleteOutlineOutlinedIcon />
             </IconButton>
           </Tooltip>
