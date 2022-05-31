@@ -31,11 +31,12 @@ const requests = {
   postMasterMultiGeneralRepository: `/PostMasterMultiGeneralRepository`,
   postMasterGeneralItemDashboard: `/PostMasterGeneralItemDashboard`,
   postPermissionTemplate: `/PostPermissionTemplate`,
-  values:`/Values`
+  values:`/Values`,
+  PostMasterMultipleItemRepository:`/PostMasterMultipleItemRepository`
 };
 
-async function PrepareRequest(path) {
-  let response = await axios.post(`${path}`);
+async function PrepareRequest(path,payload) {
+  let response = await axios.post(`${path}`,payload);
   return response;
 }
 

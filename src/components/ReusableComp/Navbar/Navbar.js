@@ -102,6 +102,7 @@ const Navbar = (props) => {
             <Button
               text={props.buttonText2}
               onClick={props.onClicked}
+              // disabled={props.disable}
               style={{
                 backgroundColor: "#fff !important",
                 color: "#01396b",

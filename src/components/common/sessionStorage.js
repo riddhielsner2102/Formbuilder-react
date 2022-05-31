@@ -10,3 +10,28 @@ const userSessionStorage = (data) => {
 }
 
 export {userSessionStorage}
+
+
+
+export const getSessionStorage = (key, defaultValue = '') => {
+  if (typeof window !== "undefined") {
+    const stored = sessionStorage.getItem(key);
+    if (!stored) {
+      return defaultValue;
+    }
+    return JSON.parse(stored);
+  }
+  return defaultValue;
+};
+
+// export const setSessionStorage = (key, value) => {
+//   if (typeof window !== "undefined") {
+//     sessionStorage.setItem(key, JSON.stringify(value));
+//   }
+// };
+
+export const deleteSessionStorage = (key) => {
+  if (typeof window !== "undefined") {
+    sessionStorage.removeItem(key);
+  }
+};
