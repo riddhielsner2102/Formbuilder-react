@@ -4,9 +4,10 @@ import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
 // import Template from "./Modal/Template";
 import Itemmodal from "./Modal/ItemrepoModal";
 
-function ChecklistDashboard() {
+function ChecklistDashboard(props) {
   const [ModalData2, SetModal2] = useState({ show: false });
-  const [Itemdata, SetItemdata] = useState();
+  const[Itemdata,SetItemdata]=useState()
+  // const [disable,setdisable]=useState(false)
   console.log(Itemdata);
 
   const closeNewModal = () => {
@@ -24,6 +25,9 @@ function ChecklistDashboard() {
         modalClosed={() => {
           closeNewModal();
         }}
+        setdisable={props.setdisable}
+        SetModal2={SetModal2}
+        setclosed={props.setclosed}
         SetItemdata={SetItemdata}
       />
       <Navbar
@@ -34,6 +38,7 @@ function ChecklistDashboard() {
         onClick={() => {
           showNewModal();
         }}
+        disable={props.disable}
       />
     </>
   );

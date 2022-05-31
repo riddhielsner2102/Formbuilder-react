@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import classes from "./ActionModal.module.css";
+import classes from "./ActionButtonModal.module.css";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import IconButton from "@mui/material/IconButton";
-import Template from "../Modal/Template";
+// import Template from "../Modal/Template";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
 import Tooltip from "@mui/material/Tooltip";
+// import TestPage from "../TestPage/TestPage";
 
-export default function ActionModal(props) {
+export default function ActionButtonModal(props) {
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -37,11 +38,20 @@ export default function ActionModal(props) {
           opcaity: props.show ? "1" : "0",
         }}
       >
-        <Container className={[classes.divDow].join(" ")}>
+        <Container
+          className={[classes.divDow].join(" ")}
+          style={{
+            padding: "0px",
+            marginTop: "10%",
+            display: "flex",
+            justifyContent: "space-between",
+            cursor: "pointer",
+          }}
+        >
           <Tooltip title="List Checklist" placement="right">
-            <IconButton>
+            {/* <IconButton onClick={<TestPage />}>
               <FormatListBulletedOutlinedIcon />
-            </IconButton>
+            </IconButton> */}
           </Tooltip>
           <Tooltip title="Edit Checklist" placement="right">
             <IconButton
