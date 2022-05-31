@@ -12,12 +12,9 @@ function AgGridTable() {
     const UserID = sessionStorage.getItem("UserID");
     const URL = `${requests.getPermissionTemplate}?UserID=${UserID}&AppID=13`;
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
-    setdata(response.data);
+    console.log("response", response.data.lstModelTemplatePermission);
+    setdata(response.data.lstModelTemplatePermission);
   }, []);
-  useEffect(() => {
-    console.log("data", data);
-  }, [data]);
 
   const [ModalData2, SetModal2] = useState({ show: false });
 
@@ -28,32 +25,6 @@ function AgGridTable() {
     SetModal2({ show: true });
     console.log("Action Modal");
   };
-
-  // const formBuilderData = () => {
-  //   return {
-  //     Sheet: [
-  //       {
-  //         id: 1,
-  //         Header: 1,
-  //         Template: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //     ],
-  //   };
-  // };
-
-  // const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-  //   return {
-  //     id: ele.id,
-  //     Header: ele.Header,
-  //     Template: ele.Template,
-  //     CreatedBy: ele.CreatedBy,
-  //     CreatedOn: ele.CreatedOn,
-  //     Action: ele.Action,
-  //   };
-  // });
 
   const frameworkComponents = {
     gridButton: Button,
@@ -133,8 +104,6 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
       },
     },
   ];

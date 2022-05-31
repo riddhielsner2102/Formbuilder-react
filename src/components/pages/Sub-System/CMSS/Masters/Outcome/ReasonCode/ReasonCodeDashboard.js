@@ -1,12 +1,12 @@
 import { useState } from "react";
-import PanToolOutlinedIcon from '@mui/icons-material/PanToolOutlined';
-import Navbar from "../../../../../Navbar/Navbar";
+import PanToolOutlinedIcon from "@mui/icons-material/PanToolOutlined";
+import Navbar from "../../../../../../ReusableComp/Navbar/Navbar";
 import AddEditModel from "./Modal/AddEditModel";
 import Message from "../../../../../../ReusableComp/Message/Message";
 
 function ReasonCodeDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
-  const [showMessage, setShowMessage] = useState(false)
+  const [showMessage, setShowMessage] = useState(false);
 
   const closeNewModal = () => {
     SetModal2({ show: false });

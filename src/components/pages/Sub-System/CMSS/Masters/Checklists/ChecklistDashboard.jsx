@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-import Navbar from "../../../../Navbar/Navbar";
+import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
 import Template from "./Modal/Template";
 
 export default function ChecklistDashboard() {
@@ -24,6 +24,7 @@ export default function ChecklistDashboard() {
       />
       <Navbar
         titleIcon={<CheckCircleOutlineIcon />}
+        searchbar={true}
         title="Checklists"
         secondtitle="Module: CMSS"
         buttonText="ADD"

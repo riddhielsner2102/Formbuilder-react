@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../../ReusableComp/Navbar/Navbar";
 import Template from "./Modal/Template";
 
 function PermissionTemplateDashboard() {
@@ -24,6 +24,7 @@ function PermissionTemplateDashboard() {
       />
       <Navbar
         titleIcon={<FilterVintageOutlinedIcon />}
+        searchbar={true}
         title="Permission Templates"
         buttonText="ADD"
         onClick={() => {

@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import classes from "./Permission.module.css";
-import Backdrop from "../../Dashboard-Modal/components/Backdrop";
+import Backdrop from "../../Backdrop";
 import { Container, Row } from "react-bootstrap";
 import { Close, Input } from "arms_v2.8_webui";
-import Aux from "../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 
 export default class Permission extends Component {
   render() {
     return (
-      <Aux>
+      <>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
         <Container
           className={classes.Item}
@@ -74,7 +73,7 @@ export default class Permission extends Component {
             </div>
           </div>
         </Container>
-      </Aux>
+      </>
     );
   }
 }

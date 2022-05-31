@@ -3,7 +3,7 @@ import { useState } from "react";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 // import Navbar from "../../../../Navbar/Navbar";
 import Template from "./Modal/Template";
-import Navbar from "../../../../Navbar/Navbar";
+import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
 import Message from "../../../../../ReusableComp/Message/Message";
 // import Template from "../../../../Dashboard-Modal/Modal/Template";
 

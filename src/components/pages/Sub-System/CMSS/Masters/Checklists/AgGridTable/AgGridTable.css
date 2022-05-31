@@ -21,9 +21,13 @@
   border-color: #fff;
 }
 
-/* .main-dashboard-table .ag-row {
-  height: 60px !important;
-} */
+.main-dashboard-table .ag-row {
+  height: 54px !important;
+}
+
+.main-dashboard-table .ag-row-position-absolute {
+  position: relative;
+}
 
 .main-dashboard-table
   .MuiButtonBase-root

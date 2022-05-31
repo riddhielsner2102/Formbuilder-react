@@ -1,44 +1,19 @@
-// import React, {  } from "react";
-import React, { useState } from "react";
+import React from "react";
 import classes from "./Message.module.css";
-// import Backdrop from "../../components/Backdrop";
-// import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-
 import { Button, Label } from "arms_v2.8_webui";
-import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
-import Backdrop from "../../pages/Dashboard-Modal/components/Backdrop";
-// import backdrop from "../../pages/Sub-System/CMSS/Masters/General_Item_Dashboard/Modal/Backdrop";
+import Backdrop from "../Backdrop";
 
-// class Formmessage extends Component {
-//   render() {
 function Message(props) {
-  // const [show, setShow] = useState(false);
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-
-  // const onLoginFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   handleClose();
-  // };
   return (
-    <Aux>
+    <>
       <Backdrop show={props.flag} clicked={props.handleClose} />
-      <Container
-        className={classes.Mod}
-        // style={{
-        //   transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
-        //   opcaity: this.props.show ? "1" : "0",
-        //   minWidth: "100px",
-        // }}
-      >
+      <Container className={classes.Mod}>
         <div
           className={[classes.divDow].join(" ")}
           style={{
             height: "200px",
-            // padding: "10px",
             margin: "0px",
             width: "100%",
             maxWidth: "80vw",
@@ -60,7 +35,6 @@ function Message(props) {
                   color: "#fff",
                   textAlign: "left",
                   letterSpacing: 0,
-                  // marginTop: "2px",
                   height: "100%",
                   font: "497 18px/32px Muli, Helvetica Neue, Arial, sans-serif",
                 }}
@@ -92,7 +66,6 @@ function Message(props) {
               style={{
                 textAlignLast: "center",
                 fontFamily: "Muli, Helvetica, Neue Arial ,sansSerif",
-                // fontWeight: "bolder",
                 color: "black",
                 textAlign: "left",
                 letterSpacing: 0,
@@ -106,7 +79,6 @@ function Message(props) {
           <>
             <Button
               text="OK"
-              // onClick={this.props.modalClosed}
               onClick={props.handleClose}
               style={{
                 backgroundColor: "#01396b !important",
@@ -117,8 +89,6 @@ function Message(props) {
                 verticalAlign: "baseline",
                 textAlign: "center",
                 margin: 0,
-                // minWidth: "64px",
-                // lineHeight: "40px",
                 height: "40px",
                 width: "65px",
                 padding: "0 20px",
@@ -129,10 +99,8 @@ function Message(props) {
           </>
         </div>
       </Container>
-    </Aux>
+    </>
   );
 }
-//   }
-// }
 
 export default Message;

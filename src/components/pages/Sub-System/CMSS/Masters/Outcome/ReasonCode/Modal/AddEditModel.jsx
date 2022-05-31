@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import classes from "./AddEditModel.module.css";
-import Backdrop from "./Backdrop";
+import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close } from "arms_v2.8_webui";
 
 class AddEditModel extends Component {
-
   render() {
     return (
       <>
@@ -23,7 +22,7 @@ class AddEditModel extends Component {
             style={{
               padding: "0px",
               margin: "0px",
-              width: '100%'
+              width: "100%",
             }}
           >
             <Row
@@ -35,12 +34,14 @@ class AddEditModel extends Component {
                 boxSizing: "none",
               }}
             >
-              <div style={{
-                display: "flex",
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                height: '100%'
-              }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <h3
                   style={{
                     color: "#fff",
@@ -70,18 +71,18 @@ class AddEditModel extends Component {
             </Row>
             <Row>
               <Col xs={12}>
-                <Row style={{ padding: '16px' }}>
+                <Row style={{ padding: "16px" }}>
                   <Col xs={12} style={{ margin: "4px 0" }}>
                     <Input
                       placeHolder="Title *"
                       style={{
-                        width: '100%',
+                        width: "100%",
                         height: "64px",
                         border: "1px solid lightgray",
                         textAlign: "left",
                         fontSize: "14px",
-                        padding: '0 12px',
-                        borderRadius: '12px'
+                        padding: "0 12px",
+                        borderRadius: "12px",
                       }}
                     />
                   </Col>
@@ -90,9 +91,9 @@ class AddEditModel extends Component {
 
               <Col
                 style={{
-                  padding: '16px',
-                  display: 'flex',
-                  justifyContent: 'end'
+                  padding: "16px",
+                  display: "flex",
+                  justifyContent: "end",
                 }}
               >
                 <Button
