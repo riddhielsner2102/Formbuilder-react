@@ -1,6 +1,6 @@
 import axios from "./axios";
 
-const requests = {
+const postrequests = {
   postDataSourceSetting: `/PostDataSourceSetting`,
   postImportForm: `/PostImportForm`,
   saveOfflineData: `/SaveOfflineData`,
@@ -35,9 +35,9 @@ const requests = {
   PostMasterMultipleItemRepository:`/PostMasterMultipleItemRepository`
 };
 
-async function PrepareRequest(path,payload) {
+async function PostRequest(path,payload) {
   let response = await axios.post(`${path}`,payload);
   return response;
 }
 
-export { requests, PrepareRequest };
+export { postrequests, PostRequest };

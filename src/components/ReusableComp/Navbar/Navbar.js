@@ -57,7 +57,7 @@ const Navbar = (props) => {
             {props.secondtitle}
           </font>
         </div>
-        <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
+        <div className="menu-items" style={{ color: "#fff", backgroundColor: "#01396b" , display:"flex" }}>
           <div className="search-icon" style={{display:"flex !important"}}>
           <SearchOutlinedIcon className="search-icon" style={{ backgroundColor: "#01396b", display:"flex !important" }} /></div>
           <div className="search-menu" style={{display:"inline-block"}}>

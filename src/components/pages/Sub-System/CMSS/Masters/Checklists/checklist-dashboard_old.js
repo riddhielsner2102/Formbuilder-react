@@ -54,7 +54,7 @@ const Checklistdashboard = () => {
             Module: CMSS
           </font>
         </div>
-        <div  style={{ color: "#fff",display:"flex", backgroundColor: "#01396b" }}>
+        <div className="menu-items" style={{ color: "#fff",display:"flex", backgroundColor: "#01396b" }}>
           <div className="search-icon" style={{display:"flex !important"}}>
           <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
           </div>

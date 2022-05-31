@@ -12,12 +12,73 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.add-template {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.add-template .Template_Modal__v0WXL {
+  position: static;
+  transform: translateY(0vh) !important;
+}
+.add-template .Template_Modal__v0WXL {
+  transform: translateY(0vh) !important;
+}
+
+.add-template .Template_Modal__v0WXL .close-button svg{
+  transform: translateY(0px) !important;  
+  margin: 0 !important;
+}
+.simple {
+  min-height: 200px;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+.save-template {
+  padding: 20px 0;
+}
 @media screen and (max-width:1199px){
-  
+  .add-model {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.Template_Modal__Q-WV4 .close-icon svg.MuiSvgIcon-root {
+  transform: translateY(0px) !important;
+  margin: 0px 0 0 150px !important;
+}
+.add-model .Template_Modal__Q-WV4{
+  position:static !important;
+  transform: scale(1) translate(0px, 10px) !important;
+}
+
 }
 @media screen and (max-width:991px){
-  
+  .Template_Modal__Q-WV4{
+    overflow: hidden;
+  }
+  .Template_Modal__Q-WV4 .close-icon svg.MuiSvgIcon-root {
+    transform: translateY(0px) !important;
+    margin: 0px 0 0 160px !important;
+  }
+  .Template_Modal__Q-WV4{
+    top: 50% !important;
+    left: 50% !important;
+  }
 }
 @media screen and (max-width:767px){
   .header-main{
@@ -41,7 +102,37 @@ code {
   .search-menu .makeStyles-style-37 .MuiInputBase-root{
     margin: 10px;
   }
+  .MuiInputBase-root.MuiInput-root.MuiInputBase-formControl.MuiInput-formControl {
+    margin-top: 10px;
+}
+.menu-items .search-icon {
+  width: 30% !important;
+  justify-content:flex-end;
+}
 }
 @media screen and (max-width:575px){
-  
+
+.Template_Modal__Q-WV4 {
+  max-width: 225px !important;
+  transform: scale(1) translate(0px, 10px) !important;
+}
+.save-button.col {
+  margin: 0 !important;
+}
+.close-icon h3 {
+  font-size: 16px;
+}
+.Template_Modal__Q-WV4 .close-icon svg.MuiSvgIcon-root {
+  transform: translateY(0px) !important;
+  margin: 0px 0 0 16px !important;
+}
+.add-template .Template_Modal__v0WXL{
+  min-width:300px !important; 
+}
+.simple .row div {
+  margin-left: 0 !important;
+}
+.save-template button{
+  margin: 0 !important;
+}
 }

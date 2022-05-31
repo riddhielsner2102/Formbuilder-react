@@ -9,6 +9,7 @@ export default class Template extends Component {
     return (
       <React.Fragment>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
+        <div className="add-model">
         <div
           className={classes.Modal}
           style={{
@@ -17,6 +18,7 @@ export default class Template extends Component {
             // minWidth: "353px",
           }}
         >
+          
           <Container
             className={[classes.divDow].join(" ")}
             style={{
@@ -34,7 +36,7 @@ export default class Template extends Component {
                 boxSizing: "none",
               }}
             >
-              <div style={{ display: "flex", alignItems: "space-between" }}>
+              <div className="close-icon" style={{ display: "flex", alignItems: "space-between" }}>
                 <h3
                   style={{
                     color: "#fff",
@@ -127,7 +129,7 @@ export default class Template extends Component {
                 </Row>
               </Col>
 
-              <Col
+              <Col className="save-button"
                 style={{
                   marginTop: "35px",
                   marginLeft: "75%",
@@ -156,7 +158,8 @@ export default class Template extends Component {
               </Col>
             </Row>
           </Container>
-        </div>
+            </div>
+            </div>
       </React.Fragment>
     );
   }
