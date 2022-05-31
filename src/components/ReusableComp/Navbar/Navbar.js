@@ -57,7 +57,6 @@ const Navbar = (props) => {
             {props.secondtitle}
           </font>
         </div>
-<<<<<<< HEAD
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
           <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
           <Input
@@ -93,45 +92,6 @@ const Navbar = (props) => {
             }}
           />
         </div>
-=======
-        {props.searchbar && (
-          <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
-            <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
-            <Input
-              placeHolder={props.placeHolder}
-              style={{
-                backgroundColor: "#fff",
-                width: "300px",
-                // border: "none",
-                outline: "none",
-                borderRadius: "0px 30px 30px 0px",
-              }}
-            />
-          </div>
-        )}
-        {props.buttonText && (
-          <div>
-            <Button
-              text={props.buttonText}
-              onClick={props.onClick}
-              style={{
-                backgroundColor: "#fff !important",
-                color: "#01396b",
-                display: "inline-block",
-                whiteSpace: "nowrap",
-                textDecoration: "none",
-                verticalAlign: "baseline",
-                textAlign: "center",
-                margin: 0,
-                minWidth: "64px",
-                lineHeight: "10px",
-                borderRadius: "4px",
-                overflow: "visible",
-              }}
-            />
-          </div>
-        )}
->>>>>>> 2a58a5c91978edfb8188fdafec78b0c97486fbc3
 
         {props.buttonText2 && (
           <div>

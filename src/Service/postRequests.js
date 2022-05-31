@@ -35,13 +35,8 @@ const postapis = {
   PostMasterMultipleItemRepository:`/PostMasterMultipleItemRepository`
 };
 
-<<<<<<< HEAD
 async function PostRequest(path) {
   let response = await axios.post(`${path}`);
-=======
-async function PrepareRequest(path,payload) {
-  let response = await axios.post(`${path}`,payload);
->>>>>>> 2a58a5c91978edfb8188fdafec78b0c97486fbc3
   return response;
 }
 
