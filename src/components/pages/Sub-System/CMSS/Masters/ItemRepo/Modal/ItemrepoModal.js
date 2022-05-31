@@ -6,7 +6,7 @@ import {
     requests,
     PrepareRequest,
 } from "../../../../../../../Service/postRequests";
-import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+// import Aux from "../../../../../../../components/common/";
 import { Container, Row, Col } from "react-bootstrap";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Input, Button, Close, CheckBox, ComboBox } from "arms_v2.8_webui";
@@ -73,7 +73,7 @@ function Itemmodal(props) {
 
 
     return (
-        <Aux>
+        <>
             <Backdrop show={props.show} clicked={props.modalClosed} />
             <div
                 className={classes.Modal}
@@ -317,7 +317,7 @@ function Itemmodal(props) {
                     }}
                 />
             </div>
-        </Aux>
+        </>
     );
 }
 

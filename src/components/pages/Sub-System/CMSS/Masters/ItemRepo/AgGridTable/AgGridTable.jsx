@@ -42,7 +42,7 @@ function AgGridTable(props) {
         {
           id: 1,
           Header: 1,
-          Checklist: "",
+          ID: "rgrtg",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -50,7 +50,7 @@ function AgGridTable(props) {
         {
           id: 2,
           Header: 2,
-          Checklist: "",
+          ID: "eger",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -58,7 +58,7 @@ function AgGridTable(props) {
         {
           id: 3,
           Header: 3,
-          Checklist: "",
+          ID: "efge",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -66,7 +66,7 @@ function AgGridTable(props) {
         {
           id: 4,
           Header: 4,
-          Checklist: "",
+          ID: "t34t",
           CreatedBy: "",
           CreatedOn: "",
           Action: "",
@@ -79,7 +79,7 @@ function AgGridTable(props) {
     return {
       id: ele.id,
       Header: ele.Header,
-      Checklist: ele.Checklist,
+      ID: ele.ID,
       CreatedBy: ele.CreatedBy,
       CreatedOn: ele.CreatedOn,
       Action: ele.Action,
@@ -205,7 +205,7 @@ function AgGridTable(props) {
   return (
     <div className="itemrepo-table">     
       <AgGrid
-        rowData={data}
+        rowData={newFormBuilder}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
