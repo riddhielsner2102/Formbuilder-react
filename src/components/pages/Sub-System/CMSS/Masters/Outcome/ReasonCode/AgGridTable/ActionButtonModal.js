@@ -9,9 +9,11 @@ import AddEditModel from "../Modal/AddEditModel";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
 import Tooltip from "@mui/material/Tooltip";
+import ConfirmMessage from "../../../../../../../ReusableComp/Message/ConfirmMessage";
 
 export default function ActionModal(props) {
   const [ModalData2, SetModal2] = useState({ show: false });
+  const [deleteFlag, setDeleteFlag] = useState(false)
 
   const closeNewModal = () => {
     SetModal2({ show: false });
@@ -20,6 +22,12 @@ export default function ActionModal(props) {
     SetModal2({ show: true });
     console.log("template Modal");
   };
+  const deleteModel = () => {
+    setDeleteFlag(true)
+  }
+  const deleteModelClose = () => {
+    setDeleteFlag(false)
+  }
 
   return (
     <React.Fragment>
@@ -30,11 +38,16 @@ export default function ActionModal(props) {
           closeNewModal();
         }}
       />
+      {deleteFlag && <ConfirmMessage
+        text='delete'
+        flag={deleteFlag}
+        onCancel={() => deleteModelClose()}
+        onConfirm={() => deleteModelClose()}
+      />}
       <div
-        className={classes.Modal}
+        className="Modal"
         style={{
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
-          // transform: props.show ? "translate(0)" : "translate(219vh, -90vh)",
           opcaity: props.show ? "1" : "0",
           width: "160px",
           backgroundColor: "#fff !important",
@@ -73,7 +86,12 @@ export default function ActionModal(props) {
             </IconButton>
           </Tooltip>
           <Tooltip title="Delete Reason Code" placement="left">
-            <IconButton sx={{ height: "40px", width: "40px" }}>
+            <IconButton
+              sx={{ height: "40px", width: "40px" }}
+              onClick={() => {
+                deleteModel();
+              }}
+            >
               <DeleteOutlineOutlinedIcon />
             </IconButton>
           </Tooltip>

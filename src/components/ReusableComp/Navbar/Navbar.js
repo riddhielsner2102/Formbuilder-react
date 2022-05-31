@@ -60,7 +60,7 @@ const Navbar = (props) => {
           <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
             <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
             <Input
-              placeHolder="     Search Template"
+              placeHolder={props.placeHolder}
               style={{
                 backgroundColor: "#fff",
                 width: "300px",

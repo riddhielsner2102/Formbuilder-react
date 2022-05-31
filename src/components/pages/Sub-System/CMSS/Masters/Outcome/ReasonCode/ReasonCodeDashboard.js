@@ -42,6 +42,8 @@ function ReasonCodeDashboard() {
         onClick={() => {
           showNewModal();
         }}
+        searchbar={true}
+        placeHolder='         Reason code'
       />
     </>
   );

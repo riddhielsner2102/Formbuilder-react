@@ -16,6 +16,7 @@ function AgGridTable() {
   }, [])
 
   const [showAction, setShowAction] = useState(false)
+
   const showNewModal = () => {
     console.log('action clicked')
     setShowAction(!showAction)
@@ -107,6 +108,7 @@ function AgGridTable() {
         fontSize: "20px",
         // paddingTop: "5px",
         // paddingBottom: "5px",
+        position: 'relative'
       },
     },
   ];
@@ -126,7 +128,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
-      {showAction && <ActionButtonModal />}
+      {showAction && <ActionButtonModal show={showAction} modalClosed={() => showNewModal()} />}
     </div>
   );
 }
