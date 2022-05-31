@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./ConfirmMessage.module.css";
-// import Backdrop from "../../components/Backdrop";
-// import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import { Button, Label } from "arms_v2.8_webui";
 import Backdrop from "../Backdrop";
-// import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
-
-// import { calendarPickerClasses } from "@mui/lab";
 
 function ConfirmMessage(props) {
   return (
