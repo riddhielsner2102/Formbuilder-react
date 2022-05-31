@@ -1,10 +1,27 @@
 import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ActionModal from "./ActionModal";
+import {
+  PrepareRequest,
+  requests,
+} from "../../../../../../../Service/getRequests";
 
 export default function AgGridTable() {
+  const [data, setdata] = useState([]);
+
+  useEffect(async () => {
+    const UserID = sessionStorage.getItem("UserID");
+    const URL = `${requests.getMasterChecklists}?UserID=${UserID}&AppID=13`;
+    const response = await PrepareRequest(URL);
+    console.log("response", response.data);
+    setdata(response.data);
+  }, []);
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
+
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -15,32 +32,6 @@ export default function AgGridTable() {
     console.log("Action Modal");
   };
 
-  const formBuilderData = () => {
-    return {
-      Sheet: [
-        {
-          id: 1,
-          Header: 1,
-          Checklist: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-      ],
-    };
-  };
-
-  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-    return {
-      id: ele.id,
-      Header: ele.Header,
-      Checklist: ele.Checklist,
-      CreatedBy: ele.CreatedBy,
-      CreatedOn: ele.CreatedOn,
-      Action: ele.Action,
-    };
-  });
-
   const frameworkComponents = {
     gridButton: Button,
   };
@@ -48,7 +39,7 @@ export default function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "Header",
+      field: "ID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -61,7 +52,7 @@ export default function AgGridTable() {
 
     {
       headerName: "Checklist",
-      field: "Checklist",
+      field: "ChecklistName",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -120,8 +111,6 @@ export default function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
       },
     },
   ];
@@ -135,7 +124,7 @@ export default function AgGridTable() {
         }}
       />
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}

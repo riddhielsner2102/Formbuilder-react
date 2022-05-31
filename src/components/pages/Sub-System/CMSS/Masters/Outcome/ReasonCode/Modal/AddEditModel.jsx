@@ -1,53 +1,57 @@
 import React, { Component } from "react";
-import classes from "./Template.module.css";
-import Backdrop from "../../../../../../ReusableComp/Backdrop";
+import classes from "./AddEditModel.module.css";
+import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
-import { Input, Button, Close, TextArea } from "arms_v2.8_webui";
+import { Input, Button, Close } from "arms_v2.8_webui";
 
-export default class Template extends Component {
+class AddEditModel extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
         <div
           className={classes.Modal}
           style={{
             transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
             opcaity: this.props.show ? "1" : "0",
-            minWidth: "353px",
+            minWidth: "35%",
           }}
         >
           <Container
             className={[classes.divDow].join(" ")}
             style={{
-              height: "400px",
               padding: "0px",
               margin: "0px",
+              width: "100%",
             }}
           >
             <Row
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "50px",
-                display: "flex",
-                padding: "15px",
-                marginTop: "10px",
+                height: "64px",
+                padding: "0 16px",
                 boxSizing: "none",
               }}
             >
-              <div style={{ display: "flex", alignItems: "space-between" }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  height: "100%",
+                }}
+              >
                 <h3
                   style={{
                     color: "#fff",
                     textAlign: "left",
                     letterSpacing: 0,
-                    marginTop: "2px",
-                    fontWeight: 500,
-                    // fontSize: "20px",
+                    fontWeight: 400,
+                    fontSize: "20px",
                   }}
                 >
-                  Master&nbsp;Checklist
+                  Reason&nbsp;Code
                 </h3>
                 <Close
                   onClick={this.props.modalClosed}
@@ -56,7 +60,6 @@ export default class Template extends Component {
                       ? "translateY(0)"
                       : "translateY(-100vh)",
                     opcaity: this.props.show ? "1" : "0",
-                    marginLeft: "370px",
                     color: "#fff",
                     fontWeight: 800,
                     marginTop: "2px",
@@ -66,37 +69,20 @@ export default class Template extends Component {
                 />
               </div>
             </Row>
-            <Row style={{ marginTop: "30px" }}>
+            <Row>
               <Col xs={12}>
-                <Row>
-                  <Col xs={12}>
+                <Row style={{ padding: "16px" }}>
+                  <Col xs={12} style={{ margin: "4px 0" }}>
                     <Input
-                      placeHolder="Checklist Name *"
+                      placeHolder="Title *"
                       style={{
-                        width: "395px",
-                        height: "48px",
-                        border: "1px solid Gray",
-                        marginLeft: "-22px",
+                        width: "100%",
+                        height: "64px",
+                        border: "1px solid lightgray",
                         textAlign: "left",
                         fontSize: "14px",
-                      }}
-                    />
-                  </Col>
-                </Row>
-              </Col>
-              <Col xs={12}>
-                <Row>
-                  <Col
-                    xs={12}
-                    style={{ marginLeft: "-22px", marginTop: "8px" }}
-                  >
-                    <Input
-                      placeHolder="Description"
-                      style={{
-                        width: "395px",
-                        height: "100px",
-                        border: "1px solid Gray",
-                        textAlign: "left",
+                        padding: "0 12px",
+                        borderRadius: "12px",
                       }}
                     />
                   </Col>
@@ -105,8 +91,9 @@ export default class Template extends Component {
 
               <Col
                 style={{
-                  marginTop: "35px",
-                  marginLeft: "75%",
+                  padding: "16px",
+                  display: "flex",
+                  justifyContent: "end",
                 }}
               >
                 <Button
@@ -133,7 +120,9 @@ export default class Template extends Component {
             </Row>
           </Container>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }
+
+export default AddEditModel;

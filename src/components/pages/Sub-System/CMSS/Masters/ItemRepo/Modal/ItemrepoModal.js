@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import classes from "./Template.module.css";
-import Backdrop from "./Backdrop";
+import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import AddIcon from "@mui/icons-material/Add";
 import {
   requests,
   PrepareRequest,
 } from "../../../../../../../Service/getRequests";
-import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+// import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import { Container, Row, Col } from "react-bootstrap";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Input, Button, Close, CheckBox, ComboBox } from "arms_v2.8_webui";
@@ -79,7 +79,7 @@ function Itemmodal(props) {
   };
 
   return (
-    <Aux>
+    <>
       <Backdrop show={props.show} clicked={props.modalClosed} />
       <div
         className={classes.Modal}
@@ -324,7 +324,7 @@ function Itemmodal(props) {
           }}
         />
       </div>
-    </Aux>
+    </>
   );
 }
 

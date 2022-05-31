@@ -4,7 +4,6 @@
   background-color: #fff;
   max-width: 80vw;
   width: 600px;
-  max-height: 100%;
   padding: 0px 15px 0px 15px;
   left: 15%;
   top: 30%;
@@ -13,6 +12,7 @@
   border-radius: 3px;
   box-sizing: border-box;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 1);
+  padding: 24px;
 }
 
 .closeButton {

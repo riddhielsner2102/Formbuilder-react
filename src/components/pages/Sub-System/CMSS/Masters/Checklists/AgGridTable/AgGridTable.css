@@ -22,7 +22,11 @@
 }
 
 .main-dashboard-table .ag-row {
-  height: 60px !important;
+  height: 54px !important;
+}
+
+.main-dashboard-table .ag-row-position-absolute {
+  position: relative;
 }
 
 .main-dashboard-table

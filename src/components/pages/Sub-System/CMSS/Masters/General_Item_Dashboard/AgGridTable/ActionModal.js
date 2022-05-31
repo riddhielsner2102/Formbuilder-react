@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classes from "./ActionModal.module.css";
-import Backdrop from "../../../../../Dashboard-Modal/components/Backdrop";
-import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+import Backdrop from "../../../../../../ReusableComp/Backdrop";
+// import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
@@ -19,7 +19,7 @@ export default function ActionModal(props) {
   //   console.log("template Modal");
   // };
   return (
-    <Aux>
+    <>
       <Backdrop show={props.show} clicked={props.modalClosed} />
       {/* <Template
         show={ModalData2.show}
@@ -28,7 +28,7 @@ export default function ActionModal(props) {
         }}
       /> */}
       <div
-        className={classes.Modal}
+        className={classes.Modals}
         style={{
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           opcaity: props.show ? "1" : "0",
@@ -59,6 +59,6 @@ export default function ActionModal(props) {
           </IconButton>
         </Container>
       </div>
-    </Aux>
+    </>
   );
 }

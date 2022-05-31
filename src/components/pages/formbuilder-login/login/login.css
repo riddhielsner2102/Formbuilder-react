@@ -1,5 +1,5 @@
 #login {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background: url("/src/components/assets/images/backgrounds/dark-material-bg.jpg")
     no-repeat;

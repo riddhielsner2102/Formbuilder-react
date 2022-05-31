@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import "./Sidebar.css";
-import Header from "../header/header";
-import Navbar from "../Navbar/Navbar";
+import Header from "../../ReusableComp/Header/Header";
+import Navbar from "../../ReusableComp/Navbar/Navbar";
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Button } from "arms_v2.8_webui";
@@ -15,7 +15,7 @@ import FilterVintageOutlinedIcon from "@mui/icons-material/FilterVintageOutlined
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import DifferenceOutlinedIcon from "@mui/icons-material/DifferenceOutlined";
 import { Outlet } from "react-router-dom";
-import { PrepareRequest, requests } from '../../../Service/getRequests'
+import { PrepareRequest, requests } from "../../../Service/getRequests";
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(true);
@@ -31,10 +31,10 @@ const Sidebar = () => {
 
   const [sidebarData, setSidebarData] = useState([]);
   useEffect(async () => {
-    const UserID = sessionStorage.getItem('UserID')
-    const URL = `${requests.getTemplateUserMapping}?UserID=${UserID}`
+    const UserID = sessionStorage.getItem("UserID");
+    const URL = `${requests.getTemplateUserMapping}?UserID=${UserID}`;
     const response = await PrepareRequest(URL);
-    setSidebarData(response.data)
+    setSidebarData(response.data);
   }, []);
 
   const dropDownData = [

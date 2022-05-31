@@ -1,10 +1,21 @@
 import React from "react";
 import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ActionModal from "./ActionModal";
+import { PrepareRequest, requests } from "../../../../../Service/getRequests";
 
 function AgGridTable() {
+  const [data, setdata] = useState([]);
+
+  useEffect(async () => {
+    const UserID = sessionStorage.getItem("UserID");
+    const URL = `${requests.getPermissionTemplate}?UserID=${UserID}&AppID=13`;
+    const response = await PrepareRequest(URL);
+    console.log("response", response.data.lstModelTemplatePermission);
+    setdata(response.data.lstModelTemplatePermission);
+  }, []);
+
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -15,32 +26,6 @@ function AgGridTable() {
     console.log("Action Modal");
   };
 
-  const formBuilderData = () => {
-    return {
-      Sheet: [
-        {
-          id: 1,
-          Header: 1,
-          Template: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-      ],
-    };
-  };
-
-  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-    return {
-      id: ele.id,
-      Header: ele.Header,
-      Template: ele.Template,
-      CreatedBy: ele.CreatedBy,
-      CreatedOn: ele.CreatedOn,
-      Action: ele.Action,
-    };
-  });
-
   const frameworkComponents = {
     gridButton: Button,
   };
@@ -48,7 +33,7 @@ function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "Header",
+      field: "TemplateID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -61,7 +46,7 @@ function AgGridTable() {
 
     {
       headerName: "Template",
-      field: "Template",
+      field: "TemplateTitle",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -119,8 +104,6 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
       },
     },
   ];
@@ -134,7 +117,7 @@ function AgGridTable() {
         }}
       />
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}

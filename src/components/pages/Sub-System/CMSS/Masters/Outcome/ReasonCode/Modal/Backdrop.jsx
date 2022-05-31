@@ -1,7 +1,7 @@
 import React from "react";
 
-const backdrop = (props) =>
-  props.show ? (
+export default function backdrop(props) {
+  return props.show ? (
     <div
       onClick={props.clicked}
       style={{
@@ -15,4 +15,4 @@ const backdrop = (props) =>
       }}
     ></div>
   ) : null;
-export default backdrop;
+}
