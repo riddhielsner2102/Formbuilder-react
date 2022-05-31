@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 // import Navbar from "../../../../Navbar/Navbar";
 import Template from "./Modal/Template";
@@ -9,7 +9,6 @@ import Message from "../../../../../ReusableComp/Message/Message";
 
 function GeneralItemDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });
-
   const [flag, setflag] = useState(false);
 
   const closeNewModal = () => {
@@ -43,11 +42,14 @@ function GeneralItemDashboard() {
         <Message
           flag={flag}
           text="General Item created"
+          // type="CheckCircleOutlineIcon"
+          titleIcon={<CheckCircleOutlineIcon />}
           handleClose={handleClose}
         />
       )}
       <Navbar
         titleIcon={<DashboardOutlinedIcon />}
+        searchbar={true}
         title="General Item Dashboard"
         secondtitle="Module: CMSS"
         buttonText="ADD"

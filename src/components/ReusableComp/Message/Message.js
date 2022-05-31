@@ -1,9 +1,20 @@
-import React from "react";
+// <<<<<<< HEAD
+// import React from "react";
+// import classes from "./Message.module.css";
+// import { Container, Row } from "react-bootstrap";
+// import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+// import { Button, Label } from "arms_v2.8_webui";
+// import Backdrop from "../Backdrop";
+
+import React, { useState } from "react";
 import classes from "./Message.module.css";
 import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+// import Icon from "@mui/icons-material";
 import { Button, Label } from "arms_v2.8_webui";
+// import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import Backdrop from "../Backdrop";
+import IconButton from "@mui/material/IconButton";
 
 function Message(props) {
   return (
@@ -50,7 +61,27 @@ function Message(props) {
               padding: "20px",
             }}
           >
-            <CheckCircleOutlineIcon
+            <IconButton
+            // style={{
+            //   backgroundColor: "#01396b",
+            //   marginBottom: "10px",
+            //   color: "#fff",
+            // }}
+            >
+              {props.titleIcon}
+              {/* <CheckCircleOutlineIcon
+                style={{
+                  display: "flex",
+                  justifyContent: "space-around",
+                  backgroundRepeat: "no-repeat",
+                  fill: "currentColor",
+                  height: "24px",
+                  width: "24px",
+                }}
+              /> */}
+            </IconButton>
+            {/* <Icon
+              type={props.type}
               style={{
                 display: "flex",
                 justifyContent: "space-around",
@@ -59,7 +90,7 @@ function Message(props) {
                 height: "24px",
                 width: "24px",
               }}
-            />
+            /> */}
 
             <Label
               text={props.text}
@@ -73,7 +104,6 @@ function Message(props) {
                 paddingLeft: "10px",
                 fontSize: "18px",
               }}
-              s
             />
           </div>
           <>
