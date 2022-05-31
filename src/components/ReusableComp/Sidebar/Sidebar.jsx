@@ -2,13 +2,8 @@ import React, { useEffect, useState } from "react";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SubMenu";
 import "./Sidebar.css";
-<<<<<<< HEAD:src/components/pages/Sidebar/Sidebar.jsx
-import Header from "../header/header";
+import Header from "../Header/Header";
 import Navbar from "../Navbar/Navbar";
-=======
-import Header from "../../ReusableComp/Header/Header";
-import Navbar from "../../ReusableComp/Navbar/Navbar";
->>>>>>> 937ed344c8242427e8b4e97f5ff8727de5060872:src/components/ReusableComp/Sidebar/Sidebar.jsx
 import LogoImage from "../../assets/images/logos/ARMS2.5-2 - Copy (2).png";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Button } from "arms_v2.8_webui";

@@ -59,6 +59,7 @@ function Itemmodal(props) {
   };
 
   const handleSubmit = (event) => {
+    console.log("here");
     const a = formValues.filter((e) => e.name === "");
     // console.log(JSON.stringify(formValues,"Itemdata"));
 

@@ -29,10 +29,6 @@ export default class Template extends Component {
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-<<<<<<< HEAD:src/components/pages/Sub-System/CMSS/Masters/Checklists/Modal/Template.js
-=======
-                height: "50px",
->>>>>>> 937ed344c8242427e8b4e97f5ff8727de5060872:src/components/pages/Sub-System/CMSS/Masters/Checklists/Modal/Template.jsx
                 display: "flex",
                 padding: "15px",
                 boxSizing: "none",
@@ -106,7 +102,6 @@ export default class Template extends Component {
                   </Col>
                 </Row>
               </Col>
-<<<<<<< HEAD:src/components/pages/Sub-System/CMSS/Masters/Checklists/Modal/Template.js
               <Col xs={12}>
                 <Row>
                   <Col
@@ -131,8 +126,6 @@ export default class Template extends Component {
                   </Col>
                 </Row>
               </Col>
-=======
->>>>>>> 937ed344c8242427e8b4e97f5ff8727de5060872:src/components/pages/Sub-System/CMSS/Masters/Checklists/Modal/Template.jsx
 
               <Col
                 style={{

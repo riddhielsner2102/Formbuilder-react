@@ -57,7 +57,6 @@ const Navbar = (props) => {
             {props.secondtitle}
           </font>
         </div>
-<<<<<<< HEAD:src/components/pages/Navbar/Navbar.js
         <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
           <div className="search-icon" style={{display:"flex !important"}}>
           <SearchOutlinedIcon className="search-icon" style={{ backgroundColor: "#01396b", display:"flex !important" }} /></div>
@@ -97,45 +96,6 @@ const Navbar = (props) => {
             }}
           />
         </div>
-=======
-        {props.searchbar && (
-          <div style={{ color: "#fff", backgroundColor: "#01396b" }}>
-            <SearchOutlinedIcon style={{ backgroundColor: "#01396b" }} />
-            <Input
-              placeHolder="     Search Template"
-              style={{
-                backgroundColor: "#fff",
-                width: "300px",
-                // border: "none",
-                outline: "none",
-                borderRadius: "0px 30px 30px 0px",
-              }}
-            />
-          </div>
-        )}
-        {props.buttonText && (
-          <div>
-            <Button
-              text={props.buttonText}
-              onClick={props.onClick}
-              style={{
-                backgroundColor: "#fff !important",
-                color: "#01396b",
-                display: "inline-block",
-                whiteSpace: "nowrap",
-                textDecoration: "none",
-                verticalAlign: "baseline",
-                textAlign: "center",
-                margin: 0,
-                minWidth: "64px",
-                lineHeight: "10px",
-                borderRadius: "4px",
-                overflow: "visible",
-              }}
-            />
-          </div>
-        )}
->>>>>>> 937ed344c8242427e8b4e97f5ff8727de5060872:src/components/ReusableComp/Navbar/Navbar.js
 
         {props.buttonText2 && (
           <div>
