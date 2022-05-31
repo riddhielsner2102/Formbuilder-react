@@ -1,0 +1,48 @@
+.wrap-button .css-1fdtm3d {
+  background-color: white !important;
+  color: black !important;
+  /* height: 51%; */
+  /* margin-left: 70%; */
+  /* display: flex; */
+  font-size: 14px;
+  height: 25px !important;
+  opacity: 1;
+
+  /* 
+           padding: 5px;
+           marginLeft: 2px;
+           marginRight: 2px; */
+}
+.Modal {
+  /* position: fixed; */
+  /* z-index: 1000; */
+  background-color: #fff;
+
+  /* max-width: 80vw; */
+  /* width: 600px; */
+  /* max-height: 100%; */
+  /* padding: 0px 15px 0px 15px; */
+  left: 15%;
+  top: 30%;
+  /* height: 100%; */
+  height: 900px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  /* border: 1px solid black; */
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 1);
+}
+
+.Mav .ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-header-group-cell {
+  background-color: white;
+  color: black;
+}
+
+.container .Mapadd_Mav__ZQpRX .ag-theme-alpine [class^="ag-"],
+.ag-theme-alpine [class^="ag-"]:focus,
+.ag-theme-alpine [class^="ag-"]:after,
+.ag-theme-alpine [class^="ag-"]:before {
+  background-color: #fff;
+  color: #000;
+}

@@ -1,11 +1,9 @@
 import { useState } from "react";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
-// import Navbar from "../../../../Navbar/Navbar";
 import Template from "./Modal/Template";
 import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
 import Message from "../../../../../ReusableComp/Message/Message";
-// import Template from "../../../../Dashboard-Modal/Modal/Template";
 
 function GeneralItemDashboard() {
   const [ModalData2, SetModal2] = useState({ show: false });

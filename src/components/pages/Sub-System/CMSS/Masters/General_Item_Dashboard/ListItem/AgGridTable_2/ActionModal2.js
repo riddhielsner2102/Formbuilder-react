@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "./ActionModal.module.css";
+import classes from "./ActionModal2.module.css";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
 // import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import { Container } from "react-bootstrap";
@@ -28,7 +28,7 @@ export default function ActionModal(props) {
       // }}
       /> */}
       <div
-        className={classes.Modals_2}
+        className={classes.Modals_3}
         style={{
           transform: props.show ? "translateY(0)" : "translateY(-100vh)",
           opcaity: props.show ? "1" : "0",
