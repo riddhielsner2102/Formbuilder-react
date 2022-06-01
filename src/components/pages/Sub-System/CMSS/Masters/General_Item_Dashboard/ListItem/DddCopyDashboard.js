@@ -44,12 +44,21 @@ function DdddCopyDashboard() {
         />
       )} */}
       <Navbar
+        // style={{
+        //   backgroundColor: "#fff",
+        //   padding: "0 16px",
+        //   width: "600px",
+        //   height: "23px",
+        //   // border: "none",
+        //   outline: "none",
+        //   borderRadius: "0px 30px 30px 0px",
+        // }}
         titleIcon={<ViewDayOutlinedIcon />}
         searchbar={true}
         placeHolder="   Search Option"
-        title="ddd-Copy-Copy"
+        title="qwdwqqwsd"
         secondtitle="Module: CMSS"
-        buttonText="ADD"
+        buttonText="Add/Edit"
         // onClick={() => {
         //   showNewModal();
         // }}

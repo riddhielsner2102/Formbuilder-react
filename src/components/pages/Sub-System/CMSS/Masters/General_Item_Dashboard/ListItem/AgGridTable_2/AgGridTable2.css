@@ -11,7 +11,7 @@
 
 .content_2 .ag-theme-alpine .ag-root-wrapper {
   border-radius: 15px;
-  margin-top: -3.5%;
+  margin-top: -2%;
 }
 
 .content_2 .ag-theme-alpine [class^="ag-"],
@@ -35,7 +35,7 @@
 .content_2 .ag-row-position-absolute {
   position: relative;
 }
-/* .main-content .makeStyles-button-47 {
+/* .content_2 .makeStyles-button-47 {
     color: white;
     width: 76px;
     border: none;
@@ -45,3 +45,21 @@
     text-transform: none;
     background-color: #01396b;
   } */
+.content_2 .ag-center-cols-container {
+  height: 100% !important;
+}
+
+.content_2 .alternate-row-color {
+  background-color: whitesmoke !important;
+}
+
+.content_2 .ag-theme-alpine .ag-cell,
+.ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  border: none !important;
+}
+
+.content_2 .ag-header-cell-label,
+.content_2 .ag-cell {
+  justify-content: left !important;
+  padding: 0 0 0 24px !important;
+}

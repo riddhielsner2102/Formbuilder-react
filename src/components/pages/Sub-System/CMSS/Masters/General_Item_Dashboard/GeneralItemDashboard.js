@@ -49,6 +49,7 @@ function GeneralItemDashboard() {
         titleIcon={<DashboardOutlinedIcon />}
         searchbar={true}
         title="General Item Dashboard"
+        placeHolder="  Search Items"
         secondtitle="Module: CMSS"
         buttonText="ADD"
         onClick={() => {

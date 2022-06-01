@@ -22,7 +22,8 @@
 }
 
 .main-content .ag-row {
-  height: 60px !important;
+  height: 42px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
 .main-content
@@ -30,18 +31,27 @@
   .MuiButton-root
   .MuiButton-contained
   .makeStyles-button-111 {
-  height: 39px;
+  height: 35px;
 }
 .main-content .ag-row-position-absolute {
   position: relative;
 }
-/* .main-content .makeStyles-button-47 {
-  color: white;
-  width: 76px;
-  border: none;
-  cursor: pointer;
-  height: 38px;
-  outline: none;
-  text-transform: none;
-  background-color: #01396b;
-} */
+
+.main-content .ag-center-cols-container {
+  height: 100% !important;
+}
+
+.main-content .alternate-row-color {
+  background-color: whitesmoke !important;
+}
+
+.main-content .ag-theme-alpine .ag-cell,
+.ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
+  border: none !important;
+}
+
+.main-content .ag-header-cell-label,
+.main-content .ag-cell {
+  justify-content: left !important;
+  padding: 0 0 0 24px !important;
+}
