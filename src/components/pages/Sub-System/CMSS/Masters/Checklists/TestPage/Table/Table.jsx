@@ -12,14 +12,14 @@ import IconButton from "@mui/material/IconButton";
 import AddItems from "../AddItems/AddItems";
 
 export default function AgGridTable() {
-  const [ModalData, SetModalData] = useState({ show: false });
-
-  const closeModal = () => {
-    SetModalData({ show: false });
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    console.log("open");
+    setOpen(true);
   };
-
-  const showModal = () => {
-    SetModalData({ show: true });
+  const handleClose = () => {
+    console.log("close");
+    setOpen(false);
   };
 
   const [checklistitemdata, setchecklistitemdata] = useState([]);
@@ -97,6 +97,8 @@ export default function AgGridTable() {
     },
   ];
 
+  // return <AddItems open={open} onClose={handleClose} />;
+
   return (
     <React.Fragment>
       <Container className={classes.main}>
@@ -107,9 +109,7 @@ export default function AgGridTable() {
                 <AddCircleIcon />
                 <Button
                   text="Add/Edit&nbsp;Parent&nbsp;Items"
-                  onClick={() => {
-                    showModal();
-                  }}
+                  onClick={handleOpen}
                 />
               </IconButton>
             </div>
@@ -131,6 +131,7 @@ export default function AgGridTable() {
           </div>
         </div>
       </Container>
+      {open && <AddItems show={open} onClose={handleClose} />}
     </React.Fragment>
   );
 }
