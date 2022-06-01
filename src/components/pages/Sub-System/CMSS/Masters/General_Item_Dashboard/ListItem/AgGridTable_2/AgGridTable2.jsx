@@ -11,10 +11,10 @@ function AgGridTable2() {
   useEffect(async () => {
 
     // const UserID = sessionStorage.getItem("UserID");
-    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=126&AppID=13&ItemTypeID=3`;
+    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=121&AppID=13&ItemTypeID=3`;
     // GetAssesmentTypeOptions?AssessmentTypeID=126&AppID=13&ItemTypeID=3
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
+    console.log("response", response.data.lstModelMasterAssessmentOption);
     setdata(response.data.lstModelMasterAssessmentOption);
   }, []);
 
