@@ -15,12 +15,11 @@ import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item
 import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRepo";
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
-<<<<<<< Updated upstream
+
 import AddItems from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/AddItems/AddItems";
 import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
-=======
+
 // import AddItems from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/AddItems/AddItems";
->>>>>>> Stashed changes
 
 const App = () => {
   const userId = sessionStorage.getItem("UserID");
