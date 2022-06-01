@@ -1,4 +1,4 @@
-.main {
+.main2 {
   position: absolute;
   left: 4%;
   /* top: 2%; */
@@ -21,14 +21,14 @@
   pointer-events: auto;
 }
 
-.main .divDow {
+.main2 .divDow2 {
   height: 890px;
   margin: 0px;
   width: 100%;
   max-width: 80vw;
 }
 
-.main .divDow .newRow {
+.main2 .divDow2 .newRow2 {
   background-color: #01396b;
   color: white;
   height: 64px;
@@ -37,7 +37,7 @@
   margin-top: 20px;
 }
 
-.main .divDow .newRow .header {
+.main2 .divDow2 .newRow2 .header2 {
   display: flex;
   align-items: center;
 }
@@ -51,7 +51,7 @@
   cursor: pointer;
 } */
 
-.main .divDow .mainContent {
+.main2 .divDow2 .mainContent2 {
   display: flex;
   align-items: space-around;
   padding: 20px;
