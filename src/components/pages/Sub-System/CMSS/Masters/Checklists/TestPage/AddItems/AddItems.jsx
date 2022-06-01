@@ -6,7 +6,6 @@ import ItemMapping from "./ItemMapping";
 import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 
 const AddItems = (props) => {
-  console.log(props.show, "show");
   return (
     <React.Fragment>
       <Backdrop show={props.show} clicked={props.onClose} />
