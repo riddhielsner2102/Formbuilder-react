@@ -1,44 +1,77 @@
-// import React, {  } from "react";
-import React, { useState } from "react";
+
+
+import React, { useState, useEffect } from "react";
 import classes from "./Edititem.module.css";
-// import Backdrop from "../../components/Backdrop";
-// import Aux from "../../hoc/Auxiliary/Auxiliary";
 import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-
+import { Input, Close, ComboBox, CheckBox } from "arms_v2.8_webui";
+import {
+  requests,
+  PrepareRequest,
+} from "../../../../../../../Service/postRequests";
 import { Button, Label } from "arms_v2.8_webui";
-// import Aux from "../../../../../Dashboard-Modal/hoc/Auxiliary/Auxiliary";
+// import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
-// import backdrop from "../../pages/Sub-System/CMSS/Masters/General_Item_Dashboard/Modal/Backdrop";
+import IconButton from "@mui/material/IconButton";
+import { getSessionStorage } from "../../../../../../common/sessionStorage";
 
-// class Formmessage extends Component {
-//   render() {
-function Edititemmodal(props) {
-  console.log(props,"this is my props");
+
+function Message({ setedit, seteditdata, editdata }) {
+  console.log(editdata, "editdata");
   // const [show, setShow] = useState(false);
+  const userId = getSessionStorage("UserID")
+  const SubsystemID = getSessionStorage("SubsystemID")
+  const [rowsdata, setrowsdata] = useState([editdata])
+  const [formValues, setFormValues] = useState([{ AppID: 13, RepID: 0, IsActive:true, RepTitle: "rowsdata[0].RepTitle", createdBy: userId }]);
+  console.log(rowsdata, "rowdata")
+  const handleClose = () => {
+    const URL = `${requests.PostMasterMultipleItemRepository}`;
+    const x = { lstModelItemRepository: formValues}
+    PrepareRequest(URL, x);
+    setedit(false);
+  }
 
-  const handleClose = () => props.setedit(false);
-  // const handleShow = () => setShow(true);
+  const handleChange = (e) => {
+    let newdata = [...rowsdata]
+    newdata[0].RepTitle = e.target.value
+    console.log(formValues, "newdata")
+    setrowsdata(newdata)
+    
+  }
+  const handlecheck=()=>{
+    let newdata = [...rowsdata]
+    newdata[0].IsActive = !rowsdata[0].IsActive
+    console.log(formValues, "newdata")
+    setrowsdata(newdata)
+  }
 
-  // const onLoginFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   handleClose();
-  // };
+  const btndisabled=()=>{
+    if(rowsdata[0].RepTitle===""){
+      return true
+    }else{
+      return false
+    }
+  }
+
+
   return (
-  <>
-      <Backdrop show={props.flag} clicked={props.handleClose} />
+    <>
+      <Backdrop
+      //  show={props.flag} 
+      //  clicked={props.handleClose} 
+      />
       <Container
         className={classes.Mod}
-        // style={{
-        //   transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
-        //   opcaity: this.props.show ? "1" : "0",
-        //   minWidth: "100px",
-        // }}
+        style={{
+          // transform: this.props.show ? "translateY(0)" : "translateY(-100vh)",
+          // opcaity: this.props.show ? "1" : "0",
+          minWidth: "200px",
+        }}
       >
         <div
           className={[classes.divDow].join(" ")}
           style={{
-            height: "200px",
+            height: "300px",
             // padding: "10px",
             margin: "0px",
             width: "100%",
@@ -61,7 +94,6 @@ function Edititemmodal(props) {
                   color: "#fff",
                   textAlign: "left",
                   letterSpacing: 0,
-                  // marginTop: "2px",
                   height: "100%",
                   font: "497 18px/32px Muli, Helvetica Neue, Arial, sans-serif",
                 }}
@@ -77,63 +109,80 @@ function Edititemmodal(props) {
               padding: "20px",
             }}
           >
-            <CheckCircleOutlineIcon
+            <Input
+              value={rowsdata[0].RepTitle}
+              onChange={(e) =>
+                handleChange(e)
+              }
+              placeholder="TemplateName *"
               style={{
-                display: "flex",
-                justifyContent: "space-around",
-                backgroundRepeat: "no-repeat",
-                fill: "currentColor",
-                height: "24px",
-                width: "24px",
+                width: "395px",
+                height: "48px",
+                border: "1px solid #000",
+                alignItems: "center",
+                marginLeft: "0px",
+                textAlign: "left",
               }}
             />
-
+          </div>
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start"
+          }}>
+            <CheckBox
+              checkwidth="140%"
+              onChange={(e) => handlecheck()}
+              iconType="tick"
+              checked={rowsdata[0].IsActive}
+              iconColor="#0F243E"
+              name="check"
+              colorIcon="White"
+              style={{
+                padding: "0px",
+                borderRadius: "1px",
+                marginLeft: "23px"
+              }}
+            />
             <Label
-              text={props.text}
+              text="Is Active"
               style={{
                 textAlignLast: "center",
                 fontFamily: "Muli, Helvetica, Neue Arial ,sansSerif",
-                // fontWeight: "bolder",
                 color: "black",
-                textAlign: "left",
+                // textAlign: "left",
                 letterSpacing: 0,
                 marginTop: "2px",
-                paddingLeft: "10px",
                 fontSize: "18px",
               }}
-              s
             />
           </div>
-          <>
-            <Button
-              text="OK"
-              // onClick={this.props.modalClosed}
-              onClick={()=>handleClose()}
-              style={{
-                backgroundColor: "#01396b !important",
-                color: "#fff",
-                display: "inline-block",
-                whiteSpace: "nowrap",
-                textDecoration: "none",
-                verticalAlign: "baseline",
-                textAlign: "center",
-                margin: 0,
-                // minWidth: "64px",
-                // lineHeight: "40px",
-                height: "40px",
-                width: "65px",
-                padding: "0 20px",
-                borderRadius: "4px",
-                overflow: "visible",
-              }}
-            />
-          </>
+          <Button
+            text="OK"
+            disabled={btndisabled()}
+            // onClick={this.props.modalClosed}
+            onClick={() => handleClose()}
+            style={{
+              backgroundColor: "#01396b !important",
+              color: "#fff",
+              whiteSpace: "nowrap",
+              textDecoration: "none",
+              verticalAlign: "baseline",
+              textAlign: "right",
+              marginLeft: "200px",
+              // minWidth: "64px",
+              // lineHeight: "40px",
+              height: "40px",
+              width: "65px",
+              padding: "0 20px",
+              borderRadius: "4px",
+              overflow: "visible",
+            }}
+          />
         </div>
       </Container>
     </>
   );
 }
-//   }
-// }
 
-export default Edititemmodal;
+export default Message;

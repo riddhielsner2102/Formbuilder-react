@@ -3,8 +3,7 @@ import "./AgGridTable.css";
 import Message from "../../../../../../ReusableComp/Message/Message";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
-import ActionButtonModal from "../AgGridTable/ActionButtonModal";
-import Edititemmodal from "../Modal/EditItemmodal";
+
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
 function AgGridTable(props) {
   const [data, setdata] = useState([])
@@ -28,7 +27,7 @@ function AgGridTable(props) {
   //     const UserID = getSessionStorage('UserID')
   //     const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
   //     const response = await PrepareRequest(URL);
-  //     setdata(response.data.lstModelItemRepository)
+    //   setdata(response.data.lstMasterFields)
   //     props.setdisable(false)
   //   }
   //   if(data.length>0){
@@ -36,22 +35,12 @@ function AgGridTable(props) {
   //   }
   // }, [props.closed,data])
   const UserID=getSessionStorage("UserID")
-  const URL = `${requests.getMasterItemRepository}?UserID=${UserID}&AppID=13`
-useEffect(async()=>{
-  const response = await PrepareRequest(URL);
-  setdata(response.data.lstModelItemRepository)
-  props.setdisable(false)
-},[])
-    useEffect(async()=>{
-          if(props.closed){
-            const response = await PrepareRequest(URL);
-            setdata(response.data.lstModelItemRepository)
-            props.setdisable(false)
-            props.setclosed(false)
-            setshowmessage(true)
-          }
-    },[props.closed])
+  const URL = `${requests.getMasterFields}?UserID=${UserID}&AppID=13`
 
+useEffect(async()=>{
+      const response = await PrepareRequest(URL);
+      setdata(response.data.lstMasterFields)
+},[])
 
   const formBuilderData = () => {
     return {
@@ -121,7 +110,7 @@ useEffect(async()=>{
   const contentData = [
     {
       headerName: "ID",
-      field: "ID",
+      field: "FieldId",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -133,8 +122,8 @@ useEffect(async()=>{
     },
 
     {
-      headerName: "Title",
-      field: "RepTitle",
+      headerName: "Field Name",
+      field: "FieldName",
       width: 350,
       cellStyle: {
         color: "#000",
@@ -146,44 +135,6 @@ useEffect(async()=>{
         textAlign: "center",
         paddingTop: "6px",
         paddingBottom: "8px",
-      },
-    },
-    {
-      headerName: "Is Active",
-      field: "IsActive",
-      cellStyle: {
-        color: "#000",
-        height: "100%",
-        display: "flex ",
-        justifyContent: "center",
-        alignItems: "center ",
-        fontSize: "15px",
-        paddingTop: "6px",
-        paddingBottom: "8px",
-      },
-    },
-    {
-      headerName: "Created By",
-      field: "CreatedBy",
-      cellStyle: {
-        color: "#000",
-        height: "100%",
-        display: "flex ",
-        justifyContent: "center",
-        alignItems: "center ",
-        fontSize: "15px",
-      },
-    },
-    {
-      headerName: "Created On",
-      field: "CreatedOn",
-      cellStyle: {
-        color: "#000",
-        height: "100%",
-        display: "flex ",
-        justifyContent: "center",
-        alignItems: "center ",
-        fontSize: "15px",
       },
     },
     {
@@ -211,13 +162,6 @@ useEffect(async()=>{
       },
     },
   ];
-  const [edit, setedit] = useState(false)
-  const [editdata, seteditdata] = useState()
-  const someHandler = (e) => {
-    seteditdata(e.data)
-    setedit(true)
-    console.log(e.data, "index")
-  };
 
 
 
@@ -232,11 +176,11 @@ useEffect(async()=>{
       }}
       />  */}
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
-        onRowDoubleClicked={someHandler}
+        // onRowDoubleClicked={someHandler}
         style={{
           width: "100%",
           height: "100vh",
@@ -246,8 +190,6 @@ useEffect(async()=>{
         }}
       />
 
-      {edit && <Edititemmodal setedit={setedit} seteditdata={seteditdata} editdata={editdata} />}
-      {showmessage && <Message show={showmessage} />}
     </div>
   );
 }

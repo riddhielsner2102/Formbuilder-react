@@ -13,6 +13,7 @@ import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Ch
 import PermissionTemplate from "./components/pages/Admin/PermissionSettings/PermissionTemplate";
 import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
 import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRepo";
+import Field from "./components/pages/Sub-System/CMSS/Masters/Fields/Field";
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
 import AddItems from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/AddItems/AddItems";
@@ -45,6 +46,10 @@ const App = () => {
             <Route
               path="evaluator/master-reasoncode"
               element={<ReasonCode />}
+            />
+             <Route
+              path="master-outputfield"
+              element={<Field />}
             />
           </Route>
         </Routes>
