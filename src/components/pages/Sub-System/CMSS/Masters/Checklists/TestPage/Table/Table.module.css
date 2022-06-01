@@ -1,0 +1,50 @@
+.main {
+  position: static;
+  z-index: 1000;
+  width: 1700px;
+  /* padding: 0px 18px 0px 18px; */
+  max-width: 90vw;
+  margin-top: -60px;
+  height: 100vh;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  border-radius: 8px;
+  box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%),
+    0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+  background: white;
+  color: rgba(0, 0, 0, 0.87);
+  pointer-events: auto;
+}
+
+.main .divDow {
+  height: 800px;
+  margin: 0px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.main .divDow .newRow {
+  background-color: lightgrey;
+  color: #000;
+  height: 64px;
+  display: flex;
+  padding: 15px;
+  margin: 0px;
+}
+
+.main .divDow .newRow .header {
+  display: flex;
+  width: max-content;
+}
+
+.main .divDow .newRow .header Button {
+  background-color: inherit !important;
+  color: #000;
+  width: max-content;
+}
+
+.main .divDow .mainContent {
+  display: flex;
+  align-items: space-around;
+  padding: 20px;
+}
