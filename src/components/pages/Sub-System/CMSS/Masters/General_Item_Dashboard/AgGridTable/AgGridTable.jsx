@@ -3,8 +3,6 @@ import "./AgGridTable.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState,useEffect } from "react";
 import ActionModal from "./ActionModal";
-// import ActionModal from "./ActionModal";
-// import Message from "../../../../../../ReusableComp/Message/Message"\;
 import { PrepareRequest, requests } from "../../../../../../../../src/Service/getRequests";
 
 
@@ -19,52 +17,24 @@ function AgGridTable() {
     console.log("response", response.data);
     setdata(response.data);
   }, []);
-
-
-  useEffect(() => {
-
-    console.log("data", data);
-
-  }, [data]);
-
-  // const formBuilderData = () => {
-  //   return {
-  //     Sheet: [
-  //       {
-  //         id: 1,
-  //         Header: 1,
-  //         Title: "",
-  //         CreatedBy: "",
-  //         CreatedOn: "",
-  //         Action: "",
-  //       },
-  //     ],
-  //   };
-  // };
-
-  // const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-  //   return {
-  //     id: ele.id,
-  //     Header: ele.Header,
-  //     Title: ele.Title,
-  //     CreatedBy: ele.CreatedBy,
-  //     CreatedOn: ele.CreatedOn,
-  //     Action: ele.Action,
-  //   };
-  // });
-
+  // useEffect(() => {
+  //   console.log("data", data);
+  // }, [data]);
   const frameworkComponents = {
     gridButton: Button,
   };
+  const [showAction, setShowAction] = useState(false)
+
+  const showNewModal = () => {
+    console.log('action clicked')
+    setShowAction(!showAction)
+  }
 
   const contentData = [
     {
       headerName: "ID",
       field: "ID",
-      width: 150,
-      // style:{
-      //    justifyContent: "left",
-      //   alignItems: "center",},
+      width: 100,
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -72,34 +42,26 @@ function AgGridTable() {
         alignItems: "center",
         fontSize: "15px",
         color: "#000",
-        // width:"30px",
       },
+      style: {
+        width: '10px',
+        border: '1px solid black !important'
+      }
     },
 
     {
       headerName: "Title",
       field: "MasterGeneralTitle",
-      width: 500,
+      width: 600,
       cellStyle: {
         color: "#000",
         height: "100%",
         display: "flex",
-        flexDirection:"column",
-        justifyContent: "center",
-        flexWrap:"wrap",
-        alignItems: "center ",
         fontSize: "15px",
-        // wordWrap: "break-word !important",
-        // wordBreak: "break-word",
-        textAlign: "center",
         paddingTop: "6px",
         paddingBottom: "8px",
 
       },
-      style:{
-        wordWrap: "break-word !important",
-        wordBreak: "break-word",
-      }
     },
     {
       headerName: "Created By",
@@ -132,15 +94,15 @@ function AgGridTable() {
     {
       headerName: "Actions",
       field: "UserName",
-      // width:200,
-
       cellRenderer: "gridButton",
       cellRendererParams: {
         text: "Actions",
-        // onClick: showNewModal,
+        onClick: () => showNewModal(),
         style: {
-          width: "76px", height: "38px", backgroundColor: "#01396b !important", color: "#ffffff"
-      }
+          width: "80px",
+          height: "40px",
+          backgroundColor: "#01396b !important",
+        },
       },
       cellStyle: {
         textAlign:"left",
@@ -150,8 +112,7 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
+        position: 'relative'
       },
     },
   ];
@@ -172,6 +133,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
+      {showAction && <ActionModal show={showAction} modalClosed={() => showNewModal()} />}
     </div>
   );
 }

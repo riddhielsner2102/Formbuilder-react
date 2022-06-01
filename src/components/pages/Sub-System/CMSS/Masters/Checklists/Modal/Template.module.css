@@ -1,20 +1,31 @@
 .Modal {
-  position: fixed;
+  position: absolute;
   z-index: 1000;
   background-color: #fff;
-  max-width: 80vw;
-  width: 600px;
-  max-height: 100%;
-  padding: 0px 15px 0px 15px;
+  /* max-height: 100%; */
   left: 15%;
   top: 30%;
   transition: all 0.3s ease-out;
-  /* border: 1px solid black; */
   border-radius: 3px;
   box-sizing: border-box;
   box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 1);
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+@media screen and (max-width: 1200px) {
+  .Modal {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .Modal {
+    max-width: 280px;
+  }
+}
 .closeButton {
   display: inline-block;
   color: #fff;
@@ -64,8 +75,11 @@
 
 @media (min-width: 600px) {
   .Modal {
-    width: 300px;
-    left: calc(50% - 250px);
+    position: fixed;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    margin-top: 80px;
   }
 }
 
@@ -82,6 +96,14 @@
   padding: 2px 0px 3px 0px;
   height: 22px;
   width: 55px;
+}
+.Template_Modal__Q-WV4 .MuiTextField-root {
+  width: 100%;
+  max-width: 100%;
+  margin: 15px 0 0 0;
+}
+.Modal input::placeholder {
+  padding-left: 15px;
 }
 
 @media screen and (min-width: 1920px) {

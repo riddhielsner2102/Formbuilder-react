@@ -6,22 +6,8 @@ import { Input, Button, Close, TextArea } from "arms_v2.8_webui";
 import Message from "../../../../../../ReusableComp/Message/Message";
 
 function Template(props) {
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return (
-  //     nextProps.show !== this.props.show ||
-  //     nextProps.children !== this.props.children
-  //   );
-  // }
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { value: "" };
-  // }
-
-  // updateValue = (e) => {
-  //   this.setState({ value: e.target.value });
-  // };
-
   const [showAction, setShowAction] = useState(false);
+
   const showNewModal = () => {
     console.log("action clicked");
     setShowAction(!showAction);
@@ -101,10 +87,7 @@ function Template(props) {
                       border: "1px solid grey",
                       fontSize: "16px",
                       padding: "0px 5px",
-                      // marginLeft: "-22px",
-                      // textAlign: "left",
                       borderRadius: "6px",
-                      // fontSize: "14px",
                     }}
                   />
                 </Col>

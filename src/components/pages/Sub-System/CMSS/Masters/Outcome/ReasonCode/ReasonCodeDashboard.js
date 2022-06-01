@@ -27,13 +27,13 @@ function ReasonCodeDashboard() {
           closeNewModal();
         }}
       />
-      {showMessage && (
+      {/* {showMessage && (
         <Message
           flag={showMessage}
           text="General Item created"
           handleClose={handleClose}
         />
-      )}
+      )} */}
       <Navbar
         titleIcon={<PanToolOutlinedIcon />}
         title="Master Reasoncode"
@@ -42,6 +42,8 @@ function ReasonCodeDashboard() {
         onClick={() => {
           showNewModal();
         }}
+        searchbar={true}
+        placeHolder='         Reason code'
       />
     </>
   );

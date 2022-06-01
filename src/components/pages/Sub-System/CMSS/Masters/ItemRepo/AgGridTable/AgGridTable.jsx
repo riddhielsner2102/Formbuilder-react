@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./AgGridTable.css";
 import Message from "../../../../../../ReusableComp/Message/Message";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
+import {
+  PrepareRequest,
+  requests,
+} from "../../../../../../../Service/getRequests";
 import ActionButtonModal from "../AgGridTable/ActionButtonModal";
 import Edititemmodal from "../Modal/EditItemmodal";
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
@@ -232,7 +235,7 @@ useEffect(async()=>{
       }}
       />  */}
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}

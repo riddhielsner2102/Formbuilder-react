@@ -1,0 +1,27 @@
+.Modal {
+  position: fixed;
+  background-color: inherit;
+  height: 800px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-out;
+  /* border-radius: 3px; */
+  border-color: #fff;
+}
+
+.Mav .ag-theme-alpine .ag-header-cell,
+.ag-theme-alpine .ag-header-group-cell {
+  background-color: white;
+  color: black;
+}
+
+.container .Mapadd_Mav__ZQpRX .ag-theme-alpine [class^="ag-"],
+.ag-theme-alpine [class^="ag-"]:focus,
+.ag-theme-alpine [class^="ag-"]:after,
+.ag-theme-alpine [class^="ag-"]:before {
+  background-color: #fff;
+  color: #000;
+}
+
+.Modal .ag-theme-alpine .ag-root-wrapper {
+  border-color: #fff;
+}

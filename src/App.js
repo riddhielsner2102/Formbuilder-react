@@ -16,7 +16,7 @@ import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRe
 import Field from "./components/pages/Sub-System/CMSS/Masters/Fields/Field";
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
-import AddItems from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/AddItems/AddItems";
+import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
 
 const App = () => {
   const userId = sessionStorage.getItem("UserID");
@@ -38,11 +38,8 @@ const App = () => {
             <Route path="item" element={<ItemRepo />} />
             <Route path="master-checklist" element={<Checklists />} />
             <Route path="master-checklist-testpage" element={<TestPage />} />
-            <Route
-              path="master-checklist-testpage-additems"
-              element={<AddItems />}
-            />
             <Route path="gmdashboard" element={<GMDashBoard />} />
+            <Route path="DdCpy" element={<DdCpy />} />
             <Route
               path="evaluator/master-reasoncode"
               element={<ReasonCode />}
