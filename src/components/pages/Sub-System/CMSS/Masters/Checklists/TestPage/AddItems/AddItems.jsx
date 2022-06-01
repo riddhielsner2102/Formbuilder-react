@@ -10,10 +10,10 @@ const AddItems = (props) => {
   return (
     <React.Fragment>
       <Backdrop show={props.show} clicked={props.onClose} />
-      <Container className={classes.main}>
-        <div className={classes.divDow}>
-          <Row className={classes.newRow}>
-            <div className={classes.header}>
+      <Container className={classes.main2}>
+        <div className={classes.divDow2}>
+          <Row className={classes.newRow2}>
+            <div className={classes.header2}>
               <h3>Add Items</h3>
               <Close
                 className={classes.closebtn}
@@ -33,7 +33,7 @@ const AddItems = (props) => {
               />
             </div>
           </Row>
-          <div className={classes.mainContent}>
+          <div className={classes.mainContent2}>
             <ItemMapping />
           </div>
           <>
