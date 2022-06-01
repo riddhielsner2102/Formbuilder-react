@@ -14,16 +14,16 @@ const AddItems = (props) => {
         <div className={classes.divDow2}>
           <Row className={classes.newRow2}>
             <div className={classes.header2}>
-              <h3>Add Items</h3>
+              <h3>Add&nbsp;Items</h3>
               <Close
                 className={classes.closebtn}
-                onClick={props.modalClosed}
+                onClick={props.modalClose}
                 style={{
                   transform: props.show
                     ? "translateY(0)"
                     : "translateY(-100vh)",
                   opcaity: props.show ? "1" : "0",
-                  marginLeft: "1500px",
+                  marginLeft: "1360px",
                   color: "#fff",
                   fontWeight: 800,
                   marginTop: "2px",
@@ -48,8 +48,8 @@ const AddItems = (props) => {
                 textDecoration: "none",
                 verticalAlign: "baseline",
                 textAlign: "bottom",
-                margin: "40% 0% 0% 95%",
-                height: "40px",
+                margin: "47.5% 0% 0% 95%",
+                height: "35px",
                 width: "65px",
                 padding: "0 20px",
                 borderRadius: "4px",

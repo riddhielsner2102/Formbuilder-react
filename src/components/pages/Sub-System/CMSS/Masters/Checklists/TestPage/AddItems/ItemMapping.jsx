@@ -30,6 +30,7 @@ export default function ItemMapping() {
     {
       headerName: "Select",
       field: "",
+      width: 100,
       style: {
         background: "white !important",
         color: "black !important",
@@ -52,11 +53,12 @@ export default function ItemMapping() {
       field: "RepTitle",
       cellStyle: {
         height: "100%",
-        display: "flex ",
-        justifyContent: "center",
-        alignItems: "center",
         fontSize: "12px",
         backgroundColor: "#fff",
+        textAlign: "left",
+        overflow: "hidden",
+        wordWrap: "break-word",
+        textOverflow: "ellipsis",
       },
     },
   ];

@@ -100,7 +100,7 @@ export default function AgGridTable() {
   // return <AddItems open={open} onClose={handleClose} />;
 
   return (
-    <React.Fragment>
+    <div style={{ padding: "1% 3%" }}>
       <Container className={classes.main1}>
         <div className={classes.divDow1}>
           <Row className={classes.newRow1}>
@@ -132,6 +132,6 @@ export default function AgGridTable() {
         </div>
       </Container>
       {open && <AddItems show={open} onClose={handleClose} />}
-    </React.Fragment>
+    </div>
   );
 }
