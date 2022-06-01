@@ -1,12 +1,14 @@
 .main {
-  position: static;
+  position: absolute;
+  left: 4%;
+  /* top: 2%; */
   z-index: 1000;
   width: 1800px;
   padding: 0px 18px 0px 18px;
   min-height: 250px;
   max-width: 80vw;
-  max-height: 1800px;
-  margin-top: 40px;
+  max-height: 1900px;
+  /* margin-top: 10px; */
   /* left: 40%;
   top: 40%; */
   box-sizing: border-box;
@@ -20,7 +22,7 @@
 }
 
 .main .divDow {
-  height: 800px;
+  height: 890px;
   margin: 0px;
   width: 100%;
   max-width: 80vw;
@@ -55,7 +57,7 @@
   padding: 20px;
 }
 
-.main .divDow .mainContent Button {
+/* .main .divDow .mainContent Button {
   background-color: #01396b !important;
   color: #fff;
   display: inline-block;
@@ -69,4 +71,4 @@
   padding: 0 20px;
   border-radius: 4px;
   overflow: visible;
-}
+} */

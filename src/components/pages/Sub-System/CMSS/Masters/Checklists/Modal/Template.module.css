@@ -16,14 +16,14 @@
   justify-content: center;
   align-items: center;
 }
-@media screen and (max-width:1200px) {
+@media screen and (max-width: 1200px) {
   .Modal {
     max-width: 400px;
   }
 }
-@media screen and (max-width:575px) {
+@media screen and (max-width: 575px) {
   .Modal {
-    max-width: 280px; 
+    max-width: 280px;
   }
 }
 .closeButton {
@@ -74,7 +74,7 @@
 }
 
 @media (min-width: 600px) {
-  .Modal {  
+  .Modal {
     position: fixed;
     left: 50%;
     position: fixed;
@@ -102,10 +102,9 @@
   max-width: 100%;
   margin: 15px 0 0 0;
 }
-.Modal input::placeholder{
-  padding-left : 15px;
+.Modal input::placeholder {
+  padding-left: 15px;
 }
-
 
 @media screen and (min-width: 1920px) {
   .Modal {
