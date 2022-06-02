@@ -45,7 +45,7 @@ function AgGridTable2() {
     {
       headerName: "Options",
       field:"Options",
-      width: 500,
+      width: 400,
       cellStyle: {
         color: "#000",
         height: "100%",

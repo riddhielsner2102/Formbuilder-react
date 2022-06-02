@@ -88,7 +88,7 @@ const Navbar = (props) => {
                 verticalAlign: "baseline",
                 textAlign: "center",
                 margin: 0,
-                minWidth: "64px",
+                width: "auto",
                 lineHeight: "10px",
                 borderRadius: "4px",
                 overflow: "visible",
