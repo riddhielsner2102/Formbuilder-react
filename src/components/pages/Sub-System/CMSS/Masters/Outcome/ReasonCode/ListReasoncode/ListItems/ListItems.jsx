@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
-import './ListReasonCode.css'
+import { PrepareRequest, requests } from "../../../../../../../../../Service/getRequests";
+import './ListItems.css'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-const ListReasonCode = () => {
+const ListItems = () => {
     const [data, setdata] = useState([])
     useEffect(async () => {
         const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=83&AppID=13`
@@ -26,8 +26,9 @@ const ListReasonCode = () => {
             field: "ID",
             cellStyle: {
                 height: "100%",
-                display: "flex ",
-                justifyContent: "center",
+                width: '120px',
+                display: "flex",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "15px",
                 color: "#000",
@@ -40,8 +41,9 @@ const ListReasonCode = () => {
             cellStyle: {
                 color: "#000",
                 height: "100%",
-                display: "flex ",
-                justifyContent: "center",
+                width: '227px',
+                display: "flex",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "15px",
                 textAlign: "center",
@@ -55,8 +57,9 @@ const ListReasonCode = () => {
             cellStyle: {
                 color: "#000",
                 height: "100%",
-                display: "flex ",
-                justifyContent: "center",
+                width: '155px',
+                display: "flex",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "15px",
                 paddingTop: "6px",
@@ -65,24 +68,26 @@ const ListReasonCode = () => {
         },
         {
             headerName: "Description",
-            field: "CreatedOn",
+            field: "Description",
             cellStyle: {
                 color: "#000",
                 height: "100%",
-                display: "flex ",
-                justifyContent: "center",
+                width: '227px',
+                display: "flex",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "15px",
             },
         },
         {
             headerName: "Behavioral Indicator",
-            field: "CreatedOn",
+            field: "BehavioralIndicator",
             cellStyle: {
                 color: "#000",
                 height: "100%",
+                width: '250px',
                 display: "flex ",
-                justifyContent: "center",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "15px",
             },
@@ -94,10 +99,10 @@ const ListReasonCode = () => {
             cellRendererParams: {
                 text: <DeleteOutlineIcon />,
                 style: {
-                    width: "80px",
+                    // width: "80px",
                     height: "40px",
                     backgroundColor: "transparent !important",
-                    color: 'black'
+                    color: 'rgba(0,0,0,0.87)'
                 },
                 // onClick: () => showNewModal(),
             },
@@ -105,7 +110,7 @@ const ListReasonCode = () => {
                 color: "black",
                 height: "100%",
                 display: "flex ",
-                justifyContent: "center",
+                justifyContent: "start",
                 alignItems: "center ",
                 fontSize: "20px",
                 // paddingTop: "5px",
@@ -115,7 +120,7 @@ const ListReasonCode = () => {
     ];
 
     return (
-        <div className="listReasonCode-table">
+        <div className="ListItems-table">
             <AgGrid
                 rowData={data}
                 columnData={contentData}
@@ -133,4 +138,4 @@ const ListReasonCode = () => {
     )
 }
 
-export default ListReasonCode
+export default ListItems
