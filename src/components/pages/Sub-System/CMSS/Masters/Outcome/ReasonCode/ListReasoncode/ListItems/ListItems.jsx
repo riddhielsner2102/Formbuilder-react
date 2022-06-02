@@ -3,6 +3,7 @@ import { Button, AgGrid } from "arms_v2.8_webui";
 import { PrepareRequest, requests } from "../../../../../../../../../Service/getRequests";
 import './ListItems.css'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import ConfirmMessage from "../../../../../../../../ReusableComp/Message/ConfirmMessage";
 
 const ListItems = () => {
     const [data, setdata] = useState([])
@@ -15,6 +16,12 @@ const ListItems = () => {
     useEffect(() => {
         console.log('data', data)
     }, [data])
+
+    const [showConfirm, setShowConfirm] = useState(false)
+    // delete icon click http://localhost:61240/api/v1/FormBuilder/ValidateMasterReasonCode?ReasonCodeID=146
+    // confirm click http://localhost:61240/api/v1/FormBuilder/RemoveMasterReasonCodeOption?ReasonCodeOptionID=355
+    const showNewModal = () => setShowConfirm(true)
+    const deleteModelClose = () => setShowConfirm(false)
 
     const frameworkComponents = {
         gridButton: Button,
@@ -104,7 +111,7 @@ const ListItems = () => {
                     backgroundColor: "transparent !important",
                     color: 'rgba(0,0,0,0.87)'
                 },
-                // onClick: () => showNewModal(),
+                onClick: () => showNewModal(),
             },
             cellStyle: {
                 color: "black",
@@ -134,6 +141,14 @@ const ListItems = () => {
                     color: "#000",
                 }}
             />
+            {showConfirm &&
+                <ConfirmMessage
+                    text='Are you sure you want to delete?'
+                    flag={showConfirm}
+                    onCancel={() => deleteModelClose()}
+                    onConfirm={() => deleteModelClose()}
+                />
+            }
         </div>
     )
 }
