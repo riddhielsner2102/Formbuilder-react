@@ -1,8 +1,12 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./Template.module.css";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close, TextArea } from "arms_v2.8_webui";
+import {
+  postapis,
+  PostRequest,
+} from "../../../../../../../Service/postRequests";
 
 export default class Template extends Component {
   render() {
@@ -13,18 +17,23 @@ export default class Template extends Component {
         <div
           className={classes.Modal}
           style={{
-            transform: this.props.show ? "scale(1) translate(-50%,-50%)" : "scale(0) translate(0,0)",
-            opcaity: this.props.show ? "1" : "0",
-            // minWidth: "353px",
+            height: "400px",
+            padding: "0px",
+            margin: "0px",
           }}
         >
           
           <Container
             className={[classes.divDow].join(" ")}
             style={{
-              padding: "0px",
-              margin: "0px",
-              width : "100%"
+              backgroundColor: "#01396b",
+              color: "white",
+              height: "50px",
+              display: "flex",
+              padding: "15px",
+              marginTop: "10px",
+              boxSizing: "none",
+              width: "450px",
             }}
           >
             <Row
@@ -131,8 +140,12 @@ export default class Template extends Component {
 
               <Col className="save-button"
                 style={{
-                  marginTop: "35px",
-                  marginLeft: "75%",
+                  color: "#fff",
+                  textAlign: "left",
+                  letterSpacing: 0,
+                  marginTop: "2px",
+                  fontWeight: 500,
+                  // fontSize: "20px",
                 }}
               >
                 <Button

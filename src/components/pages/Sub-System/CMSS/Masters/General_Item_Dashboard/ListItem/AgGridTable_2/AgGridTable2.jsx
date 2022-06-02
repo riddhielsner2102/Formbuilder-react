@@ -1,40 +1,36 @@
 import React from "react";
-import "./AgGridTable.css";
+import "./AgGridTable2.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState,useEffect } from "react";
-import ActionModal from "./ActionModal";
-import { PrepareRequest, requests } from "../../../../../../../../src/Service/getRequests";
+import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-
-function AgGridTable() {
+function AgGridTable2() {
 
   const [data, setdata] = useState([]);
   useEffect(async () => {
 
-    const UserID = sessionStorage.getItem("UserID");
-    const URL = `${requests.getMasterGeneralItemDashboard}?UserID=${UserID}&AppID=13`;
+    // const UserID = sessionStorage.getItem("UserID");
+    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=121&AppID=13&ItemTypeID=3`;
+    // GetAssesmentTypeOptions?AssessmentTypeID=126&AppID=13&ItemTypeID=3
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
-    setdata(response.data);
+    console.log("response", response.data.lstModelMasterAssessmentOption);
+    setdata(response.data.lstModelMasterAssessmentOption);
   }, []);
-  // useEffect(() => {
-  //   console.log("data", data);
-  // }, [data]);
+
+
   const frameworkComponents = {
     gridButton: Button,
   };
-  const [showAction, setShowAction] = useState(false)
-
-  const showNewModal = () => {
-    console.log('action clicked')
-    setShowAction(!showAction)
-  }
 
   const contentData = [
     {
       headerName: "ID",
       field: "ID",
       width: 100,
+      style:{
+         justifyContent: "left",
+        },
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -50,37 +46,24 @@ function AgGridTable() {
     },
 
     {
-      headerName: "Title",
-      field: "MasterGeneralTitle",
-      width: 600,
+      headerName: "Options",
+      field:"Options",
+      width: 400,
       cellStyle: {
         color: "#000",
         height: "100%",
         display: "flex",
+        alignItems: "center ",
         fontSize: "15px",
+        // textAlign: "center",
         paddingTop: "6px",
         paddingBottom: "8px",
 
       },
     },
     {
-      headerName: "Created By",
-      field: "UserName",
-      width: 250,
-      cellStyle: {
-        color: "#000",
-        height: "100%",
-        display: "flex ",
-        justifyContent: "center",
-        alignItems: "center ",
-        fontSize: "15px",
-        paddingTop: "6px",
-        paddingBottom: "8px",
-      },
-    },
-    {
-      headerName: "Created On",
-      field: "CreatedOn",
+      headerName: "Option value",
+      field: "OptionValue",
       width: 200,
       cellStyle: {
         color: "#000",
@@ -89,20 +72,59 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "15px",
+        paddingTop: "6px",
+        paddingBottom: "8px",
       },
     },
     {
+      headerName: "Short Name",
+      field: "OptShortName",
+      width: 180,
+      cellStyle: {
+        color: "#000",
+        height: "100%",
+        display: "flex ",
+        justifyContent: "center",
+        alignItems: "center ",
+        fontSize: "15px",
+      },
+    },
+    {
+        headerName: "Result",
+    field: "ResultValue",
+        width: 200,
+        cellStyle: {
+          color: "#000",
+          height: "100%",
+          display: "flex ",
+          justifyContent: "center",
+          alignItems: "center ",
+          fontSize: "15px",
+        },
+      },
+      {
+        headerName: "Order",
+        field: "AssessmentItemOrder",
+        width: 200,
+        cellStyle: {
+          color: "#000",
+          height: "100%",
+          display: "flex ",
+          justifyContent: "center",
+          alignItems: "center ",
+          fontSize: "15px",
+        },
+      },
+    {
       headerName: "Actions",
-      field: "UserName",
       cellRenderer: "gridButton",
       cellRendererParams: {
-        text: "Actions",
-        onClick: () => showNewModal(),
+        text: <DeleteOutlineIcon/>,
+        // onClick: showNewModal,
+        // titleIcon:<DeleteOutlineIcon/>,
         style: {
-          width: "80px",
-          height: "40px",
-          backgroundColor: "#01396b !important",
-        },
+          width: "76px", height: "38px", backgroundColor: "inherit", color: "black"
+      },
       },
       cellStyle: {
         textAlign:"left",
@@ -112,14 +134,13 @@ function AgGridTable() {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        position: 'relative'
       },
     },
   ];
 
 
   return (
-    <div className="main-content">
+    <div className="content_2">
       <AgGrid
         rowData={data}
         columnData={contentData}
@@ -133,9 +154,8 @@ function AgGridTable() {
           color: "#000",
         }}
       />
-      {showAction && <ActionModal show={showAction} modalClosed={() => showNewModal()} />}
     </div>
   );
 }
 
-export default AgGridTable;
+export default AgGridTable2;

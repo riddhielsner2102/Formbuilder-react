@@ -2,39 +2,41 @@ import React, { useEffect, useState } from "react";
 import "./AgGridTable.css";
 import Message from "../../../../../../ReusableComp/Message/Message";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
+import {
+  PrepareRequest,
+  requests,
+} from "../../../../../../../Service/getRequests";
 import ActionButtonModal from "../AgGridTable/ActionButtonModal";
 import Edititemmodal from "../Modal/EditItemmodal";
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
 function AgGridTable(props) {
-  const [data, setdata] = useState([])
-  const [showmessage, setshowmessage] = useState(false)
+  const [data, setdata] = useState([]);
+  const [showmessage, setshowmessage] = useState(false);
   useEffect(async () => {
     if (props.closed === false) {
-      const UserID = getSessionStorage('UserID')
-      const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
+      const UserID = getSessionStorage("UserID");
+      const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`;
       const response = await PrepareRequest(URL);
-      setdata(response.data.lstModelItemRepository)
-} else {
-      const UserID = getSessionStorage('UserID')
-      const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
+      setdata(response.data.lstModelItemRepository);
+    } else {
+      const UserID = getSessionStorage("UserID");
+      const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`;
       const response = await PrepareRequest(URL);
-      setdata(response.data.lstModelItemRepository)
+      setdata(response.data.lstModelItemRepository);
     }
     // console.log('response', response.data)
-  }, [props.closed])
+  }, [props.closed]);
 
   useEffect(() => {
-    console.log('data', data)
+    console.log("data", data);
     if (data.length > 0) {
-      props.setdisable(false)
+      props.setdisable(false);
     } else if (data.length > 0 && props.disable) {
-      setshowmessage(true)
+      setshowmessage(true);
+    } else {
+      props.setdisable(true);
     }
-    else {
-      props.setdisable(true)
-    }
-  }, [data])
+  }, [data]);
 
   const formBuilderData = () => {
     return {
@@ -86,11 +88,11 @@ function AgGridTable(props) {
     };
   });
 
-  const [showAction, setShowAction] = useState(false)
+  const [showAction, setShowAction] = useState(false);
   const showNewModal = () => {
-    console.log('action clicked')
-    setShowAction(!showAction)
-  }
+    console.log("action clicked");
+    setShowAction(!showAction);
+  };
   const [ModalData2, SetModal2] = useState({ show: false });
 
   const closeNewModal = () => {
@@ -192,20 +194,18 @@ function AgGridTable(props) {
       },
     },
   ];
-  const[edit,setedit]=useState(false)
-  const[editdata,seteditdata]=useState([])
+  const [edit, setedit] = useState(false);
+  const [editdata, seteditdata] = useState([]);
   const someHandler = (e) => {
-    setedit(true)
-    seteditdata(e.data)
-     console.log(e.data,"index") 
-      };
-
-
+    setedit(true);
+    seteditdata(e.data);
+    console.log(e.data, "index");
+  };
 
   return (
-    <div className="itemrepo-table">     
+    <div className="itemrepo-table">
       <AgGrid
-        rowData={newFormBuilder}
+        rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
@@ -218,13 +218,19 @@ function AgGridTable(props) {
           color: "#000",
         }}
       />
-     {/* <ActionButtonModal
+      {/* <ActionButtonModal
       show={ModalData2.show}
       modalClosed={() => {
         closeNewModal();
       }}
       />  */}
-          {edit && <Message setedit={setedit} seteditdata={seteditdata} editdata={editdata}/>}
+      {edit && (
+        <Message
+          setedit={setedit}
+          seteditdata={seteditdata}
+          editdata={editdata}
+        />
+      )}
       {/* {edit && <Message setshowmessage={setshowmessage} setedit={setedit} />} */}
     </div>
   );

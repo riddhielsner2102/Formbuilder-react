@@ -1,51 +1,35 @@
 import React from "react";
-import "./Table.css";
+import classes from "./Table.module.css";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { useState, useEffect } from "react";
 import {
   PrepareRequest,
   requests,
 } from "../../../../../../../../Service/getRequests";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { Container, Row } from "react-bootstrap";
+import IconButton from "@mui/material/IconButton";
+import AddItems from "../AddItems/AddItems";
 
 export default function AgGridTable() {
-  // const [data, setdata] = useState([]);
-
-  // useEffect(async () => {
-  //   const UserID = sessionStorage.getItem("UserID");
-  //   const URL = `${requests.getMasterChecklists}?UserID=${UserID}&AppID=13`;
-  //   const response = await PrepareRequest(URL);
-  //   console.log("response", response.data);
-  //   setdata(response.data);
-  // }, []);
-  // useEffect(() => {
-  //   console.log("data", data);
-  // }, [data]);
-
-  const formBuilderData = () => {
-    return {
-      Sheet: [
-        {
-          id: 1,
-          Header: 1,
-          Checklist: "",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-      ],
-    };
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => {
+    console.log("open");
+    setOpen(true);
+  };
+  const handleClose = () => {
+    console.log("close");
+    setOpen(false);
   };
 
-  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-    return {
-      id: ele.id,
-      Header: ele.Header,
-      Checklist: ele.Checklist,
-      CreatedBy: ele.CreatedBy,
-      CreatedOn: ele.CreatedOn,
-      Action: ele.Action,
-    };
-  });
+  const [checklistitemdata, setchecklistitemdata] = useState([]);
+
+  useEffect(async () => {
+    const URL = `${requests.getChecklistItems}?checklistID=56&Alignment=2&AppID=13`;
+    const response = await PrepareRequest(URL);
+    console.log("Checklist Items Getting", response.data.lstModelChecklistItem);
+    setchecklistitemdata(response.data.lstModelChecklistItem);
+  }, []);
 
   const frameworkComponents = {
     gridButton: Button,
@@ -53,8 +37,9 @@ export default function AgGridTable() {
 
   const contentData = [
     {
-      headerName: "ID",
-      field: "ID",
+      headerName: "Title",
+      field: "ChecklistItemName",
+      width: 580,
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -66,8 +51,8 @@ export default function AgGridTable() {
     },
 
     {
-      headerName: "Checklist",
-      field: "ChecklistName",
+      headerName: "Sr.No",
+      field: "SrNo",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -81,8 +66,8 @@ export default function AgGridTable() {
       },
     },
     {
-      headerName: "Created By",
-      field: "CreatedBy",
+      headerName: "Bullet",
+      field: "Bullet",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -95,8 +80,8 @@ export default function AgGridTable() {
       },
     },
     {
-      headerName: "Created On",
-      field: "CreatedOn",
+      headerName: "Order No",
+      field: "OrderID",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -112,23 +97,41 @@ export default function AgGridTable() {
     },
   ];
 
+  // return <AddItems open={open} onClose={handleClose} />;
+
   return (
-    <React.Fragment>
-      <div className="main-test-table">
-        <AgGrid
-          rowData={newFormBuilder}
-          columnData={contentData}
-          frameworkComponents={frameworkComponents}
-          headerHeight={52}
-          style={{
-            width: "100%",
-            height: "100vh",
-            padding: "1% 3% 1% 3%",
-            borderRadius: "8px 8px 0px 0px",
-            color: "#000",
-          }}
-        />
-      </div>
-    </React.Fragment>
+    <div style={{ padding: "1% 3%" }}>
+      <Container className={classes.main1}>
+        <div className={classes.divDow1}>
+          <Row className={classes.newRow1}>
+            <div className={classes.header1}>
+              <IconButton>
+                <AddCircleIcon />
+                <Button
+                  text="Add/Edit&nbsp;Parent&nbsp;Items"
+                  onClick={handleOpen}
+                />
+              </IconButton>
+            </div>
+          </Row>
+          <div className={classes.mainContent1}>
+            <AgGrid
+              rowData={checklistitemdata}
+              columnData={contentData}
+              frameworkComponents={frameworkComponents}
+              headerHeight={52}
+              style={{
+                width: "100%",
+                height: "300px",
+                padding: "1% 3% 1% 3%",
+                borderRadius: "8px 8px 0px 0px",
+                color: "#000",
+              }}
+            />
+          </div>
+        </div>
+      </Container>
+      {open && <AddItems show={open} onClose={handleClose} />}
+    </div>
   );
 }

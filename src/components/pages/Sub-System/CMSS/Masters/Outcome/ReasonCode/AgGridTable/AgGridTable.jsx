@@ -9,6 +9,7 @@ function AgGridTable() {
 
   useEffect(async () => {
     const UserID = sessionStorage.getItem('UserID')
+    const AppID = sessionStorage.getItem('SubsystemID')
     const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
     const response = await PrepareRequest(URL);
     console.log('response', response.data)
@@ -16,13 +17,14 @@ function AgGridTable() {
   }, [])
 
   const [showAction, setShowAction] = useState(false)
+
   const showNewModal = () => {
     console.log('action clicked')
     setShowAction(!showAction)
   }
 
   const frameworkComponents = {
-    gridButton: Button,
+    gridButton: ActionButtonModal,
   };
 
   const contentData = [
@@ -89,15 +91,15 @@ function AgGridTable() {
       headerName: "Actions",
       field: "Action",
       cellRenderer: "gridButton",
-      cellRendererParams: {
-        text: "Actions",
-        style: {
-          width: "80px",
-          height: "40px",
-          backgroundColor: "#01396b !important",
-        },
-        onClick: () => showNewModal(),
-      },
+      // cellRendererParams: {
+      //   text: "Actions",
+      //   style: {
+      //     width: "80px",
+      //     height: "40px",
+      //     backgroundColor: "#01396b !important",
+      //   },
+      //   onClick: () => showNewModal(),
+      // },
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -107,6 +109,7 @@ function AgGridTable() {
         fontSize: "20px",
         // paddingTop: "5px",
         // paddingBottom: "5px",
+        position: 'relative'
       },
     },
   ];
@@ -126,7 +129,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
-      {showAction && <ActionButtonModal />}
+      {/* {showAction && <ActionButtonModal show={showAction} modalClosed={() => showNewModal()} />} */}
     </div>
   );
 }

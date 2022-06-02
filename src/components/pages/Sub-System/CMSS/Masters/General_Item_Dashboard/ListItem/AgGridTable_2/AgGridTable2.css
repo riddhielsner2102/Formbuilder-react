@@ -1,57 +1,65 @@
-.main-content .ag-theme-alpine {
+.content_2 .ag-theme-alpine {
   background-color: #f5f5f5;
 }
 
-.main-content .ag-theme-alpine .ag-header-cell,
+.content_2 .ag-theme-alpine .ag-header-cell,
 .ag-theme-alpine .ag-header-group-cell {
   background-color: white;
   color: black;
   font-size: 15px;
 }
 
-.main-content .ag-theme-alpine .ag-root-wrapper {
+.content_2 .ag-theme-alpine .ag-root-wrapper {
   border-radius: 15px;
   margin-top: -2%;
 }
 
-.main-content .ag-theme-alpine [class^="ag-"],
+.content_2 .ag-theme-alpine [class^="ag-"],
 .ag-theme-alpine [class^="ag-"]:focus,
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
   border-color: #fff;
 }
 
-.main-content .ag-row {
-  height: 42px !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+.content_2 .ag-row {
+  height: 60px !important;
 }
 
-.main-content
+.content_2
   .MuiButtonBase-root
   .MuiButton-root
   .MuiButton-contained
   .makeStyles-button-111 {
-  height: 35px;
+  height: 39px;
 }
-.main-content .ag-row-position-absolute {
+.content_2 .ag-row-position-absolute {
   position: relative;
 }
-
-.main-content .ag-center-cols-container {
+/* .content_2 .makeStyles-button-47 {
+    color: white;
+    width: 76px;
+    border: none;
+    cursor: pointer;
+    height: 38px;
+    outline: none;
+    text-transform: none;
+    background-color: #01396b;
+  } */
+.content_2 .ag-center-cols-container {
   height: 100% !important;
 }
 
-.main-content .alternate-row-color {
+.content_2 .alternate-row-color {
   background-color: whitesmoke !important;
 }
 
-.main-content .ag-theme-alpine .ag-cell,
+.content_2 .ag-theme-alpine .ag-cell,
 .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
   border: none !important;
 }
 
-.main-content .ag-header-cell-label,
-.main-content .ag-cell {
+.content_2 .ag-header-cell-label,
+.content_2 .ag-cell {
   justify-content: left !important;
   padding: 0 0 0 24px !important;
 }

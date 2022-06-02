@@ -1,6 +1,10 @@
 import axios from "./axios";
 
+<<<<<<< HEAD
 const postrequests = {
+=======
+const postapis = {
+>>>>>>> e91141f05f8d6c81fb832e005dac91ba3036cdf0
   postDataSourceSetting: `/PostDataSourceSetting`,
   postImportForm: `/PostImportForm`,
   saveOfflineData: `/SaveOfflineData`,

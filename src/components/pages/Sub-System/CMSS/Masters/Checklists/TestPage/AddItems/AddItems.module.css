@@ -1,14 +1,13 @@
-.main {
-  position: static;
+.main2 {
+  position: absolute;
+  left: 4%;
+  top: 50px;
   z-index: 1000;
   width: 1800px;
   padding: 0px 18px 0px 18px;
   min-height: 250px;
   max-width: 80vw;
-  max-height: 1800px;
-  margin-top: 40px;
-  /* left: 40%;
-  top: 40%; */
+  max-height: 1900px;
   box-sizing: border-box;
   transition: all 0.3s ease-out;
   border-radius: 4px;
@@ -19,14 +18,14 @@
   pointer-events: auto;
 }
 
-.main .divDow {
-  height: 800px;
+.main2 .divDow2 {
+  height: 860px;
   margin: 0px;
   width: 100%;
   max-width: 80vw;
 }
 
-.main .divDow .newRow {
+.main2 .divDow2 .newRow2 {
   background-color: #01396b;
   color: white;
   height: 64px;
@@ -35,38 +34,13 @@
   margin-top: 20px;
 }
 
-.main .divDow .newRow .header {
+.main2 .divDow2 .newRow2 .header2 {
   display: flex;
   align-items: center;
 }
 
-/* .main .divDow .newRow .header .closebtn {
-  margin-left: 1500px;
-  color: #fff;
-  font-weight: 800;
-  margin-top: 2px;
-  font-size: 20px;
-  cursor: pointer;
-} */
-
-.main .divDow .mainContent {
+.main2 .divDow2 .mainContent2 {
   display: flex;
   align-items: space-around;
   padding: 20px;
-}
-
-.main .divDow .mainContent Button {
-  background-color: #01396b !important;
-  color: #fff;
-  display: inline-block;
-  white-space: nowrap;
-  text-decoration: none;
-  vertical-align: baseline;
-  text-align: bottom;
-  margin: 0;
-  height: 40px;
-  width: 65px;
-  padding: 0 20px;
-  border-radius: 4px;
-  overflow: visible;
 }
