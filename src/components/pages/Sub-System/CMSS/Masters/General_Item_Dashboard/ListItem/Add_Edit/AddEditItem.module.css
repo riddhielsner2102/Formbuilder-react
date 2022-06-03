@@ -34,11 +34,11 @@
   margin-top: 20px;
 }
 
-.main .divDow .newRow .header {
+/* .main .divDow .newRow .header {
   display: flex;
   align-items: center;
   justify-content: space-between !important;
-}
+} */
 
 .main .divDow .mainContent {
   display: flex;
