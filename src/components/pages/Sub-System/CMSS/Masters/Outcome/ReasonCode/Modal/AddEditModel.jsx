@@ -22,7 +22,8 @@ function AddEditModel(props) {
     setdata(props.data)
   }, [props.data])
   useEffect(() => {
-    setDataObject(data ? data[0] : {})
+    // setDataObject(data ? data[0] : {})
+    console.log('data', data)
   }, [data])
 
   const InputChange = (e) => {
@@ -36,14 +37,14 @@ function AddEditModel(props) {
   //   setdata(response.data)
   // }
   console.log('propsdataObject', data)
-  const SaveData = () => {
+  const SaveData = async () => {
     console.log("dataObject", dataObject);
     const URL = `${postapis.postMasterReasonCode}`;
-    PostRequest(URL, dataObject);
+    let response = await PostRequest(URL, dataObject);
+    console.log('response.data', response.data)
     props.modalClosed()
     // getAllData()
   };
-  console.log(dataObject?.ReasonCodeTitle)
 
   return (
     <>
