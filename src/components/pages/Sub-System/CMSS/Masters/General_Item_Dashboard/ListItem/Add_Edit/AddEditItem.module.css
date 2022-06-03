@@ -1,4 +1,4 @@
-.main2 {
+.main {
   position: absolute;
   left: 4%;
   top: 50px;
@@ -18,14 +18,14 @@
   pointer-events: auto;
 }
 
-.main2 .divDow2 {
+.main .divDow {
   height: 860px;
   margin: 0px;
   width: 100%;
   max-width: 80vw;
 }
 
-.main2 .divDow2 .newRow2 {
+.main .divDow .newRow {
   background-color: #01396b;
   color: white;
   height: 64px;
@@ -34,13 +34,13 @@
   margin-top: 20px;
 }
 
-.main2 .divDow2 .newRow2 .header2 {
+.main .divDow .newRow .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between !important;
 }
 
-.main2 .divDow2 .mainContent2 {
+.main .divDow .mainContent {
   display: flex;
   align-items: space-around;
   padding: 20px;

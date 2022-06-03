@@ -43,7 +43,7 @@ function ReasonCodeDashboard() {
           showNewModal();
         }}
         searchbar={true}
-        placeHolder='         Reason code'
+        placeHolder='Search Reason code'
       />
     </>
   );

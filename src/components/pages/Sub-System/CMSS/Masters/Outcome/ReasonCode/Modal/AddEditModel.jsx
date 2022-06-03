@@ -11,6 +11,7 @@ import axios from "axios";
 // import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
 
 function AddEditModel(props) {
+  console.log("AddEditModel", props.data);
   const UserID = sessionStorage.getItem("UserID");
   const AppID = sessionStorage.getItem("SubsystemID");
 

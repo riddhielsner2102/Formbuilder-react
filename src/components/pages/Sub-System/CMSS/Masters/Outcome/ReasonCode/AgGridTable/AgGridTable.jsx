@@ -24,7 +24,7 @@ function AgGridTable() {
   }
 
   const frameworkComponents = {
-    gridButton: Button,
+    gridButton: ActionButtonModal,
   };
 
   const contentData = [
@@ -91,15 +91,15 @@ function AgGridTable() {
       headerName: "Actions",
       field: "Action",
       cellRenderer: "gridButton",
-      cellRendererParams: {
-        text: "Actions",
-        style: {
-          width: "80px",
-          height: "40px",
-          backgroundColor: "#01396b !important",
-        },
-        onClick: () => showNewModal(),
-      },
+      // cellRendererParams: {
+      //   text: "Actions",
+      //   style: {
+      //     width: "80px",
+      //     height: "40px",
+      //     backgroundColor: "#01396b !important",
+      //   },
+      //   onClick: () => showNewModal(),
+      // },
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -129,7 +129,7 @@ function AgGridTable() {
           color: "#000",
         }}
       />
-      {showAction && <ActionButtonModal show={showAction} modalClosed={() => showNewModal()} />}
+      {/* {showAction && <ActionButtonModal show={showAction} modalClosed={() => showNewModal()} />} */}
     </div>
   );
 }

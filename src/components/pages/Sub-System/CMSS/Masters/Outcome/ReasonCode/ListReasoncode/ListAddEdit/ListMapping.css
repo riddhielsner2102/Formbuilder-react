@@ -1,0 +1,47 @@
+.header-black {
+    background-color: white !important;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px !important;
+}
+
+.ListMapping_Table .ag-theme-alpine [class^="ag-"],
+.ag-theme-alpine [class^="ag-"]:focus,
+.ag-theme-alpine [class^="ag-"]:after,
+.ag-theme-alpine [class^="ag-"]:before {
+    border-color: #fff;
+}
+
+.ListMapping_Table .alternate-row-color {
+    background-color: whitesmoke !important;
+}
+
+.ListMapping_Table .ag-header-cell-label {
+    justify-content: left !important;
+    padding-left: 13px !important;
+}
+
+.ListMapping_Table .ag-cell {
+    padding-left: 24px !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.ListMapping_Table .ag-row {
+    height: 48px !important;
+    border-bottom: 1px solid gray !important;
+}
+
+.ListMapping_Table .ag-row-position-absolute {
+    position: relative;
+}
+
+.ListMapping_Table .ag-center-cols-container {
+    overflow-y: auto;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.ListMapping_Table .ag-body-viewport,
+.ListMapping_Table .ag-body-viewport.ag-layout-normal {
+    overflow: hidden !important;
+    overflow-y: hidden;
+}
