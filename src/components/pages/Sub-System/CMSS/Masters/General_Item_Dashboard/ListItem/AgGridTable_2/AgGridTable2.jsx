@@ -9,12 +9,9 @@ function AgGridTable2() {
 
   const [data, setdata] = useState([]);
   useEffect(async () => {
-
-    // const UserID = sessionStorage.getItem("UserID");
-    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=126&AppID=13&ItemTypeID=3`;
-    // GetAssesmentTypeOptions?AssessmentTypeID=126&AppID=13&ItemTypeID=3
+    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=121&AppID=13&ItemTypeID=3`;
     const response = await PrepareRequest(URL);
-    console.log("response", response.data);
+    console.log("response", response.data.lstModelMasterAssessmentOption);
     setdata(response.data.lstModelMasterAssessmentOption);
   }, []);
 
@@ -64,7 +61,7 @@ function AgGridTable2() {
     {
       headerName: "Option value",
       field: "OptionValue",
-      width: 200,
+      width: 220,
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -79,7 +76,7 @@ function AgGridTable2() {
     {
       headerName: "Short Name",
       field: "OptShortName",
-      width: 180,
+      width: 220,
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -92,7 +89,7 @@ function AgGridTable2() {
     {
         headerName: "Result",
     field: "ResultValue",
-        width: 200,
+        width: 250,
         cellStyle: {
           color: "#000",
           height: "100%",

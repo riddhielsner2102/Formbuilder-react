@@ -100,11 +100,11 @@ export default function AgGridTable() {
   // return <AddItems open={open} onClose={handleClose} />;
 
   return (
-    <React.Fragment>
-      <Container className={classes.main}>
-        <div className={classes.divDow}>
-          <Row className={classes.newRow}>
-            <div className={classes.header}>
+    <div style={{ padding: "1% 3%" }}>
+      <Container className={classes.main1}>
+        <div className={classes.divDow1}>
+          <Row className={classes.newRow1}>
+            <div className={classes.header1}>
               <IconButton>
                 <AddCircleIcon />
                 <Button
@@ -114,7 +114,7 @@ export default function AgGridTable() {
               </IconButton>
             </div>
           </Row>
-          <div className={classes.mainContent}>
+          <div className={classes.mainContent1}>
             <AgGrid
               rowData={checklistitemdata}
               columnData={contentData}
@@ -132,6 +132,6 @@ export default function AgGridTable() {
         </div>
       </Container>
       {open && <AddItems show={open} onClose={handleClose} />}
-    </React.Fragment>
+    </div>
   );
 }

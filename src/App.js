@@ -18,6 +18,8 @@ import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/Reaso
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
 import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
 import Rating from "./components/pages/Sub-System/CMSS/Masters/Rating/Rating";
+import ListReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ListReasoncode/ListReasonCode";
+
 const App = () => {
   const userId = sessionStorage.getItem("UserID");
   return (
@@ -50,7 +52,10 @@ const App = () => {
             />
             <Route
               path="master-assessmenttype"
-              element={<Rating />}
+              element={<Rating />}/>
+            <Route
+              path="evaluator/master-reasoncode/list"
+              element={<ListReasonCode />}
             />
           </Route>
         </Routes>

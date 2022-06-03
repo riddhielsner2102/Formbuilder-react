@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Input, Label, Close, AgGrid, CheckBox, Button } from "arms_v2.8_webui";
-import classes from "./ItemMapping.module.css";
-import { Row, Col, Container } from "react-bootstrap";
+import classes from "./Mapping.module.css";
+import { Row, Col } from "react-bootstrap";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import {
@@ -9,11 +9,18 @@ import {
   requests,
 } from "../../../../../../../../Service/getRequests";
 
-export default function ItemMapping() {
+export default function Mapping(props) {
   const [data, setdata] = useState([]);
+  const [showAction, setShowAction] = useState(false);
+
+  const showModal = () => {
+    console.log("action clicked");
+    setShowAction(!showAction);
+  };
+
 
   useEffect(async () => {
-    const URL = `${requests.getChecklistItems}?checklistID=56&Alignment=2&AppID=13`;
+    const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=121&AppID=13&ItemTypeID=3`;
     const response = await PrepareRequest(URL);
     console.log(
       "Checklist Items Getting",
@@ -21,11 +28,6 @@ export default function ItemMapping() {
     );
     setdata(response.data.lstModelItemRepository);
   }, []);
-
-  // const frameworkComponents = {
-  //   abckBox: CheckBox,
-  // };
-
   const columnsDef_a = [
     {
       headerName: "Select",
@@ -34,8 +36,9 @@ export default function ItemMapping() {
       style: {
         background: "white !important",
         color: "black !important",
+        border:" 1px solid black  !important"
       },
-      cellRenderer: "abckBox",
+      cellRenderer: "selectcheck",
       cellRendererParams: {
         iconType: "tick",
       },
@@ -55,7 +58,7 @@ export default function ItemMapping() {
         height: "100%",
         fontSize: "12px",
         backgroundColor: "#fff",
-        textAlign: "left",
+        textAlign: "center",
         overflow: "hidden",
         wordWrap: "break-word",
         textOverflow: "ellipsis",
@@ -74,7 +77,7 @@ export default function ItemMapping() {
             be: "",
             c: "",
             d: "",
-            e: "•",
+            e: "",
           },
         ],
       };
@@ -92,14 +95,14 @@ export default function ItemMapping() {
     });
 
     const frameworkComponents = {
-      abckBox: CheckBox,
+      selectcheck: CheckBox,
     };
 
     const columnsDef_b = [
       {
         headerName: "Select",
         field: "bc",
-        cellRenderer: "abckBox",
+        cellRenderer: "selectcheck",
         cellRendererParams: { iconType: "tick" },
 
         cellStyle: {
@@ -113,7 +116,7 @@ export default function ItemMapping() {
       },
 
       {
-        headerName: "Items",
+        headerName: "Options",
         field: "be",
         cellStyle: {
           height: "100%",
@@ -126,8 +129,8 @@ export default function ItemMapping() {
       },
 
       {
-        headerName: "SrNo",
-        field: "c,",
+        headerName: "ShortName",
+        field: "c",
         editable: true,
         cellStyle: {
           height: "100%",
@@ -154,15 +157,17 @@ export default function ItemMapping() {
         },
       },
       {
-        headerName: "Bullet",
+        headerName: "OptionValue",
         field: "e",
+        editable: true,
         cellStyle: {
           height: "100%",
           display: "flex ",
           justifyContent: "center",
           alignItems: "center",
           fontSize: "12px",
-          backgroundColor: "#fff",
+          backgroundColor: "lightgoldenrodyellow",
+          border: "1px solid brown",
         },
       },
     ];
@@ -170,7 +175,7 @@ export default function ItemMapping() {
     return (
       <React.Fragment>
         <div
-          className={classes.Modal}
+          className={classes.MapModal}
           style={{
             width: "1800px",
           }}
@@ -277,7 +282,7 @@ export default function ItemMapping() {
                 }}
               >
                 <Button
-                  text={<ArrowBackIcon />}
+                  text={< ArrowForwardIcon/>}
                   style={{
                     backgroundColor: "#01396b !important",
                     color: "#fff",
@@ -293,7 +298,7 @@ export default function ItemMapping() {
 
               <div>
                 <Button
-                  text={<ArrowForwardIcon />}
+                  text={< ArrowBackIcon />}
                   style={{
                     backgroundColor: "#01396b !important",
                     color: "#fff",
