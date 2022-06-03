@@ -4,24 +4,47 @@ import { PrepareRequest, requests } from "../../../../../../../../../Service/get
 import './ListItems.css'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ConfirmMessage from "../../../../../../../../ReusableComp/Message/ConfirmMessage";
+import Message from "../../../../../../../../ReusableComp/Message/Message";
 
-const ListItems = () => {
-    const [data, setdata] = useState([])
-    useEffect(async () => {
-        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=83&AppID=13`
-        const response = await PrepareRequest(URL);
-        console.log('response', response.data)
-        setdata(response.data.lstModelMasterReasonCodeOption)
-    }, [])
+const ListItems = (props) => {
+    const [ReasonCodeID, setReasonCodeID] = useState(null)
     useEffect(() => {
-        console.log('data', data)
-    }, [data])
+        setReasonCodeID(props?.data[0].ReasonCodeID)
+    }, [])
+
+    const [listData, setListData] = useState([])
+    const getAllListItemData = async () => {
+        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=${ReasonCodeID}&AppID=13`
+        const response = await PrepareRequest(URL);
+        setListData(response.data.lstModelMasterReasonCodeOption)
+    }
+    useEffect(() => {
+        getAllListItemData()
+    }, [ReasonCodeID])
 
     const [showConfirm, setShowConfirm] = useState(false)
-    // delete icon click http://localhost:61240/api/v1/FormBuilder/ValidateMasterReasonCode?ReasonCodeID=146
-    // confirm click http://localhost:61240/api/v1/FormBuilder/RemoveMasterReasonCodeOption?ReasonCodeOptionID=355
-    const showNewModal = () => setShowConfirm(true)
+    const [ReasonCodeOptionID, setReasonCodeOptionID] = useState(null)
+    const [showMessage, setShowMessage] = useState(false)
+
+    const showNewModal = async (value) => {
+        setReasonCodeOptionID(value.data.ReasonCodeOptionID)
+        const URL = `${requests.validateMasterReasonCode}?ReasonCodeID=${ReasonCodeID}`
+        const response = await PrepareRequest(URL);
+        console.log('deleteModel', response.data)
+        setShowConfirm(true)
+    }
+    const ConfirmDeleteList = async () => {
+        const URL = `${requests.removeMasterReasonCodeOption}?ReasonCodeOptionID=${ReasonCodeOptionID}`
+        const response = await PrepareRequest(URL);
+        console.log('deleteConfirm', response.data)
+        getAllListItemData()
+        setShowConfirm(false)
+        if (response.data === 1) {
+            setShowMessage(true)
+        }
+    }
     const deleteModelClose = () => setShowConfirm(false)
+    const handleClose = () => setShowMessage(false)
 
     const frameworkComponents = {
         gridButton: Button,
@@ -41,7 +64,6 @@ const ListItems = () => {
                 color: "#000",
             },
         },
-
         {
             headerName: "Option Title",
             field: "OptionTitle",
@@ -111,7 +133,7 @@ const ListItems = () => {
                     backgroundColor: "transparent !important",
                     color: 'rgba(0,0,0,0.87)'
                 },
-                onClick: () => showNewModal(),
+                // onClick: (e) => showNewModal(e),
             },
             cellStyle: {
                 color: "black",
@@ -129,7 +151,8 @@ const ListItems = () => {
     return (
         <div className="ListItems-table">
             <AgGrid
-                rowData={data}
+                onCellClicked={showNewModal}
+                rowData={listData}
                 columnData={contentData}
                 frameworkComponents={frameworkComponents}
                 headerHeight={52}
@@ -146,7 +169,14 @@ const ListItems = () => {
                     text='Are you sure you want to delete?'
                     flag={showConfirm}
                     onCancel={() => deleteModelClose()}
-                    onConfirm={() => deleteModelClose()}
+                    onConfirm={() => ConfirmDeleteList()}
+                />
+            }
+            {showMessage &&
+                <Message
+                    flag={showMessage}
+                    text="Reason Code Option Deleted"
+                    handleClose={handleClose}
                 />
             }
         </div>

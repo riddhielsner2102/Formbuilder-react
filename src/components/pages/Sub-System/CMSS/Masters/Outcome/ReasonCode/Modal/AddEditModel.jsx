@@ -15,13 +15,16 @@ function AddEditModel(props) {
   const UserID = sessionStorage.getItem("UserID");
   const AppID = sessionStorage.getItem("SubsystemID");
 
-  const [dataObject, setDataObject] = useState({
-    ReasonCodeTitle: "",
-    UserID: UserID,
-    AppID: 13,
-    ReasonCodeID: 131,
-  });
-  // const [data, setdata] = useState([])
+  const [dataObject, setDataObject] = useState({ ReasonCodeTitle: "", UserID: UserID, AppID: 13, ReasonCodeID: 0 })
+  const [data, setdata] = useState([])
+
+  useEffect(() => {
+    setdata(props.data)
+  }, [props.data])
+  useEffect(() => {
+    setDataObject(data ? data[0] : {})
+  }, [data])
+
   const InputChange = (e) => {
     setDataObject({ ...dataObject, [e.target.name]: e.target.value });
   };
@@ -32,18 +35,15 @@ function AddEditModel(props) {
   //   console.log('response', response.data)
   //   setdata(response.data)
   // }
-
+  console.log('propsdataObject', data)
   const SaveData = () => {
     console.log("dataObject", dataObject);
     const URL = `${postapis.postMasterReasonCode}`;
     PostRequest(URL, dataObject);
-    // props.modalClosed()
+    props.modalClosed()
     // getAllData()
-
-    // axios.post('http://localhost:61240/api/v1/FormBuilder/PostMasterReasonCode', dataObject)
-    //   .then(res => console.log(res))
-    //   .catch(error => console.log('error', error))
   };
+  console.log(dataObject?.ReasonCodeTitle)
 
   return (
     <>
