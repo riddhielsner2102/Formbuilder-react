@@ -10,7 +10,6 @@ import {
 import { Container, Row, Col } from "react-bootstrap";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Input, Button, Close, CheckBox, ComboBox } from "arms_v2.8_webui";
-import "./Itemrepomodal.css"
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
 
 function Itemmodal(props) {

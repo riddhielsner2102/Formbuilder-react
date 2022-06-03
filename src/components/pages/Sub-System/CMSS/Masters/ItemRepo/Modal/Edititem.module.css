@@ -1,8 +1,6 @@
 .Mod {
-  position: fixed;
   z-index: 1000;
   /* max-width: 80vw; */
-  width: 370px;
   /* max-height: 100%; */
   padding: 0px 18px 0px 18px;
   left: 40%;
@@ -15,6 +13,10 @@
     0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
   background: white;
   color: rgba(0, 0, 0, 0.87);
+  max-width: 80vw;
+  pointer-events: auto;
+  width: 600px;
+  position: static;
 }
 
 /* .closeButton {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import FilterVintageIcon from "@mui/icons-material/FilterVintage";
 import Navbar from "../../../../../ReusableComp/Navbar/Navbar";
+import Ratingmodal from "./Modal/Ratingmodal";
 // import Template from "./Modal/Template";
-import FieldModal from "./Modal/FieldModal";
+// import FieldModal from "./Modal/FieldModal";
 
 function ChecklistDashboard(props) {
   const [ModalData2, SetModal2] = useState({ show: false });
@@ -20,7 +21,7 @@ function ChecklistDashboard(props) {
 
   return (
     <>
-      {ModalData2.show && <FieldModal
+      {ModalData2.show && <Ratingmodal
         show={ModalData2.show}
         modalClosed={() => {
           closeNewModal();
@@ -39,7 +40,7 @@ function ChecklistDashboard(props) {
         onClick={() => {
           showNewModal();
         }}
-      // disable={props.disable}
+      disable={props.disable}
       />
     </>
   );

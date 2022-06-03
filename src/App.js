@@ -17,7 +17,7 @@ import Field from "./components/pages/Sub-System/CMSS/Masters/Fields/Field";
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
 import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
-
+import Rating from "./components/pages/Sub-System/CMSS/Masters/Rating/Rating";
 const App = () => {
   const userId = sessionStorage.getItem("UserID");
   return (
@@ -47,6 +47,10 @@ const App = () => {
              <Route
               path="master-outputfield"
               element={<Field />}
+            />
+            <Route
+              path="master-assessmenttype"
+              element={<Rating />}
             />
           </Route>
         </Routes>

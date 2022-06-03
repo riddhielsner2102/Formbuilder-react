@@ -73,7 +73,7 @@ function ConfirmMessage(props) {
         >
           <Button
             text="Confirm"
-            //   onClick={this.props.modalClosed}
+              onClick={props.Confirmcall}
             style={{
               backgroundColor: "#01396b !important",
               color: "#fff",
@@ -94,7 +94,6 @@ function ConfirmMessage(props) {
               fontSize: "14px",
               fontWeight: "600",
             }}
-            onClick={props.onConfirm}
           />
           <div>
             <Button

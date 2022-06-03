@@ -6,8 +6,8 @@ import { Container, Row } from "react-bootstrap";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { Input, Close, ComboBox, CheckBox } from "arms_v2.8_webui";
 import {
-    requests,
-    PrepareRequest,
+    postapis,
+    PostRequest,
 } from "../../../../../../../Service/postRequests";
 import { Button, Label } from "arms_v2.8_webui";
 // import Aux from "../../pages/Dashboard-Modal/hoc/Auxiliary/Auxiliary";
@@ -17,36 +17,31 @@ import { getSessionStorage } from "../../../../../../common/sessionStorage";
 
 
 function FieldModal(props) {
-    //   console.log(editdata, "editdata");
-    // const [show, setShow] = useState(false);
-    //   const userId = getSessionStorage("UserID")
-    //   const SubsystemID = getSessionStorage("SubsystemID")
-    //   const [rowsdata, setrowsdata] = useState([editdata])
-    //   const [formValues, setFormValues] = useState([{ AppID: 13, RepID: 0, IsActive:true, RepTitle: "rowsdata[0].RepTitle", createdBy: userId }]);
-    //   console.log(rowsdata, "rowdata")
-    //   const handleClose = () => {
-    //     const URL = `${requests.PostMasterMultipleItemRepository}`;
-    //     const x = { lstModelItemRepository: formValues}
-    //     PrepareRequest(URL, x);
-    //     setedit(false);
-    //   }
+const[title,settitle]=useState()
+console.log(title,"title");
+const[IsActive,setIsActive]=useState(true)
+const formValues = { AppID: 13, FieldId: 0, FieldName: title, IsActive:IsActive?1:false}
 
-    //   const handleChange = (e) => {
-    //     let newdata = [...rowsdata]
-    //     newdata[0].RepTitle = e.target.value
-    //     console.log(formValues, "newdata")
-    //     setrowsdata(newdata)
-
-    //   }
-    //   const handlecheck=()=>{
-    //     let newdata = [...rowsdata]
-    //     newdata[0].IsActive = !rowsdata[0].IsActive
-    //     console.log(formValues, "newdata")
-    //     setrowsdata(newdata)
-    //   }
-
+const handlechange=(e)=>{
+settitle(e.target.value)
+}
+const handlecheck=()=>{
+    setIsActive(!IsActive)
+}
+const handleClose = () => {
+        const URL = `${postapis.saveMasterField}`;
+        PostRequest(URL, formValues);
+        props.setclosed(true)
+        // props.SetModal2({})
+        props.modalClosed()
+        
+      }
     const btndisabled = (props) => {
-
+            if(title===""){
+                return true
+            }else{
+                return false
+            }
     }
 
 
@@ -123,10 +118,10 @@ function FieldModal(props) {
                         }}
                     >
                         <Input
-                            //   value={rowsdata[0].RepTitle}
-                            //   onChange={(e) =>
-                            //     handleChange(e)
-                            //   }
+                              value={title}
+                              onChange={(e) =>
+                                handlechange(e)
+                              }
                             placeholder="TemplateName *"
                             style={{
                                 width: "395px",
@@ -135,6 +130,8 @@ function FieldModal(props) {
                                 alignItems: "center",
                                 marginLeft: "0px",
                                 textAlign: "left",
+                                fontSize:"20px",
+                                fontWeight:"600"
                             }}
                         />
                     </div>
@@ -145,9 +142,9 @@ function FieldModal(props) {
                     }}>
                         <CheckBox
                             checkwidth="140%"
-                            //   onChange={(e) => handlecheck()}
+                              onClick={() => handlecheck()}
                             iconType="tick"
-                            //   checked={rowsdata[0].IsActive}
+                              checked={IsActive}
                             iconColor="#0F243E"
                             name="check"
                             colorIcon="White"
@@ -172,8 +169,8 @@ function FieldModal(props) {
                     <Button
                         text="Save"
                         disabled={btndisabled()}
-                        onClick={props.modalClosed}
-                        // onClick={() => handleClose()}
+                        // onClick={props.modalClosed}
+                        onClick={() => handleClose()}
                         style={{
                             backgroundColor: "#01396b !important",
                             color: "#fff",

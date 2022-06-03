@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./AgGridTable.css";
 import Message from "../../../../../../ReusableComp/Message/Message";
-import { Button, AgGrid } from "arms_v2.8_webui";
+import { Button,AgGrid } from "arms_v2.8_webui";
 import {
   PrepareRequest,
   requests,
@@ -9,35 +9,13 @@ import {
 import ActionButtonModal from "../AgGridTable/ActionButtonModal";
 import Edititemmodal from "../Modal/EditItemmodal";
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
+import AGrid from "../../../../../../../AgGrid"
+import { postapis } from "../../../../../../../Service/postRequests";
+import ConfirmMessage from "../../../../../../ReusableComp/Message/ConfirmMessage";
 function AgGridTable(props) {
   const [data, setdata] = useState([])
   console.log(data, "data");
   const [showmessage, setshowmessage] = useState(false)
-  // useEffect(async () => {
-  //   if(data.length>0){
-  //     props.setdisable(false)
-  //   }else{
-  //     props.setdisable(true)
-  //   }
-  //   const UserID = getSessionStorage('UserID')
-  //   const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
-  //   const response = await PrepareRequest(URL);
-  //   setdata(response.data.lstModelItemRepository)
-  
-  // }, [])
-
-  // useEffect(async () => {
-  //   if (props.closed) {
-  //     const UserID = getSessionStorage('UserID')
-  //     const URL = `${requests.getMasterItemRepository}?UserID=1&AppID=13`
-  //     const response = await PrepareRequest(URL);
-  //     setdata(response.data.lstModelItemRepository)
-  //     props.setdisable(false)
-  //   }
-  //   if(data.length>0){
-  //     props.setdisable(false)
-  //   }
-  // }, [props.closed,data])
   const UserID=getSessionStorage("UserID")
   const URL = `${requests.getMasterItemRepository}?UserID=${UserID}&AppID=13`
 useEffect(async()=>{
@@ -54,57 +32,6 @@ useEffect(async()=>{
             setshowmessage(true)
           }
     },[props.closed])
-
-
-  const formBuilderData = () => {
-    return {
-      Sheet: [
-        {
-          id: 1,
-          Header: 1,
-          ID: "rgrtg",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-        {
-          id: 2,
-          Header: 2,
-          ID: "eger",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-        {
-          id: 3,
-          Header: 3,
-          ID: "efge",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-        {
-          id: 4,
-          Header: 4,
-          ID: "t34t",
-          CreatedBy: "",
-          CreatedOn: "",
-          Action: "",
-        },
-      ],
-    };
-  };
-
-  const newFormBuilder = formBuilderData().Sheet.map((ele, i) => {
-    return {
-      id: ele.id,
-      Header: ele.Header,
-      ID: ele.ID,
-      CreatedBy: ele.CreatedBy,
-      CreatedOn: ele.CreatedOn,
-      Action: ele.Action,
-    };
-  });
 
   const [showAction, setShowAction] = useState(false)
   const [ModalData2, SetModal2] = useState({ show: false });
@@ -214,17 +141,47 @@ useEffect(async()=>{
       },
     },
   ];
-  const [edit, setedit] = useState(false)
+  const [update, setUpdate] = useState(false)
+  const [confirm, setconfirm] = useState(false)
   const [editdata, seteditdata] = useState()
-  const someHandler = (e) => {
-    seteditdata(e.data)
-    setedit(true)
-    console.log(e.data, "index")
-  };
+  const editHandler = (e) => {
+    // console.log(val,"jkbhcdj")
+    handleUpdate(true,e.data)
+    //  seteditdata(e.data)
+    //  setUpdate(true)
 
+      
+    }
+    // console.log(e.data, "index")
+  
+  const handleUpdate =async (e) => {
+    // setUpdate(bool)
+    // seteditdata(data)
+    const deleteurl = `${requests.validateDeletionItemRepository}?RepID=${e.data.RepID}`;
+    const response = await PrepareRequest(deleteurl);
 
+  }
+  const[RepID,setRepID]=useState()
+  const deletedata=async(e)=>{
+    const deleteurl = `${requests.validateDeletionItemRepository}?RepID=${e.data.RepID}`;
+    const response = await PrepareRequest(deleteurl);
+    setconfirm(true)
+    setRepID(e.data.RepID)
+  }
+  
+  // console.log(edit,"edit");
 
+const Removemsterapi=async()=>{
+  const removeURL=`${requests.removeMasterItemRepository}?RepID=${RepID}`;
+  const response = await PrepareRequest(removeURL);
 
+  setconfirm(false)
+  const getdata = await PrepareRequest(URL);
+
+}
+const onCancel=()=>{
+  setconfirm(false)
+}
   return (
     <div className="itemrepo-table">
       {/* <ActionButtonModal
@@ -239,7 +196,10 @@ useEffect(async()=>{
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
-        onRowDoubleClicked={someHandler}
+        // onRowDoubleClicked={editHandler}
+        onRowClicked={deletedata}
+        pagination={true}
+        paginationPageSize={10}
         style={{
           width: "100%",
           height: "100vh",
@@ -249,10 +209,17 @@ useEffect(async()=>{
         }}
       />
 
-      {edit && <Edititemmodal setedit={setedit} seteditdata={seteditdata} editdata={editdata} />}
-      {showmessage && <Message show={showmessage} />}
+      {update && <Edititemmodal 
+      setUpdate={setUpdate}
+       seteditdata={seteditdata}
+        editdata={editdata} />}
+        {confirm&& <ConfirmMessage text="Are you sure you want to delete"
+         Confirmcall={Removemsterapi}
+         onCancel={onCancel}
+         />}
+       {showmessage && <Message show={showmessage} setshowmessage={setshowmessage} />} 
     </div>
   );
-}
+      }
 
 export default AgGridTable;

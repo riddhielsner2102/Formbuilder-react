@@ -3,39 +3,44 @@ import "./AgGridTable.css";
 import Message from "../../../../../../ReusableComp/Message/Message";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import { PrepareRequest, requests } from "../../../../../../../Service/getRequests";
-import Edititemmodal from "../Modal/Edititemmodal"
+// import Edititemmodal from "../Modal/Edititemmodal"
 import { getSessionStorage } from "../../../../../../common/sessionStorage";
+import ActionButtonmodal from "./ActionButtonmodal";
 function AgGridTable(props) {
     const [data, setdata] = useState([])
-    console.log(data, "data");
-    const [showmessage, setshowmessage] = useState(false)
-
     const UserID = getSessionStorage("UserID")
-    const URL = `${requests.getMasterFields}?UserID=${UserID}&AppID=13`
+    const URL = `${requests.getMasterAssessment}?UserID=${UserID}&AppID=13`
 
     useEffect(async () => {
         const response = await PrepareRequest(URL);
-        setdata(response.data.lstMasterFields)
+        setdata(response.data)
     }, [])
-    useEffect(async () => {
-        if (props.closed) {
-            const response = await PrepareRequest(URL);
-            setdata(response.data.lstMasterFields)
-            props.setclosed(false)
+    useEffect(async()=>{
+        if(props.closed){
+          const response = await PrepareRequest(URL);
+          setdata(response.data)
+          props.setdisable(false)
+          props.setclosed(false)
+        //   setshowmessage(true)
         }
-    }, [props.closed])
-
-    // const closeNewModal = () => {
-    //     SetModal2({ show: false });
-    // };
+  },[props.closed])
     const frameworkComponents = {
         gridButton: Button,
     };
+    const [ModalData2, SetModal2] = useState({ show: false });
+
+  const closeNewModal = () => {
+    SetModal2({ show: false });
+  };
+  const showNewModal = () => {
+    SetModal2({ show: true });
+    console.log("Action Modal");
+  };
 
     const contentData = [
         {
             headerName: "ID",
-            field: "FieldId",
+            field: "ID",
             cellStyle: {
                 height: "100%",
                 display: "flex ",
@@ -47,9 +52,41 @@ function AgGridTable(props) {
         },
 
         {
-            headerName: "Field Name",
-            field: "FieldName",
+            headerName: "Rating",
+            field: "AssessmentType",
             width: 350,
+            cellStyle: {
+                color: "#000",
+                height: "100%",
+                display: "flex ",
+                justifyContent: "center",
+                alignItems: "center ",
+                fontSize: "15px",
+                textAlign: "center",
+                paddingTop: "6px",
+                paddingBottom: "8px",
+            },
+        },
+        {
+            headerName: "Created By",
+            field: "UserName",
+            width: 100,
+            cellStyle: {
+                color: "#000",
+                height: "100%",
+                display: "flex ",
+                justifyContent: "center",
+                alignItems: "center ",
+                fontSize: "15px",
+                textAlign: "center",
+                paddingTop: "6px",
+                paddingBottom: "8px",
+            },
+        },
+        {
+            headerName: "Created On",
+            field: "CreatedOn",
+            width: 100,
             cellStyle: {
                 color: "#000",
                 height: "100%",
@@ -68,7 +105,7 @@ function AgGridTable(props) {
             cellRenderer: "gridButton",
             cellRendererParams: {
                 text: "Actions",
-                // onClick: showNewModal,
+                onClick: showNewModal,
                 style: {
                     width: "80px",
                     height: "40px",
@@ -99,6 +136,12 @@ function AgGridTable(props) {
 
     return (
         <div className="itemrepo-table">
+            <ActionButtonmodal
+        show={ModalData2.show}
+        modalClosed={() => {
+          closeNewModal();
+        }}
+      />
             <AgGrid
                 rowData={data}
                 columnData={contentData}
@@ -113,12 +156,12 @@ function AgGridTable(props) {
                     color: "#000",
                 }}
             />
-            {edit && <Edititemmodal
+            {/* {edit && <Edititemmodal
                 setedit={setedit}
                 seteditdata={seteditdata}
                 editdata={editdata}
                 setdata={setdata}
-            />}
+            />} */}
         </div>
     );
 }
