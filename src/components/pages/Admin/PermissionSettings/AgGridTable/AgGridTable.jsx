@@ -33,7 +33,7 @@ function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "TemplateID",
+      field: "ID",
       cellStyle: {
         height: "100%",
         display: "flex ",
@@ -61,7 +61,7 @@ function AgGridTable() {
     },
     {
       headerName: "Created By",
-      field: "CreatedBy",
+      field: "UserName",
       cellStyle: {
         color: "#000",
         height: "100%",
@@ -93,7 +93,7 @@ function AgGridTable() {
         text: "Actions",
         onClick: showNewModal,
         style: {
-          width: "80px",
+          width: "100px",
           height: "40px",
           backgroundColor: "#01396b !important",
         },
