@@ -3,19 +3,28 @@ import classes from "./AddEditModel.module.css";
 import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close } from "arms_v2.8_webui";
-import { PostRequest, postapis } from "../../../../../../../../Service/postRequests";
+import {
+  PostRequest,
+  postapis,
+} from "../../../../../../../../Service/postRequests";
 import axios from "axios";
 // import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
 
 function AddEditModel(props) {
-  const UserID = sessionStorage.getItem('UserID')
-  const AppID = sessionStorage.getItem('SubsystemID')
+  console.log("AddEditModel", props.data);
+  const UserID = sessionStorage.getItem("UserID");
+  const AppID = sessionStorage.getItem("SubsystemID");
 
-  const [dataObject, setDataObject] = useState({ ReasonCodeTitle: "", UserID: UserID, AppID: 13, ReasonCodeID: 131 })
+  const [dataObject, setDataObject] = useState({
+    ReasonCodeTitle: "",
+    UserID: UserID,
+    AppID: 13,
+    ReasonCodeID: 131,
+  });
   // const [data, setdata] = useState([])
   const InputChange = (e) => {
-    setDataObject({ ...dataObject, [e.target.name]: e.target.value })
-  }
+    setDataObject({ ...dataObject, [e.target.name]: e.target.value });
+  };
 
   // const getAllData = () => {
   //   const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
@@ -25,8 +34,8 @@ function AddEditModel(props) {
   // }
 
   const SaveData = () => {
-    console.log('dataObject', dataObject)
-    const URL = `${postapis.postMasterReasonCode}`
+    console.log("dataObject", dataObject);
+    const URL = `${postapis.postMasterReasonCode}`;
     PostRequest(URL, dataObject);
     // props.modalClosed()
     // getAllData()
@@ -34,7 +43,7 @@ function AddEditModel(props) {
     // axios.post('http://localhost:61240/api/v1/FormBuilder/PostMasterReasonCode', dataObject)
     //   .then(res => console.log(res))
     //   .catch(error => console.log('error', error))
-  }
+  };
 
   return (
     <>
@@ -52,7 +61,7 @@ function AddEditModel(props) {
           style={{
             padding: "0px",
             margin: "0px",
-            width: '100%'
+            width: "100%",
           }}
         >
           <Row
@@ -67,12 +76,14 @@ function AddEditModel(props) {
               boxSizing: "none",
             }}
           >
-            <div style={{
-              display: "flex",
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              height: '100%'
-            }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                height: "100%",
+              }}
+            >
               <h3
                 style={{
                   color: "#fff",
@@ -115,7 +126,7 @@ function AddEditModel(props) {
                       padding: "0 12px",
                       borderRadius: "12px",
                     }}
-                    name='ReasonCodeTitle'
+                    name="ReasonCodeTitle"
                     value={dataObject?.ReasonCodeTitle}
                     onChange={InputChange}
                   />
@@ -127,7 +138,8 @@ function AddEditModel(props) {
                 padding: "16px",
                 display: "flex",
                 justifyContent: "end",
-              }} >
+              }}
+            >
               <Button
                 text="Save"
                 onClick={SaveData}
@@ -150,10 +162,10 @@ function AddEditModel(props) {
               />
             </Col>
           </Row>
-        </Container >
-      </div >
+        </Container>
+      </div>
     </>
-  )
+  );
 }
 
 export default AddEditModel;

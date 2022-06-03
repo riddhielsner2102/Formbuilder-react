@@ -13,6 +13,7 @@ import Checklists from "./components/pages/Sub-System/CMSS/Masters/Checklists/Ch
 import PermissionTemplate from "./components/pages/Admin/PermissionSettings/PermissionTemplate";
 import GMDashBoard from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/GMDashBoard";
 import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRepo";
+import GeneralRepo from "./components/pages/Sub-System/CMSS/Masters/General_Repo/GeneralRepo";
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
 import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
@@ -36,6 +37,7 @@ const App = () => {
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
             <Route path="item" element={<ItemRepo />} />
+            <Route path="generalrepo" element={<GeneralRepo />} />
             <Route path="master-checklist" element={<Checklists />} />
             <Route path="master-checklist-testpage" element={<TestPage />} />
             <Route path="gmdashboard" element={<GMDashBoard />} />

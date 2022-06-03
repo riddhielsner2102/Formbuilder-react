@@ -128,6 +128,7 @@ export default function AgGridTable() {
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
+        pagination={true}
         style={{
           width: "100%",
           height: "100vh",
