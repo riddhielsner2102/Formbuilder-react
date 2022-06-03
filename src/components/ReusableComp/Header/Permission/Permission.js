@@ -27,10 +27,10 @@ export default class Permission extends Component {
               style={{
                 backgroundColor: "#01396b",
                 color: "white",
-                height: "30px",
+                height: "50px",
                 display: "flex",
                 padding: "15px",
-                marginTop: "20px",
+                marginTop: "10px",
               }}
             >
               <div style={{ display: "flex", alignItems: "space-between" }}>
