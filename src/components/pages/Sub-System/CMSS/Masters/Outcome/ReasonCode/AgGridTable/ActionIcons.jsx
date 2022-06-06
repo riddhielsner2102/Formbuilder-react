@@ -17,14 +17,15 @@ const ActionIcons = (props) => {
     return (
         <>
             <Backdrop
-                show={props.showAction}
-            // clicked={props.modalClosed} 
+                show={props.show}
+                clicked={props.modalClosed}
             />
             <div
-                className="Modal"
+                className="ReasonCodeModal"
                 style={{
-                    // transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+                    transform: props.show ? "translateY(0)" : "translateY(-100vh)",
                     // opcaity: props.show ? "1" : "0",
+                    // position: props.show ? "absolute" : "static",
                     width: "180px",
                     backgroundColor: "#fff !important",
                 }}

@@ -19,11 +19,17 @@
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
   border-color: #fff;
+  border: 0.5px;
 }
 
 .reasoncode-table .ag-row {
-  height: 42px !important;
+  height: 48px !important;
+  margin-top: -24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.reasoncode-table .ag-center-cols-container .ag-row-first {
+  margin: auto;
 }
 
 .reasoncode-table .MuiButtonBase-root .MuiButton-root .MuiButton-contained .makeStyles-button-111 {
@@ -42,13 +48,31 @@
   background-color: whitesmoke !important;
 }
 
-.reasoncode-table .ag-theme-alpine .ag-cell,
-.ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
-  border: none !important;
+.reasoncode-table .ag-theme-alpine .ag-paging-panel {
+  padding-bottom: 25%;
 }
 
-.reasoncode-table .ag-header-cell-label,
-.reasoncode-table .ag-cell {
+.reasoncode-table .ag-icon,
+.ag-menu {
+  color: black;
+}
+
+.reasoncode-table .ag-header-cell-label {
   justify-content: left !important;
-  padding: 0 0 0 24px !important;
+  padding-left: 23px !important;
+  font-size: 16px !important;
+}
+
+.reasoncode-table .ag-cell {
+  padding-left: 24px !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.reasoncode-table .ag-theme-alpine .ag-filter-toolpanel-header,
+.ag-theme-alpine .ag-filter-toolpanel-search,
+.ag-theme-alpine .ag-status-bar,
+.ag-theme-alpine .ag-header-row,
+.ag-theme-alpine .ag-panel-title-bar-title,
+.ag-theme-alpine .ag-multi-filter-group-title-bar {
+  font-weight: 600 !important;
 }

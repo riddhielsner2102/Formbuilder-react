@@ -11,7 +11,7 @@
 
 .ListItems-table .ag-theme-alpine .ag-root-wrapper {
     border-radius: 15px;
-    margin-top: -3.5%;
+    margin-top: -2%;
 }
 
 .ListItems-table .ag-theme-alpine [class^="ag-"],
@@ -19,11 +19,17 @@
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
     border-color: #fff;
+    border: 0.5px;
 }
 
 .ListItems-table .ag-row {
-    height: 42px !important;
-    border-bottom: 1px solid gray !important;
+    height: 48px !important;
+    margin-top: -24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+.ListItems-table .ag-center-cols-container .ag-row-first {
+    margin: auto;
 }
 
 .ListItems-table .MuiButtonBase-root .MuiButton-root .MuiButton-contained .makeStyles-button-111 {
@@ -39,12 +45,16 @@
 }
 
 .ListItems-table .alternate-row-color {
-    background-color: rgb(243, 240, 240) !important;
+    background-color: whitesmoke !important;
 }
 
-.ListItems-table .ag-theme-alpine .ag-cell,
+/* .ListItems-table .ag-theme-alpine .ag-cell,
 .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
     border: none !important;
+} */
+
+.ListItems-table .ag-theme-alpine .ag-paging-panel {
+    padding-bottom: 25%;
 }
 
 .ListItems-table .ag-header-cell-label {
@@ -56,4 +66,18 @@
 .ListItems-table .ag-cell {
     padding-left: 24px !important;
     color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.ListItems-table .ag-icon,
+.ag-menu {
+    color: black;
+}
+
+.ListItems-table .ag-theme-alpine .ag-filter-toolpanel-header,
+.ag-theme-alpine .ag-filter-toolpanel-search,
+.ag-theme-alpine .ag-status-bar,
+.ag-theme-alpine .ag-header-row,
+.ag-theme-alpine .ag-panel-title-bar-title,
+.ag-theme-alpine .ag-multi-filter-group-title-bar {
+    font-weight: 600 !important;
 }
