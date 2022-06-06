@@ -41,7 +41,6 @@ export default function AgGridTable() {
       headerName: "ID",
       field: "ID",
       cellStyle: {
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -55,28 +54,26 @@ export default function AgGridTable() {
       field: "ChecklistName",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "15px",
         textAlign: "center",
-        paddingTop: "6px",
-        paddingBottom: "8px",
+        // paddingTop: "6px",
+        // paddingBottom: "8px",
       },
     },
     {
       headerName: "Created By",
-      field: "CreatedBy",
+      field: "UserName",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "15px",
-        paddingTop: "6px",
-        paddingBottom: "8px",
+        // paddingTop: "6px",
+        // paddingBottom: "8px",
       },
     },
     {
@@ -84,7 +81,6 @@ export default function AgGridTable() {
       field: "CreatedOn",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -129,9 +125,10 @@ export default function AgGridTable() {
         frameworkComponents={frameworkComponents}
         headerHeight={52}
         pagination={true}
+        paginationPageSize={10}
         style={{
           width: "100%",
-          height: "100vh",
+          height: "800px",
           padding: "1% 3% 1% 3%",
           borderRadius: "8px 8px 0px 0px",
           color: "#000",

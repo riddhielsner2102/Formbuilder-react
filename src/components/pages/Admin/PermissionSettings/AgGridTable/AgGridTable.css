@@ -19,10 +19,20 @@
 .ag-theme-alpine [class^="ag-"]:after,
 .ag-theme-alpine [class^="ag-"]:before {
   border-color: #fff;
+  border: 0.5px;
 }
 
 .main-table .ag-row {
-  height: 54px !important;
+  height: 50px !important;
+  margin-top: -24px;
+}
+
+.main-table .ag-center-cols-container .ag-row-first {
+  margin: auto;
+}
+
+.main-table .alternate-row-color {
+  background-color: whitesmoke !important;
 }
 
 .main-table .ag-row-position-absolute {
@@ -35,4 +45,13 @@
   .MuiButton-contained
   .makeStyles-button-111 {
   height: 39px;
+}
+
+.ag-icon,
+.ag-menu {
+  color: black;
+}
+
+.main-table .ag-theme-alpine .ag-paging-panel {
+  padding-bottom: 25%;
 }
