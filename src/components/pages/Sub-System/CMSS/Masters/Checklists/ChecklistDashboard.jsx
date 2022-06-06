@@ -27,6 +27,7 @@ export default function ChecklistDashboard() {
         searchbar={true}
         title="Checklists"
         secondtitle="Module: CMSS"
+        placeHolder="   Search Checklists"
         buttonText="ADD"
         onClick={() => {
           showNewModal();
