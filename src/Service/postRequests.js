@@ -32,13 +32,9 @@ const postapis = {
   postMasterGeneralItemDashboard: `/PostMasterGeneralItemDashboard`,
   postPermissionTemplate: `/PostPermissionTemplate`,
   values: `/Values`,
-  PostMasterMultipleItemRepository: `/PostMasterMultipleItemRepository`,
+  PostMasterMultipleItemRepository: `/PostMasterMultipleItemRepository`
 };
 
-// async function PostRequest(path) {
-//   let response = await axios.post(`${path}`);
-//   return response;
-// }
 async function PostRequest(path, data) {
   let response = await axios.post(`${path}`, data);
   return response;

@@ -13,8 +13,11 @@ import ConfirmMessage from "../../../../../../../ReusableComp/Message/ConfirmMes
 import { Button } from "arms_v2.8_webui";
 import ActionIcons from "./ActionIcons";
 import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
+import { useNavigate } from "react-router-dom";
 
 export default function ActionModal(props) {
+  const navigate = useNavigate()
+  const UserID = sessionStorage.getItem('UserID')
   const [data, setData] = useState([])
   const [showAction, setShowAction] = useState(false)
   const invokeParentMethod = () => {
@@ -24,22 +27,27 @@ export default function ActionModal(props) {
   };
   console.log('data', data)
 
-  const [editFlag, SetEditFlag] = useState(false);
-  const [deleteFlag, setDeleteFlag] = useState(false)
-
-  const closeNewModal = () => {
-    SetEditFlag(false);
-  };
-  const showNewModal = () => {
-    SetEditFlag(true);
-    console.log("template Modal");
-  };
-
   const [ReasonCodeID, setReasonCodeID] = useState(null)
   useEffect(() => {
     setReasonCodeID(data[0]?.ReasonCodeID)
   }, [data])
 
+  // List Route
+  const listNavigate = () => {
+    navigate(`/pages/formbuilder/permission-setting/permission-dashboard/evaluator/master-reasoncode/${ReasonCodeID}`, { state: data })
+  }
+
+  // Edit API
+  const [editFlag, SetEditFlag] = useState(false);
+  const closeNewModal = () => {
+    SetEditFlag(false);
+  };
+  const showNewModal = () => {
+    SetEditFlag(true);
+  };
+
+  // Delete API
+  const [deleteFlag, setDeleteFlag] = useState(false)
   const deleteModel = async () => {
     const URL = `${requests.validateMasterReasonCode}?ReasonCodeID=${ReasonCodeID}`
     const response = await PrepareRequest(URL);
@@ -56,20 +64,40 @@ export default function ActionModal(props) {
     setDeleteFlag(false)
   }
 
+  // Copy API
+  const [copyFlag, setCopyFlag] = useState(false)
+  const copyModel = () => setCopyFlag(true)
+  const copyConfirm = async () => {
+    // http://localhost:61240/api/v1/FormBuilder/CopyAssessment?AssesmentTypeID=155&UserID=3
+    //     AssesmentTypeID: 155
+    // UserID: 3
+    const URL = `${requests.copyAssessment}?AssesmentTypeID=${ReasonCodeID}&UserID=${UserID}`
+    const response = await PrepareRequest(URL);
+    console.log('copyConfirm', response.data)
+    setCopyFlag(false)
+  }
+  const copyeModelClose = () => setCopyFlag(false)
+
   return (
     <React.Fragment>
-      <AddEditModel
+      {editFlag && <AddEditModel
         show={editFlag}
         modalClosed={() => {
           closeNewModal();
         }}
         data={data}
-      />
+      />}
       {deleteFlag && <ConfirmMessage
-        text='delete'
+        text='Are you sure you want to delete?'
         flag={deleteFlag}
         onCancel={() => deleteModelClose()}
         onConfirm={() => deleteConfirm()}
+      />}
+      {copyFlag && <ConfirmMessage
+        text='Do you want to copy the ReasonCode?'
+        flag={copyFlag}
+        onCancel={() => copyeModelClose()}
+        onConfirm={() => copyConfirm()}
       />}
       <Button
         text="Actions"
@@ -118,7 +146,10 @@ export default function ActionModal(props) {
               }}
             >
               <Tooltip title="List Reason Code" placement="right">
-                <IconButton sx={{ height: "40px", width: "40px" }}>
+                <IconButton
+                  sx={{ height: "40px", width: "40px" }}
+                  onClick={() => listNavigate()}
+                >
                   <FormatListBulletedOutlinedIcon />
                 </IconButton>
               </Tooltip>
@@ -133,7 +164,10 @@ export default function ActionModal(props) {
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy Reason Code" placement="right">
-                <IconButton sx={{ height: "40px", width: "40px" }}>
+                <IconButton
+                  sx={{ height: "40px", width: "40px" }}
+                  onClick={() => copyModel()}
+                >
                   <CopyrightOutlinedIcon />
                 </IconButton>
               </Tooltip>
