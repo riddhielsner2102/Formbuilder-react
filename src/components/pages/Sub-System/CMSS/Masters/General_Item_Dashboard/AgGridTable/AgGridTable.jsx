@@ -1,11 +1,11 @@
 import React from "react";
 import "./AgGridTable.css";
-import { Button, AgGrid } from "arms_v2.8_webui";
+import { AgGrid } from "arms_v2.8_webui";
 import { useState,useEffect } from "react";
-import ActionModal from "./ActionModal";
+import ActionModal from "./ActionIcons";
 import { PrepareRequest, requests } from "../../../../../../../../src/Service/getRequests";
-
-
+// Import  ActionModal from "./ ActionModal";
+import ActionButton from "./ActionButton";
 function AgGridTable() {
 
   const [data, setdata] = useState([]);
@@ -21,7 +21,7 @@ function AgGridTable() {
   //   console.log("data", data);
   // }, [data]);
   const frameworkComponents = {
-    gridButton: Button,
+    gridButton: ActionButton
   };
   const [showAction, setShowAction] = useState(false)
 
