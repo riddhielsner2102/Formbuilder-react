@@ -33,9 +33,8 @@ function AgGridTable() {
   const contentData = [
     {
       headerName: "ID",
-      field: "ID",
+      field: "1",
       cellStyle: {
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -49,14 +48,13 @@ function AgGridTable() {
       field: "TemplateTitle",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "15px",
         textAlign: "center",
-        paddingTop: "6px",
-        paddingBottom: "8px",
+        // paddingTop: "6px",
+        // paddingBottom: "8px",
       },
     },
     {
@@ -64,13 +62,12 @@ function AgGridTable() {
       field: "UserName",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "15px",
-        paddingTop: "6px",
-        paddingBottom: "8px",
+        // paddingTop: "6px",
+        // paddingBottom: "8px",
       },
     },
     {
@@ -78,7 +75,6 @@ function AgGridTable() {
       field: "CreatedOn",
       cellStyle: {
         color: "#000",
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",

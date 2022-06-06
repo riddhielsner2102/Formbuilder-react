@@ -49,3 +49,7 @@
   align-items: space-around;
   padding: 20px;
 }
+
+.mainContent1 .alternate-row-color {
+  background-color: whitesmoke !important;
+}
