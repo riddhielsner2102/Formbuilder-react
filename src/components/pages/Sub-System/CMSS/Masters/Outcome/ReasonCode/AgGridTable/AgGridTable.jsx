@@ -11,8 +11,7 @@ function AgGridTable() {
     const UserID = sessionStorage.getItem('UserID')
     const AppID = sessionStorage.getItem('SubsystemID')
     const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
-    const response = await PrepareRequest(URL);
-    console.log('response', response.data)
+    const response = await PrepareRequest(URL);    console.log('response', response.data)
     setdata(response.data)
   }, [])
 

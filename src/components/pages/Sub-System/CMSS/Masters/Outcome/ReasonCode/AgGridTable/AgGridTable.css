@@ -52,3 +52,25 @@
   justify-content: left !important;
   padding: 0 0 0 24px !important;
 }
+.reasoncode-table .ag-row-position-absolute {
+  position: static;
+  transform: none !important;
+  margin-bottom: 30px;
+}
+.reasoncode-table .ag-row-position-absolute > div {
+  max-height: 42px;
+}
+.ag-cell:last-child{
+  overflow: visible ;
+}
+.ag-cell:last-child .Modal:last-child {
+  position: absolute;
+  transform: translateX(-50%);
+  left: calc(50% - 40px);
+  top: auto;
+  bottom: 110%;
+}
+.AddEditModel_Modal__h-4ul{
+  top: 6%;
+  z-index:99999;
+}

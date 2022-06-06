@@ -157,6 +157,7 @@ export default function ActionModal(props) {
                 <IconButton
                   sx={{ height: "40px", width: "40px" }}
                   onClick={() => {
+
                     showNewModal();
                   }}
                 >
