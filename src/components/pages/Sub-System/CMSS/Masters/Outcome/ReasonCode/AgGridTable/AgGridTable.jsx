@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
 import {
   PrepareRequest,
@@ -6,6 +6,7 @@ import {
 } from "../../../../../../../../Service/getRequests";
 import "./AgGridTable.css";
 import ActionButtonModal from "./ActionButtonModal";
+import ActionIcons from "./ActionIcons";
 
 function AgGridTable() {
   const [data, setdata] = useState([]);
@@ -21,13 +22,15 @@ function AgGridTable() {
 
   const [showAction, setShowAction] = useState(false);
 
-  const showNewModal = () => {
-    console.log("action clicked");
-    setShowAction(!showAction);
-  };
+  const showNewModal = (e) => {
+    console.log('e', e)
+    console.log('action clicked')
+    setShowAction(!showAction)
+  }
 
   const frameworkComponents = {
-    gridButton: ActionButtonModal,
+    gridButton: Button,
+    gridComponent: ActionButtonModal
   };
 
   const contentData = [
@@ -37,7 +40,7 @@ function AgGridTable() {
       width: 100,
       cellStyle: {
         display: "flex ",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center ",
         fontSize: "15px",
         color: "#000",
@@ -47,7 +50,6 @@ function AgGridTable() {
         border: "1px solid black !important",
       },
     },
-
     {
       headerName: "Title",
       field: "ReasonCodeTitle",
@@ -55,7 +57,7 @@ function AgGridTable() {
         color: "#000",
 
         display: "flex ",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center ",
         fontSize: "15px",
         textAlign: "center",
@@ -70,7 +72,7 @@ function AgGridTable() {
         color: "#000",
 
         display: "flex ",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center ",
         fontSize: "15px",
         paddingTop: "6px",
@@ -84,7 +86,7 @@ function AgGridTable() {
         color: "#000",
 
         display: "flex ",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center ",
         fontSize: "15px",
       },
@@ -92,7 +94,7 @@ function AgGridTable() {
     {
       headerName: "Actions",
       field: "Action",
-      cellRenderer: "gridButton",
+      cellRenderer: "gridComponent",
       // cellRendererParams: {
       //   text: "Actions",
       //   style: {
@@ -100,13 +102,13 @@ function AgGridTable() {
       //     height: "40px",
       //     backgroundColor: "#01396b !important",
       //   },
-      //   onClick: () => showNewModal(),
+      // onClick: () => showNewModal(),
       // },
       cellStyle: {
         color: "#000",
         height: "100%",
         display: "flex ",
-        justifyContent: "center",
+        justifyContent: "left",
         alignItems: "center ",
         fontSize: "20px",
         // paddingTop: "5px",
@@ -116,13 +118,20 @@ function AgGridTable() {
     },
   ];
 
+  const popupParent = useMemo(() => {
+    console.log('popupParent')
+    return document.querySelector('ReasonCodeModal');
+  }, []);
+
   return (
     <div className="reasoncode-table">
       <AgGrid
+        // onCellClicked={showNewModal}
         rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
+        // popupParent={popupParent}
         pagination={true}
         paginationPageSize={10}
         style={{
@@ -133,6 +142,9 @@ function AgGridTable() {
           color: "#000",
         }}
       />
+      {/* {showAction &&
+        <ActionIcons show={showAction} modalClosed={() => showNewModal()} />
+      } */}
       {/* {showAction && <ActionButtonModal show={showAction} modalClosed={() => showNewModal()} />} */}
     </div>
   );
