@@ -74,9 +74,6 @@ export default function ActionModal(props) {
   const [copyFlag, setCopyFlag] = useState(false);
   const copyModel = () => setCopyFlag(true);
   const copyConfirm = async () => {
-    // http://localhost:61240/api/v1/FormBuilder/CopyAssessment?AssesmentTypeID=155&UserID=3
-    //     AssesmentTypeID: 155
-    // UserID: 3
     const URL = `${requests.copyAssessment}?AssesmentTypeID=${ReasonCodeID}&UserID=${UserID}`;
     const response = await PrepareRequest(URL);
     console.log("copyConfirm", response.data);
@@ -134,10 +131,10 @@ export default function ActionModal(props) {
         <>
           <Backdrop
             show={showAction}
-            // clicked={props.modalClosed}
+          // clicked={props.modalClosed}
           />
           <div
-            className="Modal"
+            className="ReasonCodeModal"
             style={{
               // transform: props.show ? "translateY(0)" : "translateY(-100vh)",
               // opcaity: props.show ? "1" : "0",

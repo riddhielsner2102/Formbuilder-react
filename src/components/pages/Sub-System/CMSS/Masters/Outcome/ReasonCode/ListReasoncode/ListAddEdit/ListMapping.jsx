@@ -6,21 +6,92 @@ import { PrepareRequest, requests } from '../../../../../../../../../Service/get
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
-const ListMapping = () => {
+function not(a, b) {
+    return a.filter((value) => b.indexOf(value) === -1);
+}
+
+function intersection(a, b) {
+    return a.filter((value) => b.indexOf(value) !== -1);
+}
+
+const ListMapping = (props) => {
+    console.log('mapping', props.data)
+    const [ReasonCodeID, setReasonCodeID] = useState(null)
+    useEffect(() => {
+        setReasonCodeID(props?.data?.ReasonCodeID)
+    }, [])
+
     const [dataL, setDataL] = useState([])
     const [dataR, setDataR] = useState([])
 
     useEffect(async () => {
         const AppID = sessionStorage.getItem('SubsystemID')
-        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=146&AppID=13`
+        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=${ReasonCodeID}&AppID=13`
         const response = await PrepareRequest(URL);
+        console.log('response', response.data)
         setDataL(response.data.lstModelGeneralItemRepository)
         setDataR(response.data.lstModelMasterReasonCodeOption)
-    }, [])
+    }, [ReasonCodeID])
 
     const frameworkComponents = {
         checkbox: CheckBox,
     };
+
+    const [checked, setChecked] = useState([]);
+    const leftChecked = intersection(checked, dataL);
+    const rightChecked = intersection(checked, dataR);
+
+    const [selectedLeftValue, setSelectedLeftValue] = useState({})
+    const [selectedRightValue, setSelectedRightValue] = useState({})
+
+    const fetchData = (value) => {
+        const currentIndex = checked.indexOf(value.data);
+        const newChecked = [...checked];
+        if (currentIndex === -1) {
+            newChecked.push(value.data);
+        }
+        else {
+            newChecked.splice(currentIndex, 1);
+        }
+        setChecked(newChecked);
+    }
+
+    const LeftData = (value) => {
+        console.log('leftClick', value.data)
+        setSelectedLeftValue(value.data)
+        fetchData(value)
+    }
+    const RightData = (value) => {
+        console.log('rightClick', value.data)
+        setSelectedRightValue(value.data)
+        fetchData(value)
+    }
+
+    const forwaradData = () => {
+        setDataR(dataR.concat({
+            BehavioralIndicator: selectedLeftValue.RepTitle,
+            Description: selectedLeftValue.RepTitle,
+            OptionCode: selectedLeftValue.RepTitle,
+            OptionTitle: selectedLeftValue.RepTitle,
+            ReasonCodeID: ReasonCodeID,
+            ReasonCodeOptionID: 0,
+            // ReasonCodeTitle: null,
+            RepID: null,
+            // ID: dataR.length + 1
+        }));
+        // setDataL(not(dataL, leftChecked));
+        setDataL(dataL);
+        setChecked(not(checked, leftChecked));
+    }
+
+    const backwardData = () => {
+        setDataL(dataL.concat({
+            ID: 0,
+            RepTitle: selectedRightValue.OptionTitle
+        }));
+        setDataR(not(dataR, rightChecked));
+        setChecked(not(checked, rightChecked));
+    }
 
     const columnsDataL = [
         {
@@ -179,13 +250,14 @@ const ListMapping = () => {
                     <Row>
                         <Col xs={12} className="ListMapping_Table">
                             <AgGrid
+                                onCellClicked={LeftData}
                                 rowData={dataL}
                                 columnData={columnsDataL}
                                 headerHeight={50}
                                 frameworkComponents={frameworkComponents}
                                 style={{
                                     width: "100%",
-                                    height: "200px",
+                                    height: "250px",
                                     marginTop: "20px",
                                     border: "none",
                                 }}
@@ -220,6 +292,7 @@ const ListMapping = () => {
                                     boxSizing: "border-box",
                                     boxShadow: "1px 1px 5px 0px rgba(0, 0, 0, 1)",
                                 }}
+                                onClick={forwaradData}
                             />
                         </Col>
                         <Col>
@@ -235,6 +308,7 @@ const ListMapping = () => {
                                     boxSizing: "border-box",
                                     boxShadow: "1px 1px 5px 0px rgba(0, 0, 0, 1)",
                                 }}
+                                onClick={backwardData}
                             />
                         </Col>
                     </Row>
@@ -277,6 +351,7 @@ const ListMapping = () => {
                     <Row>
                         <Col xs={12} className="ListMapping_Table">
                             <AgGrid
+                                onCellClicked={RightData}
                                 rowData={dataR}
                                 columnData={columnsDataR}
                                 headerHeight={50}

@@ -93,7 +93,7 @@ const ListAddEdit = (props) => {
                             padding: '16px'
                         }}
                     >
-                        <ListMapping />
+                        <ListMapping data={props?.data[0]} />
                     </Row>
                     <Row>
                         <Col
