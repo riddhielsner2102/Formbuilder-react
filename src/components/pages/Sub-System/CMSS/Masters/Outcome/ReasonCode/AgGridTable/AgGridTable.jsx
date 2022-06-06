@@ -1,26 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { Button, AgGrid } from "arms_v2.8_webui";
-import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
-import './AgGridTable.css'
-import ActionButtonModal from "./ActionButtonModal"
+import {
+  PrepareRequest,
+  requests,
+} from "../../../../../../../../Service/getRequests";
+import "./AgGridTable.css";
+import ActionButtonModal from "./ActionButtonModal";
 
 function AgGridTable() {
-  const [data, setdata] = useState([])
+  const [data, setdata] = useState([]);
 
   useEffect(async () => {
+<<<<<<< HEAD
     const UserID = sessionStorage.getItem('UserID')
     const AppID = sessionStorage.getItem('SubsystemID')
     const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`
     const response = await PrepareRequest(URL);    console.log('response', response.data)
     setdata(response.data)
   }, [])
+=======
+    const UserID = sessionStorage.getItem("UserID");
+    const AppID = sessionStorage.getItem("SubsystemID");
+    const URL = `${requests.getMasterReasonCode}?UserID=${UserID}&AppID=13`;
+    const response = await PrepareRequest(URL);
+    console.log("response", response.data);
+    setdata(response.data);
+  }, []);
+>>>>>>> a1c0250d315326f8254a87c87c34facfad71559e
 
-  const [showAction, setShowAction] = useState(false)
+  const [showAction, setShowAction] = useState(false);
 
   const showNewModal = () => {
-    console.log('action clicked')
-    setShowAction(!showAction)
-  }
+    console.log("action clicked");
+    setShowAction(!showAction);
+  };
 
   const frameworkComponents = {
     gridButton: ActionButtonModal,
@@ -32,7 +45,6 @@ function AgGridTable() {
       field: "ID",
       width: 100,
       cellStyle: {
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -40,9 +52,9 @@ function AgGridTable() {
         color: "#000",
       },
       style: {
-        width: '10px',
-        border: '1px solid black !important'
-      }
+        width: "10px",
+        border: "1px solid black !important",
+      },
     },
 
     {
@@ -50,7 +62,7 @@ function AgGridTable() {
       field: "ReasonCodeTitle",
       cellStyle: {
         color: "#000",
-        height: "100%",
+
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -65,7 +77,7 @@ function AgGridTable() {
       field: "CreatedBy",
       cellStyle: {
         color: "#000",
-        height: "100%",
+
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -79,7 +91,7 @@ function AgGridTable() {
       field: "CreatedOn",
       cellStyle: {
         color: "#000",
-        height: "100%",
+
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -108,7 +120,7 @@ function AgGridTable() {
         fontSize: "20px",
         // paddingTop: "5px",
         // paddingBottom: "5px",
-        position: 'relative'
+        position: "relative",
       },
     },
   ];
@@ -120,9 +132,11 @@ function AgGridTable() {
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
+        pagination={true}
+        paginationPageSize={10}
         style={{
           width: "100%",
-          height: "100vh",
+          height: "820px",
           padding: "1% 3% 1% 3%",
           borderRadius: "8px 8px 0px 0px",
           color: "#000",

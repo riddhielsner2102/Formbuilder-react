@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
-import "./ActionButtonModal.css";
-import Backdrop from "../../../../../../../ReusableComp/Backdrop";
+// import "./ActionModal.css";
+import classes from "./ActionModal.module.css";
+import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import IconButton from "@mui/material/IconButton";
-import AddEditModel from "../Modal/AddEditModel";
 import FormatListBulletedOutlinedIcon from "@mui/icons-material/FormatListBulletedOutlined";
 import CopyrightOutlinedIcon from "@mui/icons-material/CopyrightOutlined";
 import Tooltip from "@mui/material/Tooltip";
-import ConfirmMessage from "../../../../../../../ReusableComp/Message/ConfirmMessage";
+// import IconButton from "@mui/material/IconButton";
 import { Button } from "arms_v2.8_webui";
-import ActionIcons from "./ActionIcons";
+import Template from "../Modal/Template";
+import ConfirmMessage from "../../../../../../ReusableComp/Message/ConfirmMessage";
 import {
   PrepareRequest,
   requests,
-} from "../../../../../../../../Service/getRequests";
+} from "../../../../../../../Service/getRequests";
 import { useNavigate } from "react-router-dom";
 
 export default function ActionModal(props) {
@@ -30,15 +31,15 @@ export default function ActionModal(props) {
   };
   console.log("data", data);
 
-  const [ReasonCodeID, setReasonCodeID] = useState(null);
+  const [GmDashCodeID, setGmDashCodeID] = useState(null);
   useEffect(() => {
-    setReasonCodeID(data[0]?.ReasonCodeID);
+    setGmDashCodeID(data[0]?.GmDashCodeID);
   }, [data]);
 
   // List Route
   const listNavigate = () => {
     navigate(
-      `/pages/formbuilder/permission-setting/permission-dashboard/evaluator/master-reasoncode/${ReasonCodeID}`,
+      `/pages/formbuilder/permission-setting/permission-dashboard/gmdashboard/${GmDashCodeID}`,
       { state: data }
     );
   };
@@ -55,13 +56,13 @@ export default function ActionModal(props) {
   // Delete API
   const [deleteFlag, setDeleteFlag] = useState(false);
   const deleteModel = async () => {
-    const URL = `${requests.validateMasterReasonCode}?ReasonCodeID=${ReasonCodeID}`;
+    const URL = `${requests.validateGeneralItemDashboard}?GmDashCodeID=${GmDashCodeID}`;
     const response = await PrepareRequest(URL);
     console.log("deleteModel", response.data);
     setDeleteFlag(true);
   };
   const deleteConfirm = async () => {
-    const URL = `${requests.deleteMasterReasonCode}?ReasonCodeID=${ReasonCodeID}`;
+    const URL = `${requests.validateGeneralItemDashboard}?GmDashCodeID=${GmDashCodeID}`;
     const response = await PrepareRequest(URL);
     console.log("deleteConfirm", response.data);
     setDeleteFlag(false);
@@ -77,17 +78,16 @@ export default function ActionModal(props) {
     // http://localhost:61240/api/v1/FormBuilder/CopyAssessment?AssesmentTypeID=155&UserID=3
     //     AssesmentTypeID: 155
     // UserID: 3
-    const URL = `${requests.copyAssessment}?AssesmentTypeID=${ReasonCodeID}&UserID=${UserID}`;
+    const URL = `${requests.copyAssessment}?AssesmentTypeID=${GmDashCodeID}&UserID=${UserID}`;
     const response = await PrepareRequest(URL);
     console.log("copyConfirm", response.data);
     setCopyFlag(false);
   };
   const copyeModelClose = () => setCopyFlag(false);
-
   return (
     <React.Fragment>
       {editFlag && (
-        <AddEditModel
+        <Template
           show={editFlag}
           modalClosed={() => {
             closeNewModal();
@@ -97,10 +97,10 @@ export default function ActionModal(props) {
       )}
       {deleteFlag && (
         <ConfirmMessage
-          text="Are you sure you want to delete?"
+          text="delete"
           flag={deleteFlag}
           onCancel={() => deleteModelClose()}
-          onConfirm={() => deleteConfirm()}
+          onConfirm={() => deleteModelClose()}
         />
       )}
       {copyFlag && (
@@ -121,27 +121,15 @@ export default function ActionModal(props) {
         }}
         onClick={invokeParentMethod}
       />
-      {/* {showAction &&
-        <AddEditModel
-          show={showAction}
-          modalClosed={() => {
-            closeNewModal();
-          }}
-        />
-      } */}
-      {/* {showAction && <ActionIcons showAction={showAction} />} */}
       {showAction && (
         <>
-          <Backdrop
-            show={showAction}
-            // clicked={props.modalClosed}
-          />
+          <Backdrop show={props.show} clicked={props.modalClosed} />
           <div
-            className="Modal"
+            className="Modals_2"
             style={{
-              // transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+              // transform: "translateY(-100vh)",
               // opcaity: props.show ? "1" : "0",
-              width: "180px",
+              width: "160px",
               backgroundColor: "#fff !important",
             }}
           >
@@ -157,7 +145,7 @@ export default function ActionModal(props) {
                 backgroundColor: "white",
               }}
             >
-              <Tooltip title="List Reason Code" placement="right">
+              <Tooltip title="List Item " placement="right">
                 <IconButton
                   sx={{ height: "40px", width: "40px" }}
                   onClick={() => listNavigate()}
@@ -165,18 +153,19 @@ export default function ActionModal(props) {
                   <FormatListBulletedOutlinedIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Edit Reason Code" placement="right">
+
+              <Tooltip title="Edit Item" placement="right">
                 <IconButton
                   sx={{ height: "40px", width: "40px" }}
                   onClick={() => {
-
                     showNewModal();
                   }}
                 >
                   <CreateOutlinedIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Copy Reason Code" placement="right">
+
+              <Tooltip title="Copy Item" placement="right">
                 <IconButton
                   sx={{ height: "40px", width: "40px" }}
                   onClick={() => copyModel()}
@@ -184,7 +173,8 @@ export default function ActionModal(props) {
                   <CopyrightOutlinedIcon />
                 </IconButton>
               </Tooltip>
-              <Tooltip title="Delete Reason Code" placement="left">
+
+              <Tooltip title="Delete Item" placement="left">
                 <IconButton
                   sx={{ height: "40px", width: "40px" }}
                   onClick={() => {
