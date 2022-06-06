@@ -91,7 +91,7 @@ export default function Template(props) {
               marginTop: "10px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
               <h3
                 style={{
                   color: "#fff",

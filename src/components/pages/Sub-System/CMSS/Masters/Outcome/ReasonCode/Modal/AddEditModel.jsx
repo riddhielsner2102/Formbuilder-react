@@ -3,7 +3,7 @@ import classes from "./AddEditModel.module.css";
 import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 import { Container, Row, Col } from "react-bootstrap";
 import { Input, Button, Close } from "arms_v2.8_webui";
-import { PostRequestfunction, postrequests } from "../../../../../../../../Service/postRequests";
+ import { PostRequest, postapis } from "../../../../../../../../Service/postRequests";
 import axios from "axios";
 // import { PrepareRequest, requests } from "../../../../../../../../Service/getRequests";
 
@@ -26,8 +26,8 @@ function AddEditModel(props) {
 
   const SaveData = () => {
     console.log('dataObject', dataObject)
-    const URL = `${postrequests.postMasterReasonCode}`
-    PostRequestfunction(URL, dataObject);
+    const URL = `${postapis.postMasterReasonCode}`
+    PostRequest(URL, dataObject);
     // props.modalClosed()
     // getAllData()
 

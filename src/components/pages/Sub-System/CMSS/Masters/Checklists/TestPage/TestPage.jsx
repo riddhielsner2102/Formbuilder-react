@@ -6,7 +6,11 @@ import Table from "./Table/Table";
 export default function TestPage() {
   return (
     <React.Fragment>
-      <Navbar titleIcon={<ViewDayOutlinedIcon />} title="Test" />
+      <Navbar
+        titleIcon={<ViewDayOutlinedIcon />}
+        title="Test"
+        style={{ display: "flex" }}
+      />
       <Table />
     </React.Fragment>
   );

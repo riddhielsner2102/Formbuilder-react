@@ -1,6 +1,6 @@
 import axios from "./axios";
 
-const postrequests = {
+const postapis = {
   postDataSourceSetting: `/PostDataSourceSetting`,
   postImportForm: `/PostImportForm`,
   saveOfflineData: `/SaveOfflineData`,
@@ -31,13 +31,13 @@ const postrequests = {
   postMasterMultiGeneralRepository: `/PostMasterMultiGeneralRepository`,
   postMasterGeneralItemDashboard: `/PostMasterGeneralItemDashboard`,
   postPermissionTemplate: `/PostPermissionTemplate`,
-  values:`/Values`,
-  PostMasterMultipleItemRepository:`/PostMasterMultipleItemRepository`
+  values: `/Values`,
+  PostMasterMultipleItemRepository: `/PostMasterMultipleItemRepository`
 };
 
-async function PostRequestfunction (path,payload) {
-  let response = await axios.post(`${path}`,payload);
+async function PostRequest(path, data) {
+  let response = await axios.post(`${path}`, data);
   return response;
 }
 
-export { postrequests, PostRequestfunction };
+export { postapis, PostRequest };
