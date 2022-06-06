@@ -1,10 +1,10 @@
-.main {
+.mainPage {
   position: absolute;
   left: 4%;
   top: 50px;
   z-index: 1000;
   width: 1800px;
-  padding: 0px 18px 0px 18px;
+  padding: 25px 18px 0px 18px;
   min-height: 250px;
   max-width: 80vw;
   max-height: 1900px;
@@ -18,30 +18,36 @@
   pointer-events: auto;
 }
 
-.main .divDow {
+/* .mainPage .Dowcls {
   height: 860px;
   margin: 0px;
   width: 100%;
   max-width: 80vw;
 }
 
-.main .divDow .newRow {
+.mainPage .Dowcls .RowClas {
   background-color: #01396b;
   color: white;
   height: 64px;
   display: flex;
   padding: 15px;
   margin-top: 20px;
-}
+} */
 
-/* .main .divDow .newRow .header {
+/* mainPage .Dowcls .RowClas .headerClsClsClsClsCls {
   display: flex;
   align-items: center;
   justify-content: space-between !important;
 } */
 
-.main .divDow .mainContent {
+.mainPage .Dowcls .mainPageContent {
   display: flex;
   align-items: space-around;
   padding: 20px;
+}
+
+.mainPage .Dowcls .RowClas .headerCls {
+  display: "flex";
+  justify-content: "space-between";
+  align-items: center;
 }

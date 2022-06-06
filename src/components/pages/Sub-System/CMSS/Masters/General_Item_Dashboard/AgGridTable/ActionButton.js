@@ -33,13 +33,14 @@ export default function ActionModal(props) {
 
   const [GmDashCodeID, setGmDashCodeID] = useState(null);
   useEffect(() => {
-    setGmDashCodeID(data[0]?.GmDashCodeID);
+    console.log(data);
+    setGmDashCodeID(data[0]?.MasterGeneralID);
   }, [data]);
 
   // List Route
   const listNavigate = () => {
     navigate(
-      `/pages/formbuilder/permission-setting/permission-dashboard/gmdashboard/${GmDashCodeID}`,
+      `/pages/formbuilder/permission-setting/permission-dashboard/Ddcpy/${GmDashCodeID}`,
       { state: data }
     );
   };
@@ -82,6 +83,7 @@ export default function ActionModal(props) {
     const response = await PrepareRequest(URL);
     console.log("copyConfirm", response.data);
     setCopyFlag(false);
+    // CopyAssessment?AssesmentTypeID=221&UserID=3
   };
   const copyeModelClose = () => setCopyFlag(false);
   return (
