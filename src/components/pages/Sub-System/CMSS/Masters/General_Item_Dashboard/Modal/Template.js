@@ -74,9 +74,7 @@ function Template(props) {
                   textAlign: "left",
                   letterSpacing: 0,
                   marginTop: "2px",
-                  // fontWeight: 500,
                   font: "497 22px/32px Muli, Helvetica Neue, Arial, sans-serif",
-                  // fontSize: "20px",
                 }}
               >
                 General&nbsp;Item&nbsp;Repository
@@ -84,10 +82,6 @@ function Template(props) {
               <Close
                 onClick={props.modalClosed}
                 style={{
-                  // transform: this.props.show
-                  //   ? "translateY(0)"
-                  //   : "translateY(-100vh)",
-                  // opcaity: this.props.show ? "1" : "0",
                   marginLeft: "280px",
                   color: "#fff",
                   fontWeight: 800,
