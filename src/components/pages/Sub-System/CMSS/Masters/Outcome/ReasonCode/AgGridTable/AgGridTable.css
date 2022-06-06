@@ -59,6 +59,31 @@
 .reasoncode-table .ag-cell {
   justify-content: left !important;
   padding: 0 0 0 24px !important;
+<<<<<<< HEAD
+}
+.reasoncode-table .ag-row-position-absolute {
+  position: static;
+  transform: none !important;
+  margin-bottom: 30px;
+}
+.reasoncode-table .ag-row-position-absolute > div {
+  max-height: 42px;
+}
+.ag-cell:last-child{
+  overflow: visible ;
+}
+.ag-cell:last-child .Modal:last-child {
+  position: absolute;
+  transform: translateX(-50%);
+  left: calc(50% - 40px);
+  top: auto;
+  bottom: 110%;
+}
+.AddEditModel_Modal__h-4ul{
+  top: 6%;
+  z-index:99999;
+=======
+>>>>>>> fe16278092c64f4f6ef123fef417a75339ec7774
 }
 .reasoncode-table .ag-row-position-absolute {
   position: static;
