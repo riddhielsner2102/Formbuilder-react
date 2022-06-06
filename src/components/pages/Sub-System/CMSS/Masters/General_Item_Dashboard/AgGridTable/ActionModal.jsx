@@ -13,7 +13,7 @@ import Template from "../Modal/Template";
 import ConfirmMessage from "../../../../../../ReusableComp/Message/ConfirmMessage";
 
 export default function ActionModal(props) {
-  console.log("props.show", props.show);
+  // console.log("props.show", props.show);
   const [ModalData2, SetModal2] = useState({ show: false });
   const [deleteFlag, setDeleteFlag] = useState(false);
 
@@ -33,12 +33,6 @@ export default function ActionModal(props) {
   return (
     <>
       <Backdrop show={props.show} clicked={props.modalClosed} />
-      {/* <Template
-      // show={ModalData2.show}
-      // modalClosed={() => {
-      //   closeNewModal();
-      // }}
-      /> */}
       <Template
         show={ModalData2.show}
         modalClosed={() => {
@@ -54,7 +48,7 @@ export default function ActionModal(props) {
         />
       )}
       <div
-        className="Modals_2"
+        className="Modals2"
         style={{
           transform: "translateY(-100vh)",
           opcaity: props.show ? "1" : "0",
@@ -63,23 +57,13 @@ export default function ActionModal(props) {
         }}
       >
         <Container
-          // className={[classes.divDow].join(" ")}
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            cursor: "pointer",
-            width: "160px",
-            height: "56px",
-            padding: "8px 0",
-            backgroundColor: "white",
-          }}
-        >
-          <Tooltip title="List Of General Item Dashboard" placement="right">
+          className={[classes.divDow].join(" ")}>
+          <Tooltip title="List Item " placement="right">
             <IconButton sx={{ height: "40px", width: "40px" }}>
               <FormatListBulletedOutlinedIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Edit Gm Code" placement="right">
+          <Tooltip title="Edit Item" placement="right">
             <IconButton
               sx={{ height: "40px", width: "40px" }}
               onClick={() => {
@@ -89,12 +73,12 @@ export default function ActionModal(props) {
               <CreateOutlinedIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Copy Gm Code" placement="right">
+          <Tooltip title="Copy Item" placement="right">
             <IconButton sx={{ height: "40px", width: "40px" }}>
               <CopyrightOutlinedIcon />
             </IconButton>
           </Tooltip>
-          <Tooltip title="Delete Gm Code" placement="left">
+          <Tooltip title="Delete Item" placement="left">
             <IconButton
               sx={{ height: "40px", width: "40px" }}
               onClick={() => {

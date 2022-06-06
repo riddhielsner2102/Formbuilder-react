@@ -23,7 +23,7 @@ const AddEditItem = (props) => {
               </div>
               <div>
               <Close
-                className={classes.closebtn}
+                // className={classes.closebtn}
                 onClick={props.modalClose}  
                 style={{
                   transform: props.show
@@ -47,7 +47,8 @@ const AddEditItem = (props) => {
           <>
             <Button
               text="Save"
-              onClick={props.handleClose}
+              // onClick={props.handleClose}
+              onClick={props.modalClose}  
               style={{
                 backgroundColor: "#01396b !important",
                 color: "#fff",

@@ -7,6 +7,7 @@ import ListMapping from './ListMapping'
 import { postapis, PostRequest } from '../../../../../../../../../Service/postRequests'
 
 const ListAddEdit = (props) => {
+    console.log('props.data', props.data)
     // postMasterReasonCodeOptions
     const dataObject = {
         BehavioralIndicator: "SPA",

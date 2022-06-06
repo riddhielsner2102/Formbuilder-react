@@ -47,7 +47,7 @@ const App = () => {
               element={<ReasonCode />}
             />
             <Route
-              path="evaluator/master-reasoncode/list"
+              path="evaluator/master-reasoncode/:ReasonCodeID"
               element={<ListReasonCode />}
             />
           </Route>

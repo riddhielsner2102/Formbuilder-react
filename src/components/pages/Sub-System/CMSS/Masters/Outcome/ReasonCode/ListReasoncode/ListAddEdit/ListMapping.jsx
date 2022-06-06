@@ -12,7 +12,7 @@ const ListMapping = () => {
 
     useEffect(async () => {
         const AppID = sessionStorage.getItem('SubsystemID')
-        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=83&AppID=13`
+        const URL = `${requests.getMasterReasonCodeOptions}?ReasonCodeID=146&AppID=13`
         const response = await PrepareRequest(URL);
         setDataL(response.data.lstModelGeneralItemRepository)
         setDataR(response.data.lstModelMasterReasonCodeOption)
