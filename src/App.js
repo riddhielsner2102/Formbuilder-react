@@ -16,6 +16,7 @@ import ItemRepo from "./components/pages/Sub-System/CMSS/Masters/ItemRepo/ItemRe
 import ReasonCode from "./components/pages/Sub-System/CMSS/Masters/Outcome/ReasonCode/ReasonCode";
 import TestPage from "./components/pages/Sub-System/CMSS/Masters/Checklists/TestPage/TestPage";
 import DdCpy from "./components/pages/Sub-System/CMSS/Masters/General_Item_Dashboard/ListItem/DdCpy";
+import Dashboard from "./components/pages/Sub-System/CMSS/Masters/Dashboard/Dashboard";
 
 const App = () => {
   const userId = sessionStorage.getItem("UserID");
@@ -32,6 +33,7 @@ const App = () => {
             path="/pages/formbuilder/permission-setting/permission-dashboard"
             element={<Sidebar />}
           >
+            <Route path="dashboard" element={<Dashboard/>} />
             <Route index element={<PermissionTemplate />} />
             <Route index element={<Navbar />} />
             <Route path="item" element={<ItemRepo />} />

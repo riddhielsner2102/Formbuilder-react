@@ -47,7 +47,7 @@ export default class Template extends Component {
                     // fontSize: "20px",
                   }}
                 >
-                  Master&nbsp;Checklist
+                New Form
                 </h3>
                 <Close
                   onClick={this.props.modalClosed}
@@ -72,7 +72,41 @@ export default class Template extends Component {
                 <Row>
                   <Col xs={12}>
                     <Input
-                      placeHolder="Checklist Name *"
+                      placeHolder="Name *"
+                      style={{
+                        width: "100%",
+                        maxWidth : "100%",
+                        height: "48px",
+                        border: "1px solid Gray",
+                        textAlign: "left",
+                        fontSize: "14px",
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={12}>
+                <Row>
+                  <Col xs={12}>
+                    <Input
+                      placeHolder="Register View"
+                      style={{
+                        width: "100%",
+                        maxWidth : "100%",
+                        height: "48px",
+                        border: "1px solid Gray",
+                        textAlign: "left",
+                        fontSize: "14px",
+                      }}
+                    />
+                  </Col>
+                </Row>
+              </Col>
+              <Col xs={12}>
+                <Row>
+                  <Col xs={12}>
+                    <Input
+                      placeHolder="Form Type"
                       style={{
                         width: "100%",
                         maxWidth : "100%",
@@ -104,6 +138,7 @@ export default class Template extends Component {
                   </Col>
                 </Row>
               </Col>
+              
               <Col xs={12}>
                 <Row>
                   <Col

@@ -15,7 +15,7 @@ code {
 .add-template {
   position: fixed;
   z-index: 999;
-  top: 0;
+  top: 120px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -31,7 +31,9 @@ code {
 .add-template .Template_Modal__v0WXL {
   transform: translateY(0vh) !important;
 }
-
+.add-template .Template_Modal__v0WXL{
+  min-width: 500px;
+}
 .add-template .Template_Modal__v0WXL .close-button svg{
   transform: translateY(0px) !important;  
   margin: 0 !important;
@@ -51,7 +53,6 @@ code {
     left: 0;
     right: 0;
     bottom: 0;
-    top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,6 +67,14 @@ code {
   transform: scale(1) translate(0px, 10px) !important;
 }
 
+}
+@media screen and (max-width:1024px) {
+  .add-template .Template_Modal__v0WXL{
+    min-width: 400px;
+  }
+  button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.makeStyles-button-67.makeStyles-custom-68.css-1fdtm3d.MuiButton-disableElevation {
+    margin-left: 295px;
+  }
 }
 @media screen and (max-width:991px){
   .Template_Modal__Q-WV4{
@@ -127,7 +136,7 @@ code {
   margin: 0px 0 0 16px !important;
 }
 .add-template .Template_Modal__v0WXL{
-  min-width:300px !important; 
+  min-width:250px !important; 
 }
 .simple .row div {
   margin-left: 0 !important;

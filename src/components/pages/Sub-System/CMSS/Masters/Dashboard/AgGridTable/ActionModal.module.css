@@ -1,0 +1,21 @@
+.Modal {
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+  width: 160px;
+  height: 54px;
+  padding: 0px 15px 0px 15px;
+  left: 85.6%;
+  top: 27.8%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 1);
+}
+
+.Modal .divDow {
+  padding: 0px;
+  margin-top: 10%;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}

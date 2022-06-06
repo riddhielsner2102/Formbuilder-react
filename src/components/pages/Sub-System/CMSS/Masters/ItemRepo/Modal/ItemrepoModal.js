@@ -3,8 +3,8 @@ import classes from "./Template.module.css";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import AddIcon from "@mui/icons-material/Add";
 import {
-    postapis,
-    PostRequest,
+    postrequests,
+    PostRequestfunction,
 } from "../../../../../../../Service/postRequests";
 // import Aux from "../../../../../../../components/common/";
 import { Container, Row, Col } from "react-bootstrap";
@@ -51,13 +51,12 @@ function Itemmodal(props) {
 
     const handleSubmit = (event) => {
         const a = formValues.filter((e) => e.RepTitle === "");
-        console.log(a, "a");
         if (a.length) {
             seterror(true);
         } else {
-            const URL = `${postapis.PostMasterMultipleItemRepository}`;
+            const URL = `${postrequests.PostMasterMultipleItemRepository}`;
             const x = { lstModelItemRepository: formValues, AppId: SubsystemID }
-            PostRequest(URL, x);
+            PostRequestfunction(URL, x);
             props.SetModal2(false)
             props.setdisable(true)
             props.setclosed(true)
@@ -76,7 +75,6 @@ function Itemmodal(props) {
           style={{
             transform: props.show ? "translateY(0)" : "translateY(-100vh)",
             opcaity: props.show ? "1" : "0",
-            minWidth: "500px",
             // height: "400px",
             // minHeight: "250px",
             // maxHeight: "400px",
