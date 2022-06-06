@@ -1,6 +1,6 @@
-import React, { useEffeect, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import "./ActionModal.css";
-import classes from "./Action.module.css";
+import classes from "./ActionModal.module.css";
 import Backdrop from "../../../../../../ReusableComp/Backdrop";
 import { Container } from "react-bootstrap";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
@@ -20,23 +20,6 @@ import {
 import { useNavigate } from "react-router-dom";
 
 export default function ActionModal(props) {
-  //   const [ModalData2, SetModal2] = useState({ show: false });
-  //   const [deleteFlag, setDeleteFlag] = useState(false);
-
-  //   const closeNewModal = () => {
-  //     SetModal2({ show: false });
-  //   };
-  //   const showNewModal = () => {
-  //     SetModal2({ show: true });
-  //     console.log("template Modal");
-  //   };
-  //   const deleteModel = () => {
-  //     setDeleteFlag(true);
-  //   };
-  //   const deleteModelClose = () => {
-  //     setDeleteFlag(false);
-  //   };
-
   const navigate = useNavigate();
   const UserID = sessionStorage.getItem("UserID");
   const [data, setData] = useState([]);
@@ -79,7 +62,7 @@ export default function ActionModal(props) {
     setDeleteFlag(true);
   };
   const deleteConfirm = async () => {
-    const URL = `${requests.deleteMasterReasonCode}?GmDashCodeID=${GmDashCodeID}`;
+    const URL = `${requests.validateGeneralItemDashboard}?GmDashCodeID=${GmDashCodeID}`;
     const response = await PrepareRequest(URL);
     console.log("deleteConfirm", response.data);
     setDeleteFlag(false);
@@ -163,7 +146,10 @@ export default function ActionModal(props) {
               }}
             >
               <Tooltip title="List Item " placement="right">
-                <IconButton sx={{ height: "40px", width: "40px" }}>
+                <IconButton
+                  sx={{ height: "40px", width: "40px" }}
+                  onClick={() => listNavigate()}
+                >
                   <FormatListBulletedOutlinedIcon />
                 </IconButton>
               </Tooltip>

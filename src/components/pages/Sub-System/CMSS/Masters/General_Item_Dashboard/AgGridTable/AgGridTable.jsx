@@ -126,7 +126,7 @@ function AgGridTable() {
         frameworkComponents={frameworkComponents}
         headerHeight={52}
         pagination={true}
-        paginationPageSize={5}
+        paginationPageSize={10}
         style={{
           width: "100%",
           height: "800px",
