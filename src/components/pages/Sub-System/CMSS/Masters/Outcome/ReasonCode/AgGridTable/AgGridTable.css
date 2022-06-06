@@ -55,7 +55,6 @@
   padding-bottom: 25%;
 }
 
-<<<<<<< HEAD
 .reasoncode-table .ag-header-cell-label,
 .reasoncode-table .ag-cell {
   justify-content: left !important;
@@ -83,9 +82,3 @@
   top: 6%;
   z-index:99999;
 }
-=======
-.ag-icon,
-.ag-menu {
-  color: black;
-}
->>>>>>> a1c0250d315326f8254a87c87c34facfad71559e
