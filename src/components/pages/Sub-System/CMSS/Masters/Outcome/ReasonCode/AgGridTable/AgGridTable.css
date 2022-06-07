@@ -67,7 +67,6 @@
   padding-left: 24px !important;
   color: rgba(0, 0, 0, 0.87) !important;
 }
-<<<<<<< HEAD
 .reasoncode-table .ag-row-position-absolute > div {
   max-height: 42px;
 }
@@ -106,8 +105,7 @@
 .AddEditModel_Modal__h-4ul{
   top: 6%;
   z-index:99999;
-=======
-
+}
 .reasoncode-table .ag-theme-alpine .ag-filter-toolpanel-header,
 .ag-theme-alpine .ag-filter-toolpanel-search,
 .ag-theme-alpine .ag-status-bar,
@@ -115,5 +113,4 @@
 .ag-theme-alpine .ag-panel-title-bar-title,
 .ag-theme-alpine .ag-multi-filter-group-title-bar {
   font-weight: 600 !important;
->>>>>>> d7ecea9f1fd3f7e432a471b5e161bf7ea845e84f
 }
