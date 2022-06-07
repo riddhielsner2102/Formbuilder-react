@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import classes from "./AddItems.module.css";
 import { Container, Row } from "react-bootstrap";
-import { Button, Close, Label } from "arms_v2.8_webui";
+import { Button, Close } from "arms_v2.8_webui";
 import ItemMapping from "./ItemMapping";
 import Backdrop from "../../../../../../../ReusableComp/Backdrop";
 

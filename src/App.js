@@ -42,7 +42,7 @@ const App = () => {
             <Route path="master-checklist" element={<Checklists />} />
             <Route path="master-checklist-testpage" element={<TestPage />} />
             <Route path="gmdashboard" element={<GMDashBoard />} />
-            <Route path="DdCpy" element={<DdCpy />} />
+            <Route path="DdCpy/:GmDashCodeID" element={<DdCpy />} />
             <Route
               path="evaluator/master-reasoncode"
               element={<ReasonCode />}

@@ -9,22 +9,42 @@ const AddEditItem = (props) => {
   return (
     <React.Fragment>
       <Backdrop show={props.show} clicked={props.onClose} />
-      <Container className={classes.main}>
-        <div className={classes.divDow}>
-          <Row className={classes.newRow}>
-            <div className={classes.header}
+      <Container className={classes.mainPage}>
+        <div className={classes.Dowcls}>
+          <Row
             style={{
-              display:'flex',
-              justifyContent:'space-between',
+              padding: "0px",
+              margin: "0px",
+              width: "100%",
+              backgroundColor: "#01396b",
+              color: "white",
+              height: "64px",
+              padding: "0 16px",
+              boxSizing: "none",
             }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                height: "100%",
+              }}
             >
-              <div>
-              <h3>Add&nbsp;Items</h3>
-              </div>
-              <div>
+              <h3
+                style={{
+                  color: "#fff",
+                  textAlign: "left",
+                  letterSpacing: 0,
+                  fontWeight: 400,
+                  fontSize: "20px",
+                }}
+              >
+                Add&nbsp;Items
+              </h3>
               <Close
                 // className={classes.closebtn}
-                onClick={props.modalClose}  
+                onClick={props.modalClose}
                 style={{
                   transform: props.show
                     ? "translateY(0)"
@@ -38,17 +58,25 @@ const AddEditItem = (props) => {
                   cursor: "pointer",
                 }}
               />
-              </div>
             </div>
           </Row>
-          <div className={classes.mainContent}>
-        <Mapping  />
-          </div>
+          {/* <div className={classes.mainContent}> */}
+          {/* <Mapping />
+           */}
+          {/* </div> */}
+          <Row
+            style={{
+              width: "100%",
+              padding: "16px",
+            }}
+          >
+            <Mapping />
+          </Row>
           <>
             <Button
               text="Save"
               // onClick={props.handleClose}
-              onClick={props.modalClose}  
+              onClick={props.modalClose}
               style={{
                 backgroundColor: "#01396b !important",
                 color: "#fff",

@@ -23,19 +23,16 @@
 }
 
 .reasoncode-table .ag-row {
-  height: 54px !important;
+  height: 48px !important;
   margin-top: -24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
 .reasoncode-table .ag-center-cols-container .ag-row-first {
   margin: auto;
 }
 
-.reasoncode-table
-  .MuiButtonBase-root
-  .MuiButton-root
-  .MuiButton-contained
-  .makeStyles-button-111 {
+.reasoncode-table .MuiButtonBase-root .MuiButton-root .MuiButton-contained .makeStyles-button-111 {
   height: 36px;
 }
 
@@ -55,16 +52,22 @@
   padding-bottom: 25%;
 }
 
-.reasoncode-table .ag-header-cell-label,
-.reasoncode-table .ag-cell {
+.reasoncode-table .ag-icon,
+.ag-menu {
+  color: black;
+}
+
+.reasoncode-table .ag-header-cell-label {
   justify-content: left !important;
-  padding: 0 0 0 24px !important;
+  padding-left: 23px !important;
+  font-size: 16px !important;
 }
-.reasoncode-table .ag-row-position-absolute {
-  position: static;
-  transform: none !important;
-  margin-bottom: 30px;
+
+.reasoncode-table .ag-cell {
+  padding-left: 24px !important;
+  color: rgba(0, 0, 0, 0.87) !important;
 }
+<<<<<<< HEAD
 .reasoncode-table .ag-row-position-absolute > div {
   max-height: 42px;
 }
@@ -103,4 +106,14 @@
 .AddEditModel_Modal__h-4ul{
   top: 6%;
   z-index:99999;
+=======
+
+.reasoncode-table .ag-theme-alpine .ag-filter-toolpanel-header,
+.ag-theme-alpine .ag-filter-toolpanel-search,
+.ag-theme-alpine .ag-status-bar,
+.ag-theme-alpine .ag-header-row,
+.ag-theme-alpine .ag-panel-title-bar-title,
+.ag-theme-alpine .ag-multi-filter-group-title-bar {
+  font-weight: 600 !important;
+>>>>>>> d7ecea9f1fd3f7e432a471b5e161bf7ea845e84f
 }

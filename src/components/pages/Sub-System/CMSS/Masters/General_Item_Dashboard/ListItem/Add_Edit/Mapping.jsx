@@ -18,7 +18,6 @@ export default function Mapping(props) {
     setShowAction(!showAction);
   };
 
-
   useEffect(async () => {
     const URL = `${requests.getAssesmentTypeOptions}?AssessmentTypeID=121&AppID=13&ItemTypeID=3`;
     const response = await PrepareRequest(URL);
@@ -28,7 +27,7 @@ export default function Mapping(props) {
     );
     setdata(response.data.lstModelItemRepository);
   }, []);
-  
+
   const columnsDef_a = [
     {
       headerName: "Select",
@@ -37,7 +36,7 @@ export default function Mapping(props) {
       style: {
         background: "white !important",
         color: "black !important",
-        border:" 1px solid black  !important"
+        border: " 1px solid black  !important",
       },
       cellRenderer: "selectcheck",
       cellRendererParams: {
@@ -207,7 +206,7 @@ export default function Mapping(props) {
               {/* Code of filter*/}
               <div
                 style={{
-                  borderBottom: "1px solid lightgrey",
+                  // borderBottom: "1px solid lightgrey",
                   padding: "15px",
                 }}
               >
@@ -221,7 +220,11 @@ export default function Mapping(props) {
                       boxSizing: "border-box",
                     }}
                   >
-                    <Row>
+                    <Row
+                      style={{
+                        margin: "3px",
+                      }}
+                    >
                       <Col
                         xs={12}
                         style={{
@@ -239,7 +242,12 @@ export default function Mapping(props) {
                             fontSize: "12px !important",
                           }}
                         />
-                        <Input style={{ width: "100%" }} />
+                        <Input
+                          style={{
+                            width: "100%",
+                            borderBottom: "1px solid black",
+                          }}
+                        />
                       </Col>
                     </Row>
                   </Col>
@@ -283,7 +291,7 @@ export default function Mapping(props) {
                 }}
               >
                 <Button
-                  text={< ArrowForwardIcon/>}
+                  text={<ArrowForwardIcon />}
                   style={{
                     backgroundColor: "#01396b !important",
                     color: "#fff",
@@ -299,7 +307,7 @@ export default function Mapping(props) {
 
               <div>
                 <Button
-                  text={< ArrowBackIcon />}
+                  text={<ArrowBackIcon />}
                   style={{
                     backgroundColor: "#01396b !important",
                     color: "#fff",

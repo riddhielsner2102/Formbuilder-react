@@ -156,9 +156,11 @@ const ListItems = (props) => {
                 columnData={contentData}
                 frameworkComponents={frameworkComponents}
                 headerHeight={52}
+                pagination={true}
+                paginationPageSize={10}
                 style={{
                     width: "100%",
-                    height: "100vh",
+                    height: "820px",
                     padding: "1% 3% 1% 3%",
                     borderRadius: "8px 8px 0px 0px",
                     color: "#000",

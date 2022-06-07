@@ -39,7 +39,6 @@ function AgGridTable(props) {
       headerName: "ID",
       field: "ID",
       cellStyle: {
-        height: "100%",
         display: "flex ",
         justifyContent: "center",
         alignItems: "center ",
@@ -65,7 +64,6 @@ function AgGridTable(props) {
     },
     {
       headerName: "Is Active",
-      // field: "True",
       cellRenderer: "gridCheck",
       cellRendererParams: { iconType: "True" },
       cellStyle: {
@@ -135,8 +133,6 @@ function AgGridTable(props) {
         justifyContent: "center",
         alignItems: "center ",
         fontSize: "20px",
-        // paddingTop: "5px",
-        // paddingBottom: "5px",
       },
     },
   ];
@@ -149,16 +145,18 @@ function AgGridTable(props) {
   };
 
   return (
-    <div className="itemrepo-table">
+    <div className="general-repo-table">
       <AgGrid
         rowData={data}
         columnData={contentData}
         frameworkComponents={frameworkComponents}
         headerHeight={52}
         onRowDoubleClicked={someHandler}
+        pagination={true}
+        paginationPageSize={10}
         style={{
           width: "100%",
-          height: "100vh",
+          height: "800px",
           padding: "1% 3% 1% 3%",
           borderRadius: "8px 8px 0px 0px",
           color: "#000",
